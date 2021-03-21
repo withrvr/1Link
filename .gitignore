@@ -1,0 +1,12 @@
+# pycache and vscode setting ( Always )
+__pycache__
+.vscode
+
+# foo files
+foo.*
+bar.*
+foobar.*
+
+createsuperuser.txt
+
+*.json
