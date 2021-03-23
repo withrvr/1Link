@@ -1,0 +1,34 @@
+{% extends 'Display_App/Display_Base_Template.html' %} {% load static %}
+<!-- head block -->
+{% block Display_Head %}
+<link
+	rel="stylesheet"
+	href="{% static 'Display_App/css/Users_Detail_Style.css' %}"
+/>
+{% endblock Display_Head %}
+
+<!-- content block -->
+{% block Display_Content %}
+<div class="container">
+	<div class="users-detail-wrapper">
+		<div class="users-banner-image">
+			<img
+				src="{{ UsersProfile_Object.banner_Image }}"
+				alt="{{ UsersProfile_Object.banner_Image }} banner Image"
+			/>
+		</div>
+
+		<br />
+		<img
+			src="{{ UsersProfile_Object.profile_Picture }}"
+			alt="{{ UsersProfile_Object.profile_Picture }} profile picture"
+			style="width: 150px; height: 150px; border-radius: 50%"
+		/>
+		<h3>{{ UsersProfile_Object.display_Name }}</h3>
+		<h1>{{ UsersProfile_Object.username }}</h1>
+	</div>
+
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</div>
+
+{% endblock Display_Content %}

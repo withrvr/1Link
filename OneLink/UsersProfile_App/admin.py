@@ -33,8 +33,8 @@ class UserProfile_Admin(UserAdmin):
         ("Extended Fields", {
             'fields': (
                 'display_Name',
-                'profile_Picture',
                 'banner_Image',
+                'profile_Picture',
             )
         }),
         ("Default User Fields", {'fields': (), }),

@@ -1,0 +1,17 @@
+{% extends 'Base_Template.html' %} {% load static %}
+
+<!-- head -->
+<!-- head -->
+{% block Base_Head %}
+<link rel="stylesheet" href="{% static 'Core_App/css/Core_Base_Style.css' %}" />
+{% block Core_Head %} {% endblock Core_Head %} {% endblock Base_Head %}
+
+<!-- content -->
+<!-- content -->
+{% block Base_Content %}
+<!-- navbar  -->
+{% include 'Core_App/navbar.html' %}
+<!-- start of Core_Content  -->
+{% block Core_Content %} {% endblock Core_Content %}
+<!-- end of Core_Content  -->
+{% endblock Base_Content %}

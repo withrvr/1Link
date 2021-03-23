@@ -2,9 +2,18 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import ugettext_lazy as _
 
+
+"""
+display_Name
+profile_Picture
+banner_Image
+
+username
+email
+"""
+
+
 # creating custom user model
-
-
 class UsersProfile_Model(AbstractUser):
 
     # making email field blank = False .... (ie. required)
@@ -29,9 +38,14 @@ class UsersProfile_Model(AbstractUser):
     link
     category
 
+    business email
+
     last_active
     show_last_active
     """
+
+    def __str__(self, *args, **kwargs):
+        return f'`{self.username}`'
 
     class Meta(AbstractUser.Meta):
         swappable = 'AUTH_USER_MODEL'

@@ -1,0 +1,18 @@
+{% extends 'Base_Template.html' %} {% load static %}
+
+<!-- head -->
+<!-- head -->
+{% block Base_Head %}
+<link
+	rel="stylesheet"
+	href="{% static 'Display_App/css/Display_Base_Style.css' %}"
+/>
+{% block Display_Head %} {% endblock Display_Head %} {% endblock Base_Head %}
+
+<!-- content -->
+<!-- content -->
+{% block Base_Content %}
+<!-- start of Display_Content  -->
+{% block Display_Content %} {% endblock Display_Content %}
+<!-- end of Display_Content  -->
+{% endblock Base_Content %}

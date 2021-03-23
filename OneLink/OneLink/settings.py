@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-from django.conf import settings
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,10 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # custom apps
-    'Core_App.apps.CoreAppConfig',  # aka --- Core_App
-    'Display_App.apps.DisplayAppConfig',  # aka --- Display_App
+    'Core_App.apps.CoreAppConfig',  # Core_App
+    'Display_App.apps.DisplayAppConfig',  # Display_App
 
-    'UsersProfile_App.apps.UsersprofileAppConfig',  # aka --- UsersProfile_App
+    'UsersProfile_App.apps.UsersprofileAppConfig',  # UsersProfile_App
 ]
 
 MIDDLEWARE = [
@@ -121,11 +122,11 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
-
+# static file settings
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 
 # custom User model created
-settings.AUTH_USER_MODEL = 'UsersProfile_App.UsersProfile_Model'
 AUTH_USER_MODEL = 'UsersProfile_App.UsersProfile_Model'
