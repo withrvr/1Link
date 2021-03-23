@@ -14,6 +14,8 @@
 
 ## Future
 
+-   Registration
+-   Core
 -   Slices
 -   Links
 

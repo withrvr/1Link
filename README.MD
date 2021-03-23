@@ -11,15 +11,17 @@
 
 ## Syntax :
 
--   Slice info : `https://example.com/user/:userName/:sliceName`
--   User info : `https://example.com/user/:userName/`
--   Users list of slices : `https://example.com/user/:userName/:userName`
+-   Slice info : `https://example.com/:userName/:sliceName/`
+-   User info : `https://example.com/:userName/`
+-   Users List of Slices : : `https://example.com/:userName/:slices/`
+<!-- -   foo: `https://example.com/:userName/:userName/` -->
 
 ## Example ( for User @withrvr ) :
 
 -   Slices info :
-    -   Sponsers : `/user/withrvr/All_Sponsers/`
-    -   Gadgets which U use : `/user/withrvr/Equipments/`
-    -   Social Media links .. like twitter, yt, insta, fb : `/user/withrvr/Social-Media/`
+    -   Sponsers : `/withrvr/All_Sponsers/`
+    -   Gadgets which U use : `/withrvr/Equipments/`
+    -   Social Media links .. like twitter, yt, insta, fb : `/withrvr/Social-Media/`
     -   . . . etc
--   User info : `/user/withrvr/`
+-   User info : `/withrvr/`
+-   Users List of Slices : `/withrvr/`
