@@ -6,9 +6,17 @@ from .models import UsersProfile_Model
 
 @admin.register(UsersProfile_Model)
 class UserProfile_Admin(UserAdmin):
+
+    # forms and model to use
     model = UsersProfile_Model
     add_form = UsersProfile_CreationForm
     # form = UsersProfile_ChangeForm
+
+    # how to show panel ( how to Display )
+    list_filter = tuple()
+    ordering = ('id', 'username', 'email', )
+    list_display = ('username', 'email', 'id',)
+    search_fields = UserAdmin.search_fields + ('display_Name', )
 
     # while creating the user
     # to create the user ... using username and email
@@ -32,9 +40,3 @@ class UserProfile_Admin(UserAdmin):
         ("Default User Fields", {'fields': (), }),
         *UserAdmin.fieldsets,
     )
-
-    # how to show panel .... no database related
-    list_filter = tuple()
-    ordering = ('id', 'username', 'email', )
-    list_display = ('username', 'email', 'id', )
-    search_fields = UserAdmin.search_fields + ('display_Name', )
