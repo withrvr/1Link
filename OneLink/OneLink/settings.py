@@ -40,8 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # custom apps
-    'UsersProfile_App.apps.UsersprofileAppConfig',  # aka --- UsersProfile_App
     'Core_App.apps.CoreAppConfig',  # aka --- Core_App
+    'Display_App.apps.DisplayAppConfig',  # aka --- Display_App
+
+    'UsersProfile_App.apps.UsersprofileAppConfig',  # aka --- UsersProfile_App
 ]
 
 MIDDLEWARE = [
