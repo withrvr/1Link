@@ -17,13 +17,13 @@ class UsersProfile_CreateView(SuccessMessageMixin, CreateView):
     template_name = 'Registration_App/Users_Register_Template.html'
     success_url = reverse_lazy('Registration_App:Login-Page')
     form_class = UsersProfile_CreationForm
-    success_message = "Your Account was <b>Created Successfully!!</b> ... To Continue <b>Login</b> into Your Account"
+    success_message = "Your Account was <strong>Created Successfully!!</strong> ... To Continue <strong>Login</strong> into Your Account"
 
 
 # login user
 class UsersProfile_LoginView(SuccessMessageMixin, LoginView):
     template_name = 'Registration_App/Users_Login_Template.html'
-    success_message = 'You have <b>Login</b> succesfully !!!'
+    success_message = 'You have <strong>Login</strong> succesfully !!!'
 
 
 # logout user
@@ -34,6 +34,6 @@ class UsersProfile_LogoutView(LogoutView):
         messages.add_message(
             request,
             messages.ERROR,
-            'You have been Logged out !!! <b>Log in Again ...</b>',
+            'You have been Logged out !!! <strong>Log in Again ...</strong>',
         )
         return redirect('Registration_App:Login-Page')

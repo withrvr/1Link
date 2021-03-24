@@ -11,13 +11,7 @@ from .views import (
 app_name = 'Registration_App'
 
 urlpatterns = [
-
     path('login/', UsersProfile_LoginView.as_view(), name='Login-Page'),
-
     path('logout/', UsersProfile_LogoutView.as_view(), name='Logout-Page'),
-
-    path('register/', UsersProfile_CreateView.as_view(
-        template_name='Registration_App/Users_Register_Template.html'),
-        name='Register-Page'
-    ),
+    path('register/', UsersProfile_CreateView.as_view(), name='Register-Page'),
 ]

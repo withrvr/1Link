@@ -4,12 +4,10 @@
 
 -   Users
 
-    -   create user
     -   delete user
     -   update
     -   detail
     -   list
-    -   login / logout
     -   password reset
 
 ## Future
