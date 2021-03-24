@@ -4,8 +4,10 @@ from django.contrib import messages
 from django.shortcuts import redirect
 
 from UsersProfile_App.forms import UsersProfile_CreationForm
+from UsersProfile_App.models import UsersProfile_Model
 
-from django.views.generic import CreateView
+
+from django.views.generic.edit import CreateView
 from django.contrib.auth.views import (
     LoginView,
     LogoutView,

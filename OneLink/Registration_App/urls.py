@@ -1,5 +1,4 @@
 from django.urls import path, include
-# from django.contrib.auth.urls import urlpatterns
 
 from .views import (
     UsersProfile_CreateView,
@@ -9,6 +8,7 @@ from .views import (
 
 
 app_name = 'Registration_App'
+
 
 urlpatterns = [
     path('login/', UsersProfile_LoginView.as_view(), name='Login-Page'),
