@@ -1,4 +1,4 @@
-from .forms import UsersProfile_CreationForm
+from .forms import UsersProfile_CreationForm, UsersProfile_ChangeForm
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import UsersProfile_Model
@@ -10,6 +10,7 @@ class UserProfile_Admin(UserAdmin):
     # forms and model to use
     model = UsersProfile_Model
     add_form = UsersProfile_CreationForm
+    form = UsersProfile_ChangeForm
 
     # how to show panel ( how to Display )
     list_filter = tuple()
