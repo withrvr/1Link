@@ -1,6 +1,7 @@
 {% extends 'Core_App/Base_Template.html' %} {% load static %}
 <!-- head block -->
 {% block Base_Head %}
+
 <!-- Users_Detail_Style CSS -->
 <link
 	rel="stylesheet"
@@ -10,24 +11,27 @@
 
 <!-- content block -->
 {% block Base_Content %}
-<div class="container">
-	<div class="users-detail-wrapper">
+<div class="container bg-danger">
+	<div class="users-detail-wrapper bg-success">
 		<div class="users-banner-image">
 			<img
 				src="{{ UsersProfile_Object.banner_Image }}"
+				class="img-fluid"
 				alt="{{ UsersProfile_Object.banner_Image }} banner Image"
 			/>
 		</div>
 
-		<br />
-		<img
-			src="{{ UsersProfile_Object.profile_Picture }}"
-			alt="{{ UsersProfile_Object.profile_Picture }} profile picture"
-			style="width: 150px; height: 150px; border-radius: 50%"
-		/>
+		<div class="user-profile-picture">
+			<img
+				src="{{ UsersProfile_Object.profile_Picture }}"
+				alt="{{ UsersProfile_Object.profile_Picture }} profile picture"
+			/>
+		</div>
 		<h3>{{ UsersProfile_Object.display_Name }}</h3>
 		<h1>{{ UsersProfile_Object.username }}</h1>
 	</div>
+
+	<br /><br />
 
 	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 </div>
