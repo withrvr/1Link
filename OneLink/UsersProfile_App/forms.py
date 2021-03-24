@@ -1,10 +1,39 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django import forms
 
 from .models import UsersProfile_Model
 
 
+# currently in clean username method
+# checking if this username is allowed to be used
+def comman_clean_username_method(self, *args, **kwargs):
+
+    # cant use this username
+    # as your username
+    cant_use_this_username = [
+        'login',
+        'logout',
+        'register',
+
+        'home',
+        'about',
+    ]
+
+    validate_username = self.cleaned_data["username"]
+
+    if validate_username in cant_use_this_username:
+        raise forms.ValidationError(
+            f"Enter a valid username ... Can't use ''{validate_username}'' as username ... Try Something New"
+        )
+
+    return validate_username
+
+
 # creating new user form
 class UsersProfile_CreationForm(UserCreationForm):
+
+    def clean_username(self, *args, **kwargs):
+        return comman_clean_username_method(self, *args, **kwargs)
 
     class Meta(UserCreationForm.Meta):
         model = UsersProfile_Model
@@ -16,6 +45,9 @@ class UsersProfile_CreationForm(UserCreationForm):
 # Update users information
 class UsersProfile_ChangeForm(UserChangeForm):
 
+    def clean_username(self, *args, **kwargs):
+        return comman_clean_username_method(self, *args, **kwargs)
+
     class Meta(UserChangeForm.Meta):
         model = UsersProfile_Model
         fields = (
@@ -25,17 +57,3 @@ class UsersProfile_ChangeForm(UserChangeForm):
             'profile_Picture',
             'banner_Image',
         )
-
-    # def clean_username(self, *args, **kwargs):
-    #     import re
-    #     validate_username = self.cleaned_data['username']
-
-    #     if not re.match(r'^[0-9a-z_]+$', validate_username):
-    #         raise ValidationError(
-    #             f"Only Numbers, Lowecase-Letter and UserScore ( _ ) is allowed in Username")
-
-    #     elif validate_username in cant_use_this_username:
-    #         raise ValidationError(
-    #             f" Username `{validate_username}` can't be use ... try some other username")
-
-    #     return validate_username
