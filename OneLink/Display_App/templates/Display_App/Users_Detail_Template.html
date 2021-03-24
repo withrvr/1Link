@@ -1,14 +1,15 @@
-{% extends 'Display_App/Display_Base_Template.html' %} {% load static %}
+{% extends 'Core_App/Base_Template.html' %} {% load static %}
 <!-- head block -->
-{% block Display_Head %}
+{% block Base_Head %}
+<!-- Users_Detail_Style CSS -->
 <link
 	rel="stylesheet"
 	href="{% static 'Display_App/css/Users_Detail_Style.css' %}"
 />
-{% endblock Display_Head %}
+{% endblock Base_Head %}
 
 <!-- content block -->
-{% block Display_Content %}
+{% block Base_Content %}
 <div class="container">
 	<div class="users-detail-wrapper">
 		<div class="users-banner-image">
@@ -31,4 +32,4 @@
 	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 </div>
 
-{% endblock Display_Content %}
+{% endblock Base_Content %}

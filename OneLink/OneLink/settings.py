@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+
+    # 3rd Party apps
+    # 'crispy_forms',
+
     # custom apps
     'Core_App.apps.CoreAppConfig',  # Core_App
     'Display_App.apps.DisplayAppConfig',  # Display_App
@@ -131,3 +135,11 @@ STATICFILES_DIRS = [
 
 # custom User model created
 AUTH_USER_MODEL = 'UsersProfile_App.UsersProfile_Model'
+
+# 3rd party cripy bootstrap for forms
+# CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+# urls
+LOGIN_REDIRECT_URL = 'Home-Page'
+LOGIN_URL = 'Login-Page'

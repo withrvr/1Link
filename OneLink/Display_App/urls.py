@@ -8,7 +8,7 @@ app_name = 'Display_App'
 urlpatterns = [
     # Display Users Info
     path(
-        '<str:UserName_From_URL>/',
+        '',
         Users_Detail_View.as_view(),
         name='Users-Detail-Page'
     ),

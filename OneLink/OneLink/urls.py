@@ -9,14 +9,22 @@ from django.views.generic import TemplateView
 
 # Main URLs
 urlpatterns = [
-    # admin panel
+
+    # ADMIN
     path('admin/', admin.site.urls, name='Admin-Page'),
 
-    # Core_App
+    # CORE
     path('',
          TemplateView.as_view(template_name='Core_App/Home.html'),
          name='Home-Page', ),
 
-    # UserProfile_App
-    path('', include('Display_App.urls')),
+
+    # REGISTRATION
+    path('', include('Registration_App.urls')),
+
+
+    # DISPLAY
+    path('<str:UserName_From_URL>/', include('Display_App.urls')),
+
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

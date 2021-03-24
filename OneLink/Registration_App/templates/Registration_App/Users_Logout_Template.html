@@ -1,0 +1,19 @@
+{% extends 'Core_App/Base_Template.html' %}
+
+<!-- Base_Content -->
+{% block Base_Content %}
+
+<!-- navbar -->
+{% include 'Core_App/navbar.html' %}
+
+<br />
+<div class="container">
+	<h2>You have been logged out</h2>
+	<div class="border-top pt-3">
+		<a class="btn btn-info" href="{% url 'Registration_App:Login-Page' %}"
+			>Log In Again</a
+		>
+	</div>
+</div>
+
+{% endblock Base_Content %}
