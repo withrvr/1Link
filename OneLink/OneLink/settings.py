@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # custom apps
     'Core_App.apps.CoreAppConfig',  # Core_App
     'Display_App.apps.DisplayAppConfig',  # Display_App
+    'Registration_App.apps.RegistrationAppConfig',  # Registration_App
 
     'UsersProfile_App.apps.UsersprofileAppConfig',  # UsersProfile_App
 ]
