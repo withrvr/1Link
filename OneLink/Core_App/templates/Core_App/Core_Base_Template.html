@@ -1,0 +1,20 @@
+{% extends 'Core_App/Base_Template.html' %} {% block Base_Content %}
+
+<!-- navbar -->
+{% include 'Core_App/navbar.html' %}
+
+<!-- Message Framework -->
+{% if messages %}
+<br />
+<div class="container">
+	{% for message in messages %}
+
+	<div class="alert alert-{{ message.tags }}">{{ message|safe }}</div>
+
+	{% endfor %}
+</div>
+
+{% endif %}
+
+<!-- Core_Content -->
+{% block Core_Content %}{% endblock Core_Content %} {% endblock Base_Content %}

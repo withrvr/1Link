@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+from django.contrib.messages import constants as messages
 from pathlib import Path
 import os
 
@@ -42,7 +43,7 @@ INSTALLED_APPS = [
 
 
     # 3rd Party apps
-    # 'crispy_forms',
+    'crispy_forms',
 
     # custom apps
     'Core_App.apps.CoreAppConfig',  # Core_App
@@ -137,9 +138,15 @@ STATICFILES_DIRS = [
 AUTH_USER_MODEL = 'UsersProfile_App.UsersProfile_Model'
 
 # 3rd party cripy bootstrap for forms
-# CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 # urls
 LOGIN_REDIRECT_URL = 'Home-Page'
-LOGIN_URL = 'Login-Page'
+LOGIN_URL = 'Registration_App:Login-Page'
+LOGOUT_REDIRECT_URL = 'Registration_App:Login-Page'
+
+# customizing messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}

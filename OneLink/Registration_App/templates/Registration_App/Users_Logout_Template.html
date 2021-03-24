@@ -1,19 +1,16 @@
-{% extends 'Core_App/Base_Template.html' %}
+{% extends 'Core_App/Core_Base_Template.html' %}
 
 <!-- Base_Content -->
-{% block Base_Content %}
-
-<!-- navbar -->
-{% include 'Core_App/navbar.html' %}
+{% block Core_Content %}
 
 <br />
 <div class="container">
 	<h2>You have been logged out</h2>
 	<div class="border-top pt-3">
-		<a class="btn btn-info" href="{% url 'Registration_App:Login-Page' %}"
-			>Log In Again</a
-		>
+		<a class="" href="{% url 'Registration_App:Login-Page' %}">
+			Log In Again
+		</a>
 	</div>
 </div>
 
-{% endblock Base_Content %}
+{% endblock Core_Content %}

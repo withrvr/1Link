@@ -25,13 +25,6 @@
 		{% block Base_Head %} {% endblock Base_Head %}
 	</head>
 	<body>
-		<!-- Message Framework -->
-		{% if messages %} {% for message in messages %}
-
-		<div class="alert alert-{{ message.tags }}">{{ message }}</div>
-
-		{% endfor %} {% endif %}
-
 		<!-- Base_Content -->
 		{% block Base_Content %} {% endblock Base_Content %}
 

@@ -12,19 +12,23 @@
 		<form method="post" novalidate>
 			{% csrf_token %}
 			<fieldset class="form-group">
-				<legend class="border-bottom mb-4">Log In</legend>
+				<legend class="border-bottom mb-4">
+					Join Today ( Create Account )
+				</legend>
 				{{ form|crispy }}
 			</fieldset>
 			<br />
 			<div class="form-group">
-				<button class="btn btn-info" type="submit">Login</button>
+				<button class="btn btn-info" type="submit">
+					Create New Account
+				</button>
 				&nbsp;&nbsp;
 				<small class="text-muted">
-					Not have Account ??
+					Already Have An Account?
 					<a
 						class="ml-2"
 						href="{% url 'Registration_App:Login-Page' %}"
-						>Create Account</a
+						>Login In</a
 					>
 				</small>
 			</div>

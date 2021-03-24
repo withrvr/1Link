@@ -1,7 +1,10 @@
 from django.urls import path, include
-from django.contrib.auth.views import (
-    LoginView,
-    LogoutView,
+# from django.contrib.auth.urls import urlpatterns
+
+from .views import (
+    UsersProfile_CreateView,
+    UsersProfile_LoginView,
+    UsersProfile_LogoutView,
 )
 
 
@@ -9,9 +12,12 @@ app_name = 'Registration_App'
 
 urlpatterns = [
 
-    path('login/', LoginView.as_view(
-        template_name='Registration_App/Users_Login_Template.html'), name='Login-Page'),
-    path('logout/', LogoutView.as_view(
-        template_name='Registration_App/Users_Logout_Template.html'), name='Logout-Page'),
+    path('login/', UsersProfile_LoginView.as_view(), name='Login-Page'),
 
+    path('logout/', UsersProfile_LogoutView.as_view(), name='Logout-Page'),
+
+    path('register/', UsersProfile_CreateView.as_view(
+        template_name='Registration_App/Users_Register_Template.html'),
+        name='Register-Page'
+    ),
 ]
