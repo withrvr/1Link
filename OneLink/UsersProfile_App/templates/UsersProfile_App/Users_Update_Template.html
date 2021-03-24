@@ -1,0 +1,30 @@
+{% extends 'Core_App/Core_Base_Template.html' %}
+
+<!-- loading something -->
+{% load crispy_forms_tags %} {% load static %}
+
+<!-- Base_Content -->
+{% block Core_Content %}
+
+<br />
+<div class="container">
+	<div class="content-section">
+		<form method="post" novalidate>
+			{% csrf_token %}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">
+					Update Profile Details
+				</legend>
+				{{ form|crispy }}
+			</fieldset>
+			<br />
+			<div class="form-group">
+				<button class="btn btn-info" type="submit">
+					Update Information
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+{% endblock Core_Content %}

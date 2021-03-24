@@ -1,24 +1,25 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.validators import UnicodeUsernameValidator
+from django.core.validators import RegexValidator
 
 
-"""
-display_Name
-profile_Picture
-banner_Image
-
-username
-email
-"""
-
-
-# creating custom user model
+# Custom User Model
 class UsersProfile_Model(AbstractUser):
 
-    # making email field blank = False .... (ie. required)
-    # OR: User._meta.get_field('email').blank = False
+    def __init__(self, *args, **kwargs):
+        super(UsersProfile_Model, self).__init__(*args, **kwargs)
+
+        # override username validation
+        self._meta.get_field('username').validators = [RegexValidator(
+            r'^[0-9a-z_]+$',
+            message="Enter a valid username. Only Numbers, Lowecase-Letter and UserScore ( _ ) is allowed"
+        )]
+
+    # OR: AbstractUser._meta.get_field('email').blank = False
     AbstractUser.email.field.blank = False
+    AbstractUser.username.field.help_text = "Only Numbers, Lowecase-Letter and UserScore ( _ ) is allowed in Username"
 
     # Extended ( Extra ) ... fields of User
     display_Name = models.CharField(max_length=30, blank=True, null=True)
@@ -49,5 +50,5 @@ class UsersProfile_Model(AbstractUser):
 
     class Meta(AbstractUser.Meta):
         swappable = 'AUTH_USER_MODEL'
-        verbose_name = _("UsersProfile_Model")
-        verbose_name_plural = _("UsersProfile_Model")
+        verbose_name = "UsersProfile_Model"
+        verbose_name_plural = "UsersProfile_Model"

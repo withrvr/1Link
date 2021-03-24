@@ -10,7 +10,6 @@ class UserProfile_Admin(UserAdmin):
     # forms and model to use
     model = UsersProfile_Model
     add_form = UsersProfile_CreationForm
-    # form = UsersProfile_ChangeForm
 
     # how to show panel ( how to Display )
     list_filter = tuple()
