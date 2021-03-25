@@ -3,7 +3,6 @@
 ## Present
 
 -   Users
-    -   delete user
     -   detail
     -   list
     -   password reset
