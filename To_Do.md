@@ -3,16 +3,15 @@
 ## Present
 
 -   Users
-    -   detail
-    -   list
     -   password reset
 
 ## Future
 
 -   Registration
--   Core
+-   Display
 -   Slices
 -   Links
+-   Core
 
 # Errors
 

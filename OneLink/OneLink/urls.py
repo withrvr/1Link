@@ -1,11 +1,13 @@
 from django.urls import path, include
 from django.contrib import admin
+from django.urls import reverse_lazy
 
 from django.conf.urls.static import static
 from django.conf import settings
 
-from django.views.generic import TemplateView
+from django.views.generic.base import TemplateView, RedirectView
 
+from django.contrib.auth.views import PasswordResetConfirmView
 
 # Main URLs
 urlpatterns = [
@@ -21,6 +23,18 @@ urlpatterns = [
 
     # Registration
     path('', include('Registration_App.urls')),
+
+    # password reset comfirm
+    path('password/', RedirectView.as_view(pattern_name='Registration_App:password_reset')),
+    path(
+        'password-reset-confirm/<uidb64>/<token>/',
+        PasswordResetConfirmView.as_view(
+            template_name='Registration_App/Users_Password_Reset_Confirm_Template.html',
+            success_url=reverse_lazy(
+                'Registration_App:password_reset_complete'),
+        ),
+        name='password_reset_confirm'
+    ),
 
 
     # UsersProfile

@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import email_host_details
 from django.contrib.messages import constants as messages
 from pathlib import Path
 import os
@@ -34,23 +35,22 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-
-
-    # 3rd Party apps
-    'crispy_forms',
-
     # custom apps
     'Core_App.apps.CoreAppConfig',  # Core_App
     'Display_App.apps.DisplayAppConfig',  # Display_App
     'Registration_App.apps.RegistrationAppConfig',  # Registration_App
 
     'UsersProfile_App.apps.UsersprofileAppConfig',  # UsersProfile_App
+
+    # 3rd Party apps
+    'crispy_forms',
+
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
 ]
 
 MIDDLEWARE = [
@@ -150,3 +150,15 @@ LOGOUT_REDIRECT_URL = 'Registration_App:Login-Page'
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
+
+# password reset using console ( Testing purpose )
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+# password reset using gmail account
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = email_host_details.EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = email_host_details.EMAIL_HOST_PASSWORD

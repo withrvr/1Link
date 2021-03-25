@@ -7,6 +7,9 @@ foo.*
 bar.*
 foobar.*
 
-createsuperuser.txt
-
+# all json files
 *.json
+
+# add you EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
+# in this file in the root folder ... for more detail see the setting.py ...ending file content
+email_host_details.py
