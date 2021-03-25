@@ -1,0 +1,48 @@
+{% extends 'Core_App/Core_Base_Template.html' %}
+
+<!-- loading something -->
+{% load crispy_forms_tags %} {% load static %}
+
+<!-- Base_Content -->
+{% block Core_Content %}
+
+<br />
+<div class="container">
+	<div class="content-section">
+		<form method="POST">
+			{% csrf_token %}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">Delete Post</legend>
+				<h2>
+					Are you sure you want to delete the User
+					<b>"{{object.username}}"</b>
+				</h2>
+				<br />
+
+				<p>This will delete all the data associated to the user</p>
+				<p>Including all the Slices and Links associated with It</p>
+				<p>No one can access that slices and Links now</p>
+				<p>Once the User is deleted all the data is deleted</p>
+				<br />
+				{% comment %}
+				<p>
+					TODO: if you want to hide any slice and links you can do it
+					in the settings
+				</p>
+				{% endcomment %}
+			</fieldset>
+			<div class="form-group">
+				<button class="btn btn-outline-danger" type="submit">
+					Yes, Delete
+				</button>
+				<a
+					class="btn btn-outline-secondary"
+					href="{% url 'UsersProfile_App:Update-Page' %}"
+					>Cancel</a
+				>
+			</div>
+		</form>
+	</div>
+</div>
+
+{% endblock Core_Content %}
