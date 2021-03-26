@@ -19,6 +19,16 @@ class UsersProfile_UpdateView(Custom_LoginRequiredMixin, SuccessMessageMixin, Up
     def get_object(self, *args, **kwargs):
         return self.request.user
 
+    def dispatch(self, *args, **kwargs):
+        if self.request.method == "GET":
+            messages.add_message(
+                self.request,
+                messages.SUCCESS,
+                '<strong>Update</strong> your Account Again, If needed'
+            )
+            return self.handle_no_permission()
+        return super().dispatch(self.request, *args, **kwargs)
+
 
 # delete user
 class UsersProfile_DeleteView(Custom_LoginRequiredMixin, SuccessMessageMixin, DeleteView):
@@ -27,12 +37,22 @@ class UsersProfile_DeleteView(Custom_LoginRequiredMixin, SuccessMessageMixin, De
     model = UsersProfile_Model
 
     def get_object(self, *args, **kwargs):
-        messages.add_message(
-            self.request, messages.ERROR,
-            'Make Sure before deleteing the account <strong>All the data will be lost</strong>'
-        )
-        messages.add_message(
-            self.request, messages.ERROR,
-            '<strong>Slices and Links Also</strong> which have been shared all over the internet'
-        )
         return self.request.user
+
+    def dispatch(self, *args, **kwargs):
+        if self.request.method == "GET":
+            messages.add_message(
+                self.request, messages.ERROR,
+                'Make Sure before deleteing the account <strong>All the data will be lost</strong>'
+            )
+            messages.add_message(
+                self.request, messages.ERROR,
+                '<strong>Slices and Links Also</strong> which have been shared all over the internet'
+            )
+        else:
+            messages.add_message(
+                self.request, messages.ERROR,
+                'Your Account was <strong>Deleted !!!</strong>'
+            )
+
+        return super().dispatch(self.request, *args, **kwargs)
