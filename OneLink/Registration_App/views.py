@@ -13,6 +13,12 @@ from django.contrib.auth.views import (
     LogoutView,
 )
 
+# for form_valid method
+from django.http import HttpResponseRedirect
+from django.contrib.auth import login as auth_login
+
+from .forms import *
+
 
 # create new user
 class UsersProfile_CreateView(SuccessMessageMixin, CreateView):
@@ -36,6 +42,16 @@ class UsersProfile_CreateView(SuccessMessageMixin, CreateView):
 class UsersProfile_LoginView(SuccessMessageMixin, LoginView):
     template_name = 'Registration_App/Users_Login_Template.html'
     success_message = 'You have <strong>Login</strong> succesfully !!!'
+    form_class = Users_Login_AuthenticationForm
+
+    # # method is not working
+    # def form_valid(self, form, *args, **kwargs):
+    #     """Security check complete. Log the user in."""
+    #     print()
+    #     print(f"value is {x}")
+    #     print()
+    #     x = auth_login(self.request, form.get_user())
+    #     return HttpResponseRedirect(self.get_success_url())
 
     def dispatch(self, request, *args, **kwargs):
         response = super().dispatch(request, *args, **kwargs)
