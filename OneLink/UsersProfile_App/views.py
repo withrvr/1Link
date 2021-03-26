@@ -26,7 +26,6 @@ class UsersProfile_UpdateView(Custom_LoginRequiredMixin, SuccessMessageMixin, Up
                 messages.SUCCESS,
                 '<strong>Update</strong> your Account Again, If needed'
             )
-            return self.handle_no_permission()
         return super().dispatch(self.request, *args, **kwargs)
 
 
