@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.conf.urls.static import static
 from django.conf import settings
 
-from django.views.generic.base import TemplateView, RedirectView
+from django.views.generic.base import TemplateView
 
 from django.contrib.auth.views import PasswordResetConfirmView
 
@@ -13,7 +13,7 @@ from django.contrib.auth.views import PasswordResetConfirmView
 urlpatterns = [
 
     # Admin Panel
-    path('admin/', admin.site.urls, name='Admin-Page'),
+    path('admin-page/', admin.site.urls, name='Admin-Page'),
 
     # Core (home, about,...)
     path('',
@@ -21,11 +21,10 @@ urlpatterns = [
          name='Home-Page', ),
 
 
-    # Registration
+    # Registration ---> login, logout, register  and  password related
     path('', include('Registration_App.urls')),
 
     # password reset comfirm
-    path('password/', RedirectView.as_view(pattern_name='Registration_App:password_reset')),
     path(
         'password-reset-confirm/<uidb64>/<token>/',
         PasswordResetConfirmView.as_view(
@@ -37,11 +36,11 @@ urlpatterns = [
     ),
 
 
-    # UsersProfile
+    # UsersProfile ---> update, delete
     path('', include('UsersProfile_App.urls')),
 
 
-    # Display, (user info and slices)
+    # Display --> user info, and slice info
     path('<str:UserName_From_URL>/', include('Display_App.urls')),
 
 
