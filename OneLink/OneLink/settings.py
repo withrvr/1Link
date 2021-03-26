@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     # 3rd Party apps
     'crispy_forms',
+    "crispy_bootstrap5",
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -134,11 +135,14 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
+
 # custom User model created
 AUTH_USER_MODEL = 'UsersProfile_App.UsersProfile_Model'
 
+
 # 3rd party cripy bootstrap for forms
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
 # urls
@@ -146,10 +150,12 @@ LOGIN_REDIRECT_URL = 'Home-Page'
 LOGIN_URL = 'Registration_App:Login-Page'
 LOGOUT_REDIRECT_URL = 'Registration_App:Login-Page'
 
+
 # customizing messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
+
 
 # password reset using console ( Testing purpose )
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
