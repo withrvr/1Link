@@ -1,11 +1,18 @@
-[![@withrvr/1Link project banner image](/Images/banner.png)](#what-is-1link---withrvr--)
+[![@withrvr/1Link project banner image](./OneLink/Core_App/static/Core_App/Images/Logo_Version_1.jpg)](#what-is-1link---withrvr--)
+<br>
 
 # What is 1Link ( ~ @withrvr ) :
 
 -   Aim : To create the Universal link
 -   Combine all URL's links to share in one URL `( called as Slice in project )`
--   Status : `Just Started ( Initial Face )`
--   [Curretly Working On](./To_Do.md)
+-   Status
+
+```
+Authentication System Done
+Now Working on Slices App
+```
+
+-   [For More Detail on Curretly Status](./To_Do.md)
 
 # URL's Mapping :
 
@@ -14,7 +21,7 @@
 -   Slice info : `https://example.com/:userName/:sliceName/`
 -   User info : `https://example.com/:userName/`
 -   Users List of Slices : : `https://example.com/:userName/:slices/`
-<!-- -   foo: `https://example.com/:userName/:userName/` -->
+<!-- -   ???: `https://example.com/:userName/:userName/` -->
 
 ## Example ( for User @withrvr ) :
 
