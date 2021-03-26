@@ -1,19 +1,13 @@
-# User MOdel
+# User
 
--   login
--   logout
--   create
--   update
--   display
--   list
+-   Display User
+-   List ( mostviewed | all | search | random )
 
-# css part
+# Slices
 
-`
-text-transform: lowercase;
+-   Create
+-   Update
+-   Delete
 
-p2.innerHTML = t.value.replace("\n", "<br/>");
-( bio ):- print on new line
-
-in css:- white-space: pre-wrap;
-`
+-   Detail
+-   List
