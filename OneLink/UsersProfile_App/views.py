@@ -4,12 +4,13 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.contrib import messages
 
+from .mixins import Custom_LoginRequiredMixin
 from .forms import UsersProfile_ChangeForm
 from .models import UsersProfile_Model
 
 
 # create new user
-class UsersProfile_UpdateView(SuccessMessageMixin, UpdateView):
+class UsersProfile_UpdateView(Custom_LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     template_name = 'UsersProfile_App/Users_Update_Template.html'
     success_url = reverse_lazy('UsersProfile_App:Update-Page')
     form_class = UsersProfile_ChangeForm
@@ -20,7 +21,7 @@ class UsersProfile_UpdateView(SuccessMessageMixin, UpdateView):
 
 
 # delete user
-class UsersProfile_DeleteView(SuccessMessageMixin, DeleteView):
+class UsersProfile_DeleteView(Custom_LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     template_name = 'UsersProfile_App/Users_Delete_Template.html'
     success_url = reverse_lazy('Registration_App:Login-Page')
     model = UsersProfile_Model
