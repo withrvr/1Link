@@ -7,6 +7,16 @@
 	rel="stylesheet"
 	href="{% static 'Display_App/css/Users_Detail_Style.css' %}"
 />
+
+<!-- icon = user profile image -->
+<link
+	rel="shortcut icon"
+	href="{{ UsersProfile_Object.profile_Picture }}"
+	type="image/x-icon"
+	alt="{{ UsersProfile_Object.profile_Picture }} icon profile picture"
+	style="border-radius: 50%"
+/>
+
 {% endblock Base_Head %}
 
 <!-- content block -->
