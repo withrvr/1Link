@@ -1,9 +1,19 @@
+{% load static %}
 <nav
 	class="navbar navbar-expand-sm sticky-top navbar-dark bg-dark"
 	style="background-color: #e3f2fd"
 >
 	<div class="container">
-		<a class="navbar-brand" href="{% url 'Home-Page' %}">1Link</a>
+		<a class="navbar-brand" href="{% url 'Home-Page' %}">
+			<img
+				src="{% static 'Core_App/Images/Logo_Version_1.jpg' %}"
+				alt="1link logo, dp, picture, photo"
+				id="Navbar-Logo"
+			/>
+		</a>
+		<a href="" class="navbar-brand fs-3">1Link</a>
+		{% comment %}
+		<a href="" class="navbar-brand fs-3 fw-bold">1Link </a> {% endcomment %}
 
 		<!-- use for toggling for mobile devices -->
 		<button
