@@ -6,24 +6,24 @@
 <!-- Base_Content -->
 {% block Core_Content %}
 
-<br />
 <div class="container">
 	<div class="content-section">
 		<form method="post" novalidate>
 			{% csrf_token %}
 			<fieldset class="form-group">
-				<legend class="border-bottom mb-4">
+				<legend class="border-bottom mb-4 font-weight-bold">
 					Update Profile Details
 				</legend>
 				{{ form|crispy }}
 			</fieldset>
 			<br />
 			<div class="form-group">
-				<button class="btn btn-info" type="submit">
+				<button class="btn btn-success" type="submit">
 					Update Information
 				</button>
 			</div>
 		</form>
+		<br /><br />
 	</div>
 </div>
 

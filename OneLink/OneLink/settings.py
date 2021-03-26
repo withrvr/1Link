@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-import email_host_details
+import secret_details
 from django.contrib.messages import constants as messages
 from pathlib import Path
 import os
@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'lz@txy*lm$06^k#09ucp05_1ad^60g47!$zivrfsn@=_8@y%z('
+SECRET_KEY = secret_details.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -35,17 +35,18 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # custom apps
-    'Core_App.apps.CoreAppConfig',  # Core_App
-    'Display_App.apps.DisplayAppConfig',  # Display_App
-    'Registration_App.apps.RegistrationAppConfig',  # Registration_App
 
-    'UsersProfile_App.apps.UsersprofileAppConfig',  # UsersProfile_App
+    # custom apps
+    'Core_App.apps.CoreAppConfig',
+    'Display_App.apps.DisplayAppConfig',
+    'Registration_App.apps.RegistrationAppConfig',
+    'UsersProfile_App.apps.UsersprofileAppConfig',
 
     # 3rd Party apps
     'crispy_forms',
     "crispy_bootstrap5",
 
+    # default apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -166,5 +167,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = email_host_details.EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD = email_host_details.EMAIL_HOST_PASSWORD
+EMAIL_HOST_USER = secret_details.EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = secret_details.EMAIL_HOST_PASSWORD
