@@ -1,11 +1,11 @@
 from django.contrib.messages.views import SuccessMessageMixin
-from django.urls import reverse_lazy
 from django.contrib import messages
 from django.shortcuts import redirect
 
 from UsersProfile_App.forms import UsersProfile_CreationForm
 from UsersProfile_App.models import UsersProfile_Model
 
+from django.urls import reverse, reverse_lazy
 
 from django.views.generic.edit import CreateView
 from django.contrib.auth.views import (
@@ -17,7 +17,7 @@ from django.contrib.auth.views import (
 from django.http import HttpResponseRedirect
 from django.contrib.auth import login as auth_login
 
-from .forms import *
+from .forms import Users_Login_AuthenticationForm
 
 
 # create new user
@@ -29,12 +29,25 @@ class UsersProfile_CreateView(SuccessMessageMixin, CreateView):
 
     def dispatch(self, request, *args, **kwargs):
         response = super().dispatch(request, *args, **kwargs)
+
+        current_user = request.user
         if request.method == "GET":
-            messages.add_message(
-                request,
-                messages.SUCCESS,
-                'Filling up this Information, <b>And Create the brand new Account</b>'
-            )
+            # if is_authenticated and trying to Register account ... then redirect
+            if current_user.is_authenticated:
+                messages.add_message(
+                    request,
+                    messages.SUCCESS,
+                    f'You have Register and Login with <strong>"@{current_user.username}"</strong> account'
+                )
+                return HttpResponseRedirect(reverse('Home-Page'))
+
+            else:
+                messages.add_message(
+                    request,
+                    messages.SUCCESS,
+                    'Filling up this Information, <b>And Create The brand new Account</b>'
+                )
+
         return response
 
 
@@ -44,23 +57,28 @@ class UsersProfile_LoginView(SuccessMessageMixin, LoginView):
     success_message = 'You have <strong>Login</strong> succesfully !!!'
     form_class = Users_Login_AuthenticationForm
 
-    # # method is not working
-    # def form_valid(self, form, *args, **kwargs):
-    #     """Security check complete. Log the user in."""
-    #     print()
-    #     print(f"value is {x}")
-    #     print()
-    #     x = auth_login(self.request, form.get_user())
-    #     return HttpResponseRedirect(self.get_success_url())
-
     def dispatch(self, request, *args, **kwargs):
         response = super().dispatch(request, *args, **kwargs)
+
+        current_user = request.user
+
         if request.method == "GET":
-            messages.add_message(
-                request,
-                messages.SUCCESS,
-                '<strong>Login</strong> to your Account'
-            )
+            # if is_authenticated and trying again to login ... then redirect
+            if current_user.is_authenticated:
+                messages.add_message(
+                    request,
+                    messages.SUCCESS,
+                    f'You are currently Login with <strong>"@{current_user.username}"</strong> account'
+                )
+                return HttpResponseRedirect(reverse('Home-Page'))
+
+            else:
+                messages.add_message(
+                    request,
+                    messages.SUCCESS,
+                    f"You are currently <strong>Not Login</strong> with any Account"
+                )
+
         return response
 
 
