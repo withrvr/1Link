@@ -1,8 +1,6 @@
 from django.urls import path, include
 from django.urls import reverse_lazy
 
-from django.views.generic.base import TemplateView, RedirectView
-
 from django.contrib.auth.views import (
     PasswordResetView,
     PasswordResetDoneView,
@@ -29,8 +27,6 @@ urlpatterns = [
     path('register/', UsersProfile_CreateView.as_view(), name='Register-Page'),
 
     # password reset
-
-    path('password/', RedirectView.as_view(pattern_name='Registration_App:password_reset')),
     path(
         'password-reset/',
         PasswordResetView.as_view(

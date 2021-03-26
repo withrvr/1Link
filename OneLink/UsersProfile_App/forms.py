@@ -11,7 +11,6 @@ def comman_clean_username_method(self, *args, **kwargs):
     # cant use this username
     # as your username
     cant_use_this_username = [
-        'admin-page'
         'login',
         'logout',
         'register',

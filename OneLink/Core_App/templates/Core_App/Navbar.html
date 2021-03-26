@@ -36,7 +36,7 @@
 			<div class="navbar-nav">
 				{% if user.is_authenticated %}
 
-				<a class="nav-link" href="/admin-page/">Admin-Page</a>
+				<a class="nav-link" href="/admin-page/">Admin</a>
 				<a class="nav-link" href="#">Dashboard</a>
 
 				<!-- dropdown started -->
@@ -61,12 +61,6 @@
 
 						<hr class="dropdown-divider" />
 
-						<a
-							class="dropdown-item"
-							href="{% url 'Display_App:Users-Detail-Page' UserName_From_URL=user.username %}"
-							target="_blank"
-							>Profile</a
-						>
 						<a
 							class="dropdown-item"
 							href="{% url 'UsersProfile_App:Update-Page' %}"
