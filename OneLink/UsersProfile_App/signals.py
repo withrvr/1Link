@@ -10,7 +10,7 @@ from .models import UsersProfile_Model
 def pre_images_url_to_default_if_blank(sender, instance, *args, **kwargs):
 
     if instance.profile_Picture is None:
-        instance.profile_Picture = 'https://raw.githubusercontent.com/withrvr/1Link/main/Images/default_profile_picture.png'
+        instance.profile_Picture = 'https://raw.githubusercontent.com/withrvr/1Link/main/Images/Default_Profile_Picture.png'
 
     if instance.banner_Image is None:
-        instance.banner_Image = 'https://raw.githubusercontent.com/withrvr/1Link/main/Images/default_banner_image.png'
+        instance.banner_Image = 'https://raw.githubusercontent.com/withrvr/1Link/main/Images/Default_Banner_Image.png'
