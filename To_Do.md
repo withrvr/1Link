@@ -2,8 +2,7 @@
 
 ## Present
 
--   Users
-    -   password reset
+-
 
 ## Future
 
