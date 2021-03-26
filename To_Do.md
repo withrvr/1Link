@@ -1,9 +1,5 @@
 # To Do
 
-## Present
-
--
-
 ## Future
 
 -   Registration
@@ -11,10 +7,3 @@
 -   Slices
 -   Links
 -   Core
-
-# Errors
-
--   foo
--   bar
--   foobar
--   Nopes
