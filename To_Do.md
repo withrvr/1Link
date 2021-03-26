@@ -17,3 +17,4 @@
 
 -   change password reset .... emailed text
 -   search bar to search user
+-   user django-hosts for apis and docs of website

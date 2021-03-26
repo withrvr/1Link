@@ -36,6 +36,6 @@ class UsersProfile_LogoutView(LogoutView):
         messages.add_message(
             request,
             messages.ERROR,
-            'You have been Logged out !!! <strong>Log in Again ...</strong>',
+            'You have been Logged out !!! <strong>Log in Again</strong>',
         )
         return redirect('Registration_App:Login-Page')
