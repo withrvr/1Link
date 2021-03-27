@@ -1,4 +1,4 @@
-[![@withrvr/1Link project banner image](./OneLink/Core_App/static/Core_App/Images/Logo_Version_1.jpg)](#what-is-1link---withrvr--)
+[![@withrvr/1Link project banner image](./OneLink/Core_App/static/Core_App/Images/First_Logo_Ever.jpg)](#what-is-1link---withrvr--)
 <br>
 
 # What is 1Link ( ~ @withrvr ) :
