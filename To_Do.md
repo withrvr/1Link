@@ -1,19 +1,16 @@
 # To Do
 
-# Present
+-   [Crrent Task](./Current_Task.md)
 
--   foo
--   bar
+## Apps TO Complete
 
-## Future
-
--   Registration
 -   Display
 -   Slices
 -   Links
 -   Core
 
-# extra features to add but after main to do list
+# Extra features to add but after main to do list
 
 -   change password reset .... emailed text
 -   search bar to search user
+-   user django-hosts for apis and docs of website

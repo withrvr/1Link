@@ -26,11 +26,11 @@ class UsersProfile_Model(AbstractUser):
     display_Name = models.CharField(max_length=30, blank=True, null=True)
     profile_Picture = models.URLField(
         max_length=400, blank=True, null=True,
-        default='https://raw.githubusercontent.com/withrvr/1Link/main/Images/default_profile_picture.png',
+        default='https://raw.githubusercontent.com/withrvr/1Link/main/Images/Default_Profile_Picture.png',
     )
     banner_Image = models.URLField(
         max_length=400, blank=True, null=True,
-        default='https://raw.githubusercontent.com/withrvr/1Link/main/Images/default_banner_image.png',
+        default='https://raw.githubusercontent.com/withrvr/1Link/main/Images/Default_Banner_Image.png',
     )
 
     """

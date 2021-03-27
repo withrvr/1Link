@@ -44,7 +44,8 @@ INSTALLED_APPS = [
 
     # 3rd Party apps
     'crispy_forms',
-    "crispy_bootstrap5",
+    'crispy_bootstrap5',
+    'django_extensions',
 
     # default apps
     'django.contrib.admin',
