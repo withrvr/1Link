@@ -6,16 +6,18 @@
 	<div class="container">
 		<a class="navbar-brand" href="{% url 'Home-Page' %}">
 			<img
-				src="{% static 'Core_App/Images/Logo_Version_1.jpg' %}"
-				alt="1link logo, dp, picture, photo"
+				src="{% static 'Core_App/Images/First_Logo_Ever.jpg' %}"
 				id="Navbar-Logo"
 			/>
+			<!--
+			<img
+				src="{% static 'Core_App/Images/Logo_Version_1/Blink_8_Sec.gif' %}"
+				id="Navbar-Logo"
+			/>
+			-->
 		</a>
 		<a href="{% url 'Home-Page' %}" class="navbar-brand fs-3">1Link</a>
-		{% comment %}
-		<a href="" class="navbar-brand fs-3 fw-bold">1Link </a> {% endcomment %}
 
-		<!-- use for toggling for mobile devices -->
 		<button
 			class="navbar-toggler"
 			type="button"
