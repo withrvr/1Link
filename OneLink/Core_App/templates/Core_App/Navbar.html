@@ -74,31 +74,36 @@
 						class="dropdown-menu dropdown-menu-end"
 						aria-labelledby="navbarScrollingDropdown"
 					>
-						<a class="dropdown-item" href="#">Foo</a>
-						<a class="dropdown-item" href="#">Bar</a>
-						<a class="dropdown-item" href="#">FooBar</a>
+						<a
+							class="dropdown-item"
+							href="{% url 'Registration_App:password_reset' %}"
+						>
+							Forgot Password
+						</a>
 
 						<hr class="dropdown-divider" />
 
 						<a
 							class="dropdown-item"
 							href="{% url 'UsersProfile_App:Update-Page' %}"
-							>Update</a
 						>
-
+							Update Account
+						</a>
 						<a
 							class="dropdown-item"
 							href="{% url 'UsersProfile_App:Delete-Page' %}"
-							>Delete</a
 						>
+							Delete Account
+						</a>
 
 						<hr class="dropdown-divider" />
 
 						<a
 							class="dropdown-item"
 							href="{% url 'Registration_App:Logout-Page' %}"
-							>Logout</a
 						>
+							Logout
+						</a>
 					</div>
 				</div>
 				<!-- dropdown started -->

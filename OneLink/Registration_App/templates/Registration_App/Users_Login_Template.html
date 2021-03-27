@@ -18,17 +18,27 @@
 			<div class="form-group">
 				<button class="btn btn-success" type="submit">Login</button>
 				&nbsp;
-				<small class="text-muted">
-					Not have Account ??
-					<a
-						class="ml-2"
-						href="{% url 'Registration_App:Register-Page' %}"
-						>Create Account</a
-					>
+				<small class="text-muted ml-2">
+					<a href="{% url 'Registration_App:password_reset' %}">
+						Forgot Password ?
+					</a>
 				</small>
 			</div>
-			<br /><br />
 		</form>
+		<br />
+
+		<div class="border-top pt-3">
+			<small class="text-muted">
+				Not have Account ??
+				<a
+					class="ml-2"
+					href="{% url 'Registration_App:Register-Page' %}"
+				>
+					Create Account
+				</a>
+			</small>
+		</div>
+		<br /><br />
 	</div>
 </div>
 
