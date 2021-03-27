@@ -13,7 +13,7 @@ from django.contrib.auth.views import PasswordResetConfirmView
 urlpatterns = [
 
     # Admin Panel
-    path('admin-page/', admin.site.urls, name='Admin-Page'),
+    path('admin-page/', admin.site.urls),
 
     # Core (home, about,...)
     path('',

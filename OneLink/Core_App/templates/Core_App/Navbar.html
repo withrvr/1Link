@@ -1,11 +1,23 @@
+{% load static %}
 <nav
 	class="navbar navbar-expand-sm sticky-top navbar-dark bg-dark"
 	style="background-color: #e3f2fd"
 >
 	<div class="container">
-		<a class="navbar-brand" href="{% url 'Home-Page' %}">1Link</a>
+		<a class="navbar-brand" href="{% url 'Home-Page' %}">
+			<img
+				src="{% static 'Core_App/Images/First_Logo_Ever.jpg' %}"
+				id="Navbar-Logo"
+			/>
+			<!--
+			<img
+				src="{% static 'Core_App/Images/Logo_Version_1/Blink_8_Sec.gif' %}"
+				id="Navbar-Logo"
+			/>
+			-->
+		</a>
+		<a href="{% url 'Home-Page' %}" class="navbar-brand fs-3">1Link</a>
 
-		<!-- use for toggling for mobile devices -->
 		<button
 			class="navbar-toggler"
 			type="button"
@@ -36,7 +48,14 @@
 			<div class="navbar-nav">
 				{% if user.is_authenticated %}
 
-				<a class="nav-link" href="/admin-page/">Admin</a>
+				<a
+					class="nav-link"
+					target="_blank"
+					href="{% url 'admin:index' %}"
+				>
+					Admin
+				</a>
+
 				<a class="nav-link" href="#">Dashboard</a>
 
 				<!-- dropdown started -->
@@ -55,25 +74,36 @@
 						class="dropdown-menu dropdown-menu-end"
 						aria-labelledby="navbarScrollingDropdown"
 					>
-						<a class="dropdown-item" href="#">Foo</a>
-						<a class="dropdown-item" href="#">Bar</a>
-						<a class="dropdown-item" href="#">FooBar</a>
+						<a
+							class="dropdown-item"
+							href="{% url 'Registration_App:password_reset' %}"
+						>
+							Forgot Password
+						</a>
 
 						<hr class="dropdown-divider" />
 
 						<a
 							class="dropdown-item"
 							href="{% url 'UsersProfile_App:Update-Page' %}"
-							>Update</a
 						>
+							Update Account
+						</a>
+						<a
+							class="dropdown-item"
+							href="{% url 'UsersProfile_App:Delete-Page' %}"
+						>
+							Delete Account
+						</a>
 
 						<hr class="dropdown-divider" />
 
 						<a
 							class="dropdown-item"
 							href="{% url 'Registration_App:Logout-Page' %}"
-							>Logout</a
 						>
+							Logout
+						</a>
 					</div>
 				</div>
 				<!-- dropdown started -->
