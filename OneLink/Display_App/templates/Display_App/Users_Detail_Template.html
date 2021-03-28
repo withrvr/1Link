@@ -2,11 +2,13 @@
 <!-- head block -->
 {% block Base_Head %}
 
-<!-- Users_Detail_Style CSS -->
+<!-- 
+Users_Detail_Style CSS
 <link
 	rel="stylesheet"
 	href="{% static 'Display_App/css/Users_Detail_Style.css' %}"
 />
+-->
 
 <!-- icon = user profile image -->
 <link
@@ -14,7 +16,6 @@
 	href="{{ UsersProfile_Object.profile_Picture }}"
 	type="image/x-icon"
 	alt="{{ UsersProfile_Object.profile_Picture }} icon profile picture"
-	style="border-radius: 50%"
 />
 
 {% endblock Base_Head %}
@@ -35,6 +36,7 @@
 			<img
 				src="{{ UsersProfile_Object.profile_Picture }}"
 				alt="{{ UsersProfile_Object.profile_Picture }} profile picture"
+				class="img-fluid rounded-circle"
 			/>
 		</div>
 		<h3>{{ UsersProfile_Object.display_Name }}</h3>

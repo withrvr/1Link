@@ -1,4 +1,8 @@
-#Navbar-Logo {
+#navbar-logo {
 	border-radius: 20%;
 	height: 40px;
+}
+
+.user-profile-picture-on-slice img {
+	width: 100px;
 }

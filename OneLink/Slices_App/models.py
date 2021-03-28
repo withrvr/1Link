@@ -10,7 +10,7 @@ class Slices_Model(models.Model):
         help_text='Only Numbers, Lowecase-Letter and UserScore ( _ ) is allowed',
         validators=[RegexValidator(
             r'^[0-9a-z_]+$',
-            message="Enter a valid username. Only Numbers, Lowecase-Letter and UserScore ( _ ) is allowed"
+            message="Enter a valid Slice Name. Only Numbers, Lowecase-Letter and UserScore ( _ ) is allowed"
         )],
         error_messages={
             'unique': "This slice name all ready exist",
