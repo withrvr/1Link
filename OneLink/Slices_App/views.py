@@ -6,11 +6,15 @@ from django.contrib import messages
 from django.urls import reverse_lazy, reverse
 from django.forms import ValidationError
 
+# from django.views.generic import UpdateView
 from django.views.generic import (
-    CreateView,
     ListView,
     DetailView,
-    RedirectView
+
+    CreateView,
+    UpdateView,
+
+    RedirectView,
 )
 
 from UsersProfile_App.mixins import Custom_LoginRequiredMixin
@@ -19,8 +23,11 @@ from UsersProfile_App.models import UsersProfile_Model
 from .forms import Slices_CreationForm, Slices_ListForm
 from .models import Slices_Model
 
+from .forms import Slices_UpdateForm
 
 # ( Redirect's to ) Slices Detail View
+
+
 class Slices_DetailView_of_Login_User(Custom_LoginRequiredMixin, RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         return reverse('Display_App:Slice-Detail-Page', kwargs={
@@ -43,7 +50,7 @@ class Slices_ListView(Custom_LoginRequiredMixin, ListView):
         return self.request.user.slices_model_set.all()
 
 
-# create new user
+# create new slice
 class Slices_CreateView(Custom_LoginRequiredMixin, SuccessMessageMixin, CreateView):
     template_name = 'Slices_App/Slices_Create_Template.html'
     success_url = reverse_lazy('Slices_App:Slices-Create-Page')
@@ -71,3 +78,34 @@ class Slices_CreateView(Custom_LoginRequiredMixin, SuccessMessageMixin, CreateVi
                 f'Slice with Name <strong>"{validate_slice_Name}"</strong> Already Exists'
             )
             return HttpResponseRedirect(reverse('Slices_App:Slices-Create-Page'))
+
+
+# Update slices info
+class Slices_UpdateView(Custom_LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+    template_name = 'Slices_App/Slices_Update_Template.html'
+    success_url = reverse_lazy('Slices_App:Slices-List-Page')
+    form_class = Slices_UpdateForm
+    success_message = "Slices Information was <strong>Updated Succesfully</strong>"
+    DoesNotExist_error = False
+
+    def get_object(self, *args, **kwargs):
+        validate_slice_Name = self.kwargs.get(
+            'SliceName_From_URL_Of_Login_User'
+        )
+        try:
+            return self.request.user.slices_model_set.get(slice_Name=validate_slice_Name)
+        except Slices_Model.DoesNotExist:
+            messages.add_message(
+                self.request,
+                messages.WARNING,
+                f"No slice with name <strong>''{validate_slice_Name}''</strong> to Update",
+            )
+            self.DoesNotExist_error = True
+            # get_object method only can return object
+            # cant return http responce .... throws error
+
+    def dispatch(self, *args, **kwargs):
+        dispatch_responce = super().dispatch(*args, **kwargs)
+        if self.DoesNotExist_error:
+            return HttpResponseRedirect(reverse('Slices_App:Slices-List-Page'))
+        return dispatch_responce

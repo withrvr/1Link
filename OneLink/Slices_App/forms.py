@@ -11,7 +11,13 @@ class Slices_ListForm(forms.ModelForm):
 
 # slice creation form
 class Slices_CreationForm(forms.ModelForm):
+    class Meta:
+        model = Slices_Model
+        fields = ['slice_Name', 'visibility', ]
 
+
+# slice update form
+class Slices_UpdateForm(forms.ModelForm):
     class Meta:
         model = Slices_Model
         fields = ['slice_Name', 'visibility', ]
