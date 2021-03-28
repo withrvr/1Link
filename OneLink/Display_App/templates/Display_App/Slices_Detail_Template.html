@@ -1,0 +1,39 @@
+{% extends 'Core_App/Base_Template.html' %} {% load static %}
+<!-- head block -->
+{% block Base_Head %}
+
+<!-- icon = user profile image -->
+<link
+	rel="shortcut icon"
+	href="{{ Slice_Object.author.profile_Picture }}"
+	type="image/x-icon"
+	alt="{{ Slice_Object.author.profile_Picture }} icon profile picture"
+	style="border-radius: 50%"
+/>
+
+{% endblock Base_Head %}
+
+<!-- content block -->
+{% block Base_Content %}
+<div class="container bg-danger">
+	<div class="text-center bg-success slices-detail-wrapper">
+		<div class="bg-warning p-2 user-profile-picture-on-slice">
+			<a
+				href="{% url 'Display_App:Users-Detail-Page' UserName_From_URL=Slice_Object.author.username %}"
+			>
+				<img
+					class="img-fluid rounded-circle"
+					src="{{ Slice_Object.author.profile_Picture }}"
+					alt="{{ Slice_Object.author.profile_Picture }} profile picture"
+				/>
+			</a>
+		</div>
+		<br /><br />
+		<h3>{{ Slice_Object.slice_Name }}</h3>
+		<h1>{{ Slice_Object.visibility }}</h1>
+	</div>
+
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</div>
+
+{% endblock Base_Content %}
