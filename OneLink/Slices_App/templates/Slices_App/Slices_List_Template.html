@@ -9,9 +9,9 @@
 <div class="container">
 	<div class="content-section">
 		<div class="bg-secondary m-3 p-3 rounded row text-light">
-			<div class="col p-2">Slice Name</div>
-			<div class="col p-2">Visibility</div>
-			<div class="col p-2 text-center">Oprations</div>
+			<div class="col p-2 fw-bold">Slice Name</div>
+			<div class="col p-2 fw-bold">Visibility</div>
+			<div class="col p-2 fw-bold text-center">Oprations</div>
 		</div>
 
 		{% for Slices_Object in Slices_List_Object %}
@@ -27,8 +27,13 @@
 				>
 					Detail
 				</a>
-				<a href="#" class="btn btn-success m-1">Update</a>
-				<a href="#" class="btn btn-danger m-1">Delete</a>
+				<a
+					href="{% url 'Slices_App:Slice-Update-Page' SliceName_From_URL_Of_Login_User=Slices_Object.slice_Name %}"
+					class="btn btn-success m-1"
+				>
+					Update
+				</a>
+				<a href="#" class="btn btn-danger m-1"> Delete </a>
 			</div>
 		</div>
 

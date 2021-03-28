@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import DetailView
-from django.core.exceptions import ObjectDoesNotExist
 from django.http import Http404
 
 from UsersProfile_App.models import UsersProfile_Model
