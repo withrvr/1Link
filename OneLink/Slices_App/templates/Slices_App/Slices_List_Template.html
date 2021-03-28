@@ -33,7 +33,12 @@
 				>
 					Update
 				</a>
-				<a href="#" class="btn btn-danger m-1"> Delete </a>
+				<a
+					href="{% url 'Slices_App:Slice-Delete-Page' SliceName_From_URL_Of_Login_User=Slices_Object.slice_Name %}"
+					class="btn btn-danger m-1"
+				>
+					Delete
+				</a>
 			</div>
 		</div>
 
