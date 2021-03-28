@@ -13,6 +13,7 @@ from django.views.generic import (
 
     CreateView,
     UpdateView,
+    DeleteView,
 
     RedirectView,
 )
@@ -20,14 +21,11 @@ from django.views.generic import (
 from UsersProfile_App.mixins import Custom_LoginRequiredMixin
 from UsersProfile_App.models import UsersProfile_Model
 
-from .forms import Slices_CreationForm, Slices_ListForm
+from .forms import Slices_CreationForm, Slices_ListForm, Slices_UpdateForm
 from .models import Slices_Model
 
-from .forms import Slices_UpdateForm
 
 # ( Redirect's to ) Slices Detail View
-
-
 class Slices_DetailView_of_Login_User(Custom_LoginRequiredMixin, RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         return reverse('Display_App:Slice-Detail-Page', kwargs={
@@ -108,4 +106,49 @@ class Slices_UpdateView(Custom_LoginRequiredMixin, SuccessMessageMixin, UpdateVi
         dispatch_responce = super().dispatch(*args, **kwargs)
         if self.DoesNotExist_error:
             return HttpResponseRedirect(reverse('Slices_App:Slices-List-Page'))
+        return dispatch_responce
+
+
+# Delete View
+class Slices_DeleteView(Custom_LoginRequiredMixin, DeleteView):
+    template_name = 'Slices_App/Slices_Delete_Template.html'
+    success_url = reverse_lazy('Slices_App:Slices-List-Page')
+    model = Slices_Model
+    DoesNotExist_error = False
+
+    def get_object(self, *args, **kwargs):
+        self.validate_slice_Name = self.kwargs.get(
+            'SliceName_From_URL_Of_Login_User'
+        )
+        try:
+            return self.request.user.slices_model_set.get(slice_Name=self.validate_slice_Name)
+        except Slices_Model.DoesNotExist:
+            messages.add_message(
+                self.request,
+                messages.WARNING,
+                f"No slice with name <strong>''{self.validate_slice_Name}''</strong> to Delete",
+            )
+            self.DoesNotExist_error = True
+            # get_object method only can return object
+            # cant return http responce .... throws error
+
+    def dispatch(self, *args, **kwargs):
+        dispatch_responce = super().dispatch(*args, **kwargs)
+
+        if self.DoesNotExist_error:
+            return HttpResponseRedirect(reverse('Slices_App:Slices-List-Page'))
+
+        if self.request.method == "POST":
+            messages.add_message(
+                self.request,
+                messages.ERROR,
+                f"Slice <strong>''{self.validate_slice_Name}''</strong> was Delete",
+            )
+        else:
+            messages.add_message(
+                self.request,
+                messages.ERROR,
+                f"Are you sure, you want to delete Slice <strong>''{self.validate_slice_Name}''</strong> , All Data accosiated to this Slice will be deleted",
+            )
+
         return dispatch_responce

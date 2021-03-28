@@ -4,9 +4,9 @@ from .views import (
     Slices_DetailView_of_Login_User,
 
     Slices_CreateView,
+    Slices_UpdateView,
+    Slices_DeleteView,
 )
-
-from .views import Slices_UpdateView
 
 app_name = 'Slices_App'
 
@@ -20,10 +20,17 @@ urlpatterns = [
         name='Slice-Detail-Page-Of-Login-User',
     ),
 
-    # update
+    # Update
     path(
         '<str:SliceName_From_URL_Of_Login_User>/update/',
         Slices_UpdateView.as_view(),
         name='Slice-Update-Page',
+    ),
+
+    # Delete
+    path(
+        '<str:SliceName_From_URL_Of_Login_User>/delete/',
+        Slices_DeleteView.as_view(),
+        name='Slice-Delete-Page',
     ),
 ]
