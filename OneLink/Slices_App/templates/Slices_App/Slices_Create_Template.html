@@ -1,0 +1,28 @@
+{% extends 'Core_App/Core_Base_Template.html' %}
+
+<!-- loading something -->
+{% load crispy_forms_tags %} {% load static %}
+
+<!-- Base_Content -->
+{% block Core_Content %}
+
+<div class="container">
+	<div class="content-section">
+		{{ form.non_field_errors}}
+		<form method="post" novalidate>
+			{% csrf_token %}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">Create New Slice</legend>
+				{{ form|crispy }}
+				<input
+					type="submit"
+					value="Create New Slice"
+					class="btn btn-success"
+				/>
+			</fieldset>
+		</form>
+	</div>
+	<br /><br />
+</div>
+
+{% endblock Core_Content %}

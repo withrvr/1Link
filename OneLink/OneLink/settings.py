@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Display_App.apps.DisplayAppConfig',
     'Registration_App.apps.RegistrationAppConfig',
     'UsersProfile_App.apps.UsersprofileAppConfig',
+    'Slices_App.apps.SlicesAppConfig',
 
     # 3rd Party apps
     'crispy_forms',

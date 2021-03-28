@@ -56,7 +56,33 @@
 					Admin
 				</a>
 
-				<a class="nav-link" href="#">Dashboard</a>
+				<div class="nav-item dropdown">
+					<a
+						class="nav-link dropdown-toggle"
+						href="#"
+						id="navbarScrollingDropdown"
+						role="button"
+						data-bs-toggle="dropdown"
+						aria-expanded="false"
+					>
+						Dashboard
+					</a>
+					<div
+						class="dropdown-menu dropdown-menu-end"
+						aria-labelledby="navbarScrollingDropdown"
+					>
+						<a
+							class="dropdown-item"
+							href="{% url 'Slices_App:Create-Slices-Page' %}"
+						>
+							New Slice
+						</a>
+
+						<hr class="dropdown-divider" />
+						<a class="dropdown-item" href="#">Foo</a>
+						<a class="dropdown-item" href="#">Bar</a>
+					</div>
+				</div>
 
 				<!-- dropdown started -->
 				<div class="nav-item dropdown">
@@ -76,15 +102,6 @@
 					>
 						<a
 							class="dropdown-item"
-							href="{% url 'Registration_App:password_reset' %}"
-						>
-							Forgot Password
-						</a>
-
-						<hr class="dropdown-divider" />
-
-						<a
-							class="dropdown-item"
 							href="{% url 'UsersProfile_App:Update-Page' %}"
 						>
 							Update Account
@@ -97,7 +114,14 @@
 						</a>
 
 						<hr class="dropdown-divider" />
+						<a
+							class="dropdown-item"
+							href="{% url 'Registration_App:password_reset' %}"
+						>
+							Forgot Password
+						</a>
 
+						<hr class="dropdown-divider" />
 						<a
 							class="dropdown-item"
 							href="{% url 'Registration_App:Logout-Page' %}"
@@ -113,8 +137,9 @@
 				<a
 					class="nav-link"
 					href="{% url 'Registration_App:Login-Page' %}"
-					>Login</a
 				>
+					Login
+				</a>
 
 				{% endif %}
 			</div>
