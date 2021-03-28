@@ -5,9 +5,5 @@
 
 # Slices
 
--   Create
 -   Update
 -   Delete
-
--   Detail
--   List
