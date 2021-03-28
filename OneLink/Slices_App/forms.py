@@ -1,0 +1,9 @@
+from .models import Slices_Model
+from django import forms
+
+
+class Slices_CreationForm(forms.ModelForm):
+
+    class Meta:
+        model = Slices_Model
+        fields = ['slice_Name', 'visibility', ]
