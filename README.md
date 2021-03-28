@@ -1,3 +1,7 @@
+If any Issue - Problem ... [Report here](https://github.com/withrvr/1Link/issues/new/choose)
+<br>
+Want to know more or any thing related to /withrvr/1Link/ ... [Click Here and Fill Free to Discuss with the Community](https://github.com/withrvr/1Link/discussions)
+
 [![@withrvr/1Link project banner image](./OneLink/Core_App/static/Core_App/Images/First_Logo_Ever.jpg)](#what-is-1link---withrvr--)
 <br>
 
