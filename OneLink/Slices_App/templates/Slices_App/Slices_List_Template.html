@@ -8,15 +8,26 @@
 
 <div class="container">
 	<div class="content-section">
+		<div class="bg-secondary m-3 p-3 rounded row text-light">
+			<div class="col p-2">Slice Name</div>
+			<div class="col p-2">Visibility</div>
+			<div class="col p-2 text-center">Oprations</div>
+		</div>
+
 		{% for Slices_Object in Slices_List_Object %}
 
 		<div class="bg-light m-3 p-3 rounded row">
-			<div class="col p-2">
-				{{ Slices_Object.slice_Name }} .. {{ Slices_Object.visibility }}
-			</div>
-
-			<div class="col-auto text-end">
-				<a href="#" class="btn btn-success m-0">Update</a>
+			<div class="col p-2">{{ Slices_Object.slice_Name }}</div>
+			<div class="col p-2">{{ Slices_Object.visibility }}</div>
+			<div class="col p-2 text-end">
+				<a
+					href="{% url 'Slices_App:Slice-Detail-Page-Of-Login-User' SliceName_From_URL_Of_Login_User=Slices_Object.slice_Name %}"
+					class="btn btn-primary m-1"
+					target="_blank"
+				>
+					Detail
+				</a>
+				<a href="#" class="btn btn-success m-1">Update</a>
 				<a href="#" class="btn btn-danger m-1">Delete</a>
 			</div>
 		</div>
@@ -24,7 +35,7 @@
 		{% empty %}
 		<!-- If no Slices are created-->
 		<div class="">
-			<p class="bg-light p-3 rounded">
+			<p class="bg-light m-3 p-3 rounded">
 				No Slices Created Till Now !!!
 				<a href="{% url 'Slices_App:Slices-Create-Page' %}"
 					>Create Now?</a

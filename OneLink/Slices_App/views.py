@@ -1,19 +1,37 @@
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from django.contrib.messages.views import SuccessMessageMixin
-from UsersProfile_App.mixins import Custom_LoginRequiredMixin
-from django.views.generic import CreateView, ListView
 from django.db import IntegrityError
+from django.contrib import messages
+
 from django.urls import reverse_lazy, reverse
 from django.forms import ValidationError
-from django.contrib import messages
+
+from django.views.generic import (
+    CreateView,
+    ListView,
+    DetailView,
+    RedirectView
+)
+
+from UsersProfile_App.mixins import Custom_LoginRequiredMixin
+from UsersProfile_App.models import UsersProfile_Model
 
 from .forms import Slices_CreationForm, Slices_ListForm
 from .models import Slices_Model
-from UsersProfile_App.models import UsersProfile_Model
+
+
+# ( Redirect's to ) Slices Detail View
+class Slices_DetailView_of_Login_User(Custom_LoginRequiredMixin, RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        return reverse('Display_App:Slice-Detail-Page', kwargs={
+            'UserName_From_URL': self.request.user.username,
+            'SliceName_From_URL': self.kwargs.get(
+                'SliceName_From_URL_Of_Login_User'
+            )
+        })
+
 
 # list all the slices of the user
-
-
 class Slices_ListView(Custom_LoginRequiredMixin, ListView):
     model = Slices_Model
     template_name = 'Slices_App/Slices_List_Template.html'
