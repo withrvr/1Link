@@ -25,7 +25,14 @@ class Slices_Model(models.Model):
         default='public'
     )
 
+    '''
+    number of time clicked
+    '''
+
     class Meta:
         unique_together = (
             ('author', 'slice_Name', ),
         )
+
+    def __str__(self, *args, **kwargs):
+        return f'{self.author} -> `{self.slice_Name}`'

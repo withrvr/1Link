@@ -40,8 +40,10 @@ INSTALLED_APPS = [
     'Core_App.apps.CoreAppConfig',
     'Display_App.apps.DisplayAppConfig',
     'Registration_App.apps.RegistrationAppConfig',
+
     'UsersProfile_App.apps.UsersprofileAppConfig',
     'Slices_App.apps.SlicesAppConfig',
+    'Links_App.apps.LinksAppConfig',
 
     # 3rd Party apps
     'crispy_forms',
