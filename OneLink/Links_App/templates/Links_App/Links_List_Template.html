@@ -1,0 +1,43 @@
+{% extends 'Core_App/Core_Base_Template.html' %}
+
+<!-- loading something -->
+{% load crispy_forms_tags %} {% load static %}
+
+<!-- Base_Content -->
+{% block Core_Content %}
+
+<div class="container">
+	<div class="content-section">
+		<div class="bg-secondary m-3 p-3 rounded row text-light">
+			<div class="col p-2 fw-bold">Display Name</div>
+			<div class="col p-2 fw-bold">Sub Name</div>
+			<div class="col p-2 fw-bold text-center">Oprations</div>
+		</div>
+
+		{% for Links_Object in Links_List_Object %}
+
+		<div class="bg-light m-3 p-3 rounded row">
+			<div class="col p-2">{{ Links_Object.display_Name }}</div>
+			<div class="col p-2">{{ Links_Object.sub_Name }}</div>
+			<div class="col p-2 text-end">
+				<a href="#" class="btn btn-success m-1"> Update </a>
+				<a href="#" class="btn btn-danger m-1"> Delete </a>
+			</div>
+		</div>
+
+		{% empty %}
+		<!-- If no Slices are created-->
+		<div class="">
+			<p class="bg-light m-3 p-3 rounded">
+				No Slices Created Till Now !!!
+				<a href="{% url 'Slices_App:Slices-Create-Page' %}"
+					>Create Now?</a
+				>
+			</p>
+		</div>
+		{% endfor %}
+	</div>
+	<br /><br />
+</div>
+
+{% endblock Core_Content %}
