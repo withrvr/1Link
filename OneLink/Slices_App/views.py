@@ -38,9 +38,7 @@ class Slices_DetailView_of_Login_User(Custom_LoginRequiredMixin, RedirectView):
 
 # list all the slices of the user
 class Slices_ListView(Custom_LoginRequiredMixin, ListView):
-    model = Slices_Model
     template_name = 'Slices_App/Slices_List_Template.html'
-    success_url = reverse_lazy('Slices_App:Slices-Create-Page')
     form_class = Slices_ListForm
     context_object_name = 'Slices_List_Object'
 
