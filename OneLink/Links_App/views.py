@@ -1,16 +1,17 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, UpdateView
+from django.urls import reverse_lazy, reverse
+from django.contrib.messages.views import SuccessMessageMixin
 
 from UsersProfile_App.mixins import Custom_LoginRequiredMixin
 from .models import Links_Model
-from .forms import Slices_ListForm
+from .forms import Links_ListForm, Links_UpdateForm
 
 
 # list all the slices of the user
 class Links_ListView(Custom_LoginRequiredMixin, ListView):
-    model = Links_Model
     template_name = 'Links_App/Links_List_Template.html'
-    form_class = Slices_ListForm
+    form_class = Links_ListForm
     context_object_name = 'Links_List_Object'
 
     def get_queryset(self, *args, **kwargs):
@@ -18,3 +19,44 @@ class Links_ListView(Custom_LoginRequiredMixin, ListView):
             'SliceName_From_URL'
         ))
         return validate_my_slice.links_model_set.all()
+
+
+# update links
+class Links_UpdateView(Custom_LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+    template_name = 'Links_App/Links_Update_Template.html'
+    form_class = Links_UpdateForm
+    context_object_name = 'Links_Object'
+    success_message = "Links Info was <strong>Updated Succesfully</strong>"
+    DoesNotExist_error = False
+
+    def get_success_url(self, *args, **kwargs):
+        return reverse('Slices_App:Links_App:Links-List-Page', kwargs={
+            'SliceName_From_URL': self.kwargs.get(
+                'SliceName_From_URL'
+            )
+        })
+
+    def get_object(self, *args, **kwargs):
+        validate_my_slice = self.request.user.slices_model_set.get(slice_Name=self.kwargs.get(
+            'SliceName_From_URL'
+        ))
+        validate_links_ID = self.kwargs.get(
+            'LinksID_From_URL'
+        )
+        try:
+            return validate_my_slice.links_model_set.get(id=validate_links_ID)
+        except Links_Model.DoesNotExist:
+            messages.add_message(
+                self.request,
+                messages.WARNING,
+                f"No Link with id number <strong>''{validate_links_ID}''</strong> to Update",
+            )
+            self.DoesNotExist_error = True
+            # get_object method only can return object
+            # cant return http responce .... throws error
+
+    def dispatch(self, *args, **kwargs):
+        dispatch_responce = super().dispatch(*args, **kwargs)
+        if self.DoesNotExist_error:
+            return HttpResponseRedirect(reverse('Slices_App:Links_App:Links-Update-Page'))
+        return dispatch_responce

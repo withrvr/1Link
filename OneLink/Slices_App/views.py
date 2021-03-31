@@ -26,7 +26,7 @@ from .models import Slices_Model
 
 
 # ( Redirect's to ) Slices Detail View
-class Slices_DetailView_of_Login_User(Custom_LoginRequiredMixin, RedirectView):
+class Slices_DetailView(Custom_LoginRequiredMixin, RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         return reverse('Display_App:Slice-Detail-Page', kwargs={
             'UserName_From_URL': self.request.user.username,
