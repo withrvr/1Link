@@ -16,28 +16,28 @@ urlpatterns = [
 
     # detail of the
     path(
-        '<str:SliceName_From_URL_Of_Login_User>/',
+        '<str:SliceName_From_URL>/',
         Slices_DetailView_of_Login_User.as_view(),
         name='Slice-Detail-Page-Of-Login-User',
     ),
 
     # Update
     path(
-        '<str:SliceName_From_URL_Of_Login_User>/update/',
+        '<str:SliceName_From_URL>/update/',
         Slices_UpdateView.as_view(),
         name='Slice-Update-Page',
     ),
 
     # Delete
     path(
-        '<str:SliceName_From_URL_Of_Login_User>/delete/',
+        '<str:SliceName_From_URL>/delete/',
         Slices_DeleteView.as_view(),
         name='Slice-Delete-Page',
     ),
 
     # links operations from this url
     path(
-        '<str:SliceName_From_URL_Of_Login_User>/links/',
-        include('Links_App.urls'),
+        '<str:SliceName_From_URL>/links/',
+        include('Links_App.urls', namespace="Links_App"),
     ),
 ]

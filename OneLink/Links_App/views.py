@@ -15,6 +15,6 @@ class Links_ListView(Custom_LoginRequiredMixin, ListView):
 
     def get_queryset(self, *args, **kwargs):
         validate_my_slice = self.request.user.slices_model_set.get(slice_Name=self.kwargs.get(
-            'SliceName_From_URL_Of_Login_User'
+            'SliceName_From_URL'
         ))
         return validate_my_slice.links_model_set.all()
