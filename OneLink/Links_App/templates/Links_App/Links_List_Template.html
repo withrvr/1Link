@@ -26,7 +26,12 @@
 			<div class="col p-2">{{ Links_Object.sub_Name }}</div>
 			<div class="col p-2">{{ Links_Object.visibility }}</div>
 			<div class="col p-2 text-end d-grid gap-1 d-md-block">
-				<a href="#" class="btn btn-success btn-sm"> Update </a>
+				<a
+					href="{% url 'Slices_App:Links_App:Links-Update-Page' SliceName_From_URL=Links_Object.my_Slice.slice_Name LinksID_From_URL=Links_Object.id %}"
+					class="btn btn-success btn-sm"
+				>
+					Update
+				</a>
 				<a href="#" class="btn btn-danger btn-sm"> Delete </a>
 			</div>
 		</div>

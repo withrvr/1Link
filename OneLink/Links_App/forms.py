@@ -2,8 +2,15 @@ from .models import Links_Model
 from django import forms
 
 
-# slice list form
-class Slices_ListForm(forms.ModelForm):
+# Links list form
+class Links_ListForm(forms.ModelForm):
     class Meta:
         model = Links_Model
         fields = "__all__"
+
+
+# Link update form
+class Links_UpdateForm(forms.ModelForm):
+    class Meta:
+        model = Links_Model
+        exclude = ('my_Slice', )

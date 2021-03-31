@@ -1,7 +1,7 @@
 from django.urls import path, include
 from .views import (
     Slices_ListView,
-    Slices_DetailView_of_Login_User,
+    Slices_DetailView,
 
     Slices_CreateView,
     Slices_UpdateView,
@@ -17,7 +17,7 @@ urlpatterns = [
     # detail of the
     path(
         '<str:SliceName_From_URL>/',
-        Slices_DetailView_of_Login_User.as_view(),
+        Slices_DetailView.as_view(),
         name='Slice-Detail-Page-Of-Login-User',
     ),
 
