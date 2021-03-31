@@ -1,0 +1,52 @@
+{% extends 'Core_App/Core_Base_Template.html' %}
+
+<!-- loading something -->
+{% load crispy_forms_tags %} {% load static %}
+
+<!-- Base_Content -->
+{% block Core_Content %}
+
+<div class="container">
+	<div class="content-section">
+		<form method="POST">
+			{% csrf_token %}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">Delete Link</legend>
+				<h2>
+					Are you sure you want to delete this Link
+					<br />
+					Name <strong>"{{object.display_Name}}"</strong> and Subname
+					<strong>"{{object.sub_Name}}"</strong>
+				</h2>
+				<br />
+				<ul>
+					<li>
+						This will delete all the data associated to the link
+					</li>
+					<li>No one can access this Links now</li>
+					<li>
+						Once the Link is deleted all the data related to this
+						Link is deleted
+					</li>
+				</ul>
+				{% comment %}
+				<p>
+					TODO: if you want to hide any slice and links you can do it
+					in the settings
+				</p>
+				{% endcomment %}
+			</fieldset>
+			<div class="form-group">
+				<button class="btn btn-danger" type="submit">
+					Yes, Delete
+				</button>
+				&nbsp;
+				<a class="btn btn-success" href="{% url 'Home-Page'  %}">
+					Cancel
+				</a>
+			</div>
+		</form>
+	</div>
+</div>
+
+{% endblock Core_Content %}

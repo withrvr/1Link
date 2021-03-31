@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import ListView, UpdateView
+from django.views.generic import ListView, UpdateView, DeleteView
 from django.urls import reverse_lazy, reverse
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 
 from UsersProfile_App.mixins import Custom_LoginRequiredMixin
 from .models import Links_Model
@@ -59,4 +60,62 @@ class Links_UpdateView(Custom_LoginRequiredMixin, SuccessMessageMixin, UpdateVie
         dispatch_responce = super().dispatch(*args, **kwargs)
         if self.DoesNotExist_error:
             return HttpResponseRedirect(reverse('Slices_App:Links_App:Links-Update-Page'))
+        return dispatch_responce
+
+
+# Delete View
+class Links_DeleteView(Custom_LoginRequiredMixin, DeleteView):
+    template_name = 'Links_App/Links_Delete_Template.html'
+    model = Links_Model
+    DoesNotExist_error = False
+
+    def get_success_url(self, *args, **kwargs):
+        return reverse('Slices_App:Links_App:Links-List-Page', kwargs={
+            'SliceName_From_URL': self.kwargs.get(
+                'SliceName_From_URL'
+            )
+        })
+
+    def get_object(self, *args, **kwargs):
+        self.validate_my_slice = self.request.user.slices_model_set.get(slice_Name=self.kwargs.get(
+            'SliceName_From_URL'
+        ))
+        validate_links_ID = self.kwargs.get(
+            'LinksID_From_URL'
+        )
+        try:
+            return self.validate_my_slice.links_model_set.get(id=validate_links_ID)
+        except Links_Model.DoesNotExist:
+            messages.add_message(
+                self.request,
+                messages.WARNING,
+                f"No Link with id number <strong>''{validate_links_ID}''</strong> to Update",
+            )
+            self.DoesNotExist_error = True
+            # get_object method only can return object
+            # cant return http responce .... throws error
+
+    def dispatch(self, *args, **kwargs):
+        dispatch_responce = super().dispatch(*args, **kwargs)
+
+        if self.DoesNotExist_error:
+            return reverse('Slices_App:Links_App:Links-List-Page', kwargs={
+                'SliceName_From_URL': self.kwargs.get(
+                    'SliceName_From_URL'
+                )
+            })
+
+        if self.request.method == "POST":
+            messages.add_message(
+                self.request,
+                messages.ERROR,
+                f"Link was Delete",
+            )
+        else:
+            messages.add_message(
+                self.request,
+                messages.ERROR,
+                f'Are you sure, you want to delete Link, All Data accosiated to this Link will be deleted<br>'
+            )
+
         return dispatch_responce
