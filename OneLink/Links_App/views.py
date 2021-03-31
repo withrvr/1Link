@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
 from django.views.generic import ListView, UpdateView, DeleteView
 from django.urls import reverse_lazy, reverse
 from django.contrib.messages.views import SuccessMessageMixin
@@ -59,7 +59,11 @@ class Links_UpdateView(Custom_LoginRequiredMixin, SuccessMessageMixin, UpdateVie
     def dispatch(self, *args, **kwargs):
         dispatch_responce = super().dispatch(*args, **kwargs)
         if self.DoesNotExist_error:
-            return HttpResponseRedirect(reverse('Slices_App:Links_App:Links-Update-Page'))
+            return HttpResponseRedirect(reverse('Slices_App:Links_App:Links-List-Page', kwargs={
+                'SliceName_From_URL': self.kwargs.get(
+                    'SliceName_From_URL'
+                )
+            }))
         return dispatch_responce
 
 
