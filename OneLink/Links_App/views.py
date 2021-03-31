@@ -93,7 +93,7 @@ class Links_DeleteView(Custom_LoginRequiredMixin, DeleteView):
             messages.add_message(
                 self.request,
                 messages.WARNING,
-                f"No Link with id number <strong>''{validate_links_ID}''</strong> to Update",
+                f"No Link with id number <strong>''{validate_links_ID}''</strong> to Delete",
             )
             self.DoesNotExist_error = True
             # get_object method only can return object
@@ -103,11 +103,11 @@ class Links_DeleteView(Custom_LoginRequiredMixin, DeleteView):
         dispatch_responce = super().dispatch(*args, **kwargs)
 
         if self.DoesNotExist_error:
-            return reverse('Slices_App:Links_App:Links-List-Page', kwargs={
+            return HttpResponseRedirect(reverse('Slices_App:Links_App:Links-List-Page', kwargs={
                 'SliceName_From_URL': self.kwargs.get(
                     'SliceName_From_URL'
                 )
-            })
+            }))
 
         if self.request.method == "POST":
             messages.add_message(
