@@ -31,7 +31,7 @@ class Slices_DetailView_of_Login_User(Custom_LoginRequiredMixin, RedirectView):
         return reverse('Display_App:Slice-Detail-Page', kwargs={
             'UserName_From_URL': self.request.user.username,
             'SliceName_From_URL': self.kwargs.get(
-                'SliceName_From_URL_Of_Login_User'
+                'SliceName_From_URL'
             )
         })
 
@@ -86,7 +86,7 @@ class Slices_UpdateView(Custom_LoginRequiredMixin, SuccessMessageMixin, UpdateVi
 
     def get_object(self, *args, **kwargs):
         validate_slice_Name = self.kwargs.get(
-            'SliceName_From_URL_Of_Login_User'
+            'SliceName_From_URL'
         )
         try:
             return self.request.user.slices_model_set.get(slice_Name=validate_slice_Name)
@@ -116,7 +116,7 @@ class Slices_DeleteView(Custom_LoginRequiredMixin, DeleteView):
 
     def get_object(self, *args, **kwargs):
         self.validate_slice_Name = self.kwargs.get(
-            'SliceName_From_URL_Of_Login_User'
+            'SliceName_From_URL'
         )
         try:
             return self.request.user.slices_model_set.get(slice_Name=self.validate_slice_Name)
