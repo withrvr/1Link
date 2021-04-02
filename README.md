@@ -12,8 +12,8 @@ Want to know more or any thing related to /withrvr/1Link/ ... [Click Here and Fi
 -   Status
 
 ```
-Authentication System Done
-Now Working on Slices App
+Backend done for now
+working on front end
 ```
 
 -   [For More Detail on Curretly Status](./To_Do.md)
