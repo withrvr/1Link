@@ -5,9 +5,9 @@ from Slices_App.models import Slices_Model
 # Links model
 class Links_Model(models.Model):
     my_Slice = models.ForeignKey(Slices_Model, on_delete=models.CASCADE)
-    icon_Image = models.URLField(max_length=400)
+    icon_Image = models.URLField(max_length=400, blank=True, null=True)
     display_Name = models.CharField(max_length=40)
-    sub_Name = models.CharField(max_length=20)
+    sub_Name = models.CharField(max_length=20, blank=True, null=True)
     link_url = models.URLField(max_length=400)
 
     visibility = models.CharField(

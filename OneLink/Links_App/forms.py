@@ -13,4 +13,4 @@ class Links_ListForm(forms.ModelForm):
 class Links_UpdateForm(forms.ModelForm):
     class Meta:
         model = Links_Model
-        exclude = ('my_Slice', )
+        exclude = ('my_Slice', 'icon_Image', 'sub_Name',)
