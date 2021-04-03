@@ -21,6 +21,13 @@ class Links_ListView(Custom_LoginRequiredMixin, ListView):
         ))
         return validate_my_slice.links_model_set.all()
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['current_Slice_Name'] = self.kwargs.get(
+            'SliceName_From_URL'
+        )
+        return context
+
 
 # update links
 class Links_UpdateView(Custom_LoginRequiredMixin, SuccessMessageMixin, UpdateView):
