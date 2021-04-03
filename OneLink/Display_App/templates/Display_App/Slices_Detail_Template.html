@@ -8,29 +8,49 @@
 	href="{{ Slice_Object.author.profile_Picture }}"
 	type="image/x-icon"
 	alt="{{ Slice_Object.author.profile_Picture }} icon profile picture"
-	style="border-radius: 50%"
 />
 
 {% endblock Base_Head %}
 
 <!-- content block -->
 {% block Base_Content %}
-<div class="container bg-danger">
-	<div class="text-center bg-success slices-detail-wrapper">
-		<div class="bg-warning p-2 user-profile-picture-on-slice">
+<div class="container">
+	<div class="text-center slices-detail-wrapper">
+		<div class="p-2 user-profile-picture-on-slice">
 			<a
 				href="{% url 'Display_App:Users-Detail-Page' UserName_From_URL=Slice_Object.author.username %}"
+				target="_blank"
 			>
 				<img
-					class="img-fluid rounded-circle"
 					src="{{ Slice_Object.author.profile_Picture }}"
 					alt="{{ Slice_Object.author.profile_Picture }} profile picture"
+					class="img-fluid rounded-circle"
 				/>
 			</a>
 		</div>
-		<br /><br />
-		<h3>{{ Slice_Object.slice_Name }}</h3>
-		<h1>{{ Slice_Object.visibility }}</h1>
+		<h3>@{{ Slice_Object.slice_Name }}</h3>
+	</div>
+
+	<br />
+
+	<div class="link-wrapper">
+		{% for Links_Object in Links_List_Object %}
+		<a
+			href="{{ Links_Object.link_url }}"
+			target="_blank"
+			style="text-decoration: none"
+		>
+			<div class="d-grid m-2">
+				<div class="link-head btn btn-outline-primary btn-lg">
+					{{ Links_Object.display_Name }}
+				</div>
+			</div>
+		</a>
+
+		{% empty %}
+		<div class="no-links fs-2">no links are added yet</div>
+
+		{% endfor %}
 	</div>
 
 	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />

@@ -29,6 +29,13 @@ class Slices_Detail_View(DetailView):
             UsersProfile_Model, username=lower_username
         )
 
-        return get_object_or_404(
+        self.object = get_object_or_404(
             validate_user.slices_model_set, slice_Name=lower_slice_Name,
         )
+        return self.object
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['Links_List_Object'] = self.object.links_model_set.all()
+        print(self.object.links_model_set.all())
+        return context
