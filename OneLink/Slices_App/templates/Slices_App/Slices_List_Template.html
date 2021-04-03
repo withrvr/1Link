@@ -7,60 +7,57 @@
 {% block Core_Content %}
 
 <div class="container">
-	<div class="content-section">
-		<div class="bg-secondary m-2 p-2 rounded row text-light">
-			<div class="col p-2 fw-bold">Slice Name</div>
-			<div class="col p-2 fw-bold">Visibility</div>
-			<div class="col p-2 fw-bold text-center">Oprations</div>
-		</div>
-
-		{% for Slices_Object in Slices_List_Object %}
-
-		<div class="bg-light m-2 p-2 rounded row">
-			<div class="col p-2">
-				<a
-					href="{% url 'Slices_App:Slice-Detail-Page-Of-Login-User' SliceName_From_URL=Slices_Object.slice_Name %}"
-					target="_blank"
-					class="btn btn-link"
-				>
-					{{ Slices_Object.slice_Name }}
-				</a>
-			</div>
-			<div class="col p-2">{{ Slices_Object.visibility }}</div>
-			<div class="col p-2 text-end d-grid gap-1 d-md-block">
-				<a
-					href="{% url 'Slices_App:Links_App:Links-List-Page' SliceName_From_URL=Slices_Object.slice_Name  %}"
-					class="btn btn-primary btn-sm"
-				>
-					Links
-				</a>
-				<a
-					href="{% url 'Slices_App:Slice-Update-Page' SliceName_From_URL=Slices_Object.slice_Name %}"
-					class="btn btn-success btn-sm"
-				>
-					Update
-				</a>
-				<a
-					href="{% url 'Slices_App:Slice-Delete-Page' SliceName_From_URL=Slices_Object.slice_Name %}"
-					class="btn btn-danger btn-sm"
-				>
-					Delete
-				</a>
-			</div>
-		</div>
-
-		{% empty %}
-		<!-- If no Slices are created-->
-		<div class="">
-			<p class="bg-light m-3 p-3 rounded">
-				No Slices Created Till Now !!!
-				<a href="{% url 'Slices_App:Slices-Create-Page' %}"
-					>Create Now?</a
-				>
-			</p>
-		</div>
-		{% endfor %}
+	<div class="path fs-2">slices/</div>
+	<div class="bg-secondary m-2 p-2 rounded row text-light">
+		<div class="col p-2 fw-bold">Slice Name</div>
+		<div class="col p-2 fw-bold">Visibility</div>
+		<div class="col p-2 fw-bold text-center">Oprations</div>
 	</div>
+
+	{% for Slices_Object in Slices_List_Object %}
+
+	<div class="bg-light m-2 p-2 rounded row">
+		<div class="col p-2">
+			<a
+				href="{% url 'Slices_App:Slice-Detail-Page-Of-Login-User' SliceName_From_URL=Slices_Object.slice_Name %}"
+				target="_blank"
+				class="btn btn-link"
+			>
+				{{ Slices_Object.slice_Name }}
+			</a>
+		</div>
+		<div class="col p-2">{{ Slices_Object.visibility }}</div>
+		<div class="col p-2 text-end d-grid gap-1 d-md-block">
+			<a
+				href="{% url 'Slices_App:Links_App:Links-List-Page' SliceName_From_URL=Slices_Object.slice_Name  %}"
+				class="btn btn-primary btn-sm"
+			>
+				Links
+			</a>
+			<a
+				href="{% url 'Slices_App:Slice-Update-Page' SliceName_From_URL=Slices_Object.slice_Name %}"
+				class="btn btn-success btn-sm"
+			>
+				Update
+			</a>
+			<a
+				href="{% url 'Slices_App:Slice-Delete-Page' SliceName_From_URL=Slices_Object.slice_Name %}"
+				class="btn btn-danger btn-sm"
+			>
+				Delete
+			</a>
+		</div>
+	</div>
+
+	{% empty %}
+	<!-- If no Slices are created-->
+	<div class="">
+		<p class="bg-light m-3 p-3 rounded">
+			No Slices Created Till Now !!!
+			<a href="{% url 'Slices_App:Slices-Create-Page' %}">Create Now?</a>
+		</p>
+	</div>
+	{% endfor %}
 	<br /><br />
 </div>
 
