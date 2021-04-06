@@ -9,15 +9,15 @@
 <div class="container">
 	<div class="path fs-2">slices/</div>
 	<div class="bg-secondary m-2 p-2 rounded row text-light">
-		<div class="col p-2 fw-bold">Slice Name</div>
-		<div class="col p-2 fw-bold">Visibility</div>
+		<div class="col p-2 fw-bold text-center">Slice Name</div>
+		<div class="col p-2 fw-bold text-center">Visibility</div>
 		<div class="col p-2 fw-bold text-center">Oprations</div>
 	</div>
 
 	{% for Slices_Object in Slices_List_Object %}
 
 	<div class="bg-light m-2 p-2 rounded row">
-		<div class="col p-2">
+		<div class="col p-2 text-center">
 			<a
 				href="{% url 'Slices_App:Slice-Detail-Page-Of-Login-User' SliceName_From_URL=Slices_Object.slice_Name %}"
 				target="_blank"
@@ -26,8 +26,8 @@
 				{{ Slices_Object.slice_Name }}
 			</a>
 		</div>
-		<div class="col p-2">{{ Slices_Object.visibility }}</div>
-		<div class="col p-2 text-end d-grid gap-1 d-md-block">
+		<div class="col p-2 text-center">{{ Slices_Object.visibility }}</div>
+		<div class="col p-2 text-center text-end d-grid gap-1 d-md-block">
 			<a
 				href="{% url 'Slices_App:Links_App:Links-List-Page' SliceName_From_URL=Slices_Object.slice_Name  %}"
 				class="btn btn-primary btn-sm"
