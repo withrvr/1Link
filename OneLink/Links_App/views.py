@@ -1,12 +1,44 @@
 from django.shortcuts import render, HttpResponseRedirect
-from django.views.generic import ListView, UpdateView, DeleteView
 from django.urls import reverse_lazy, reverse
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
+from django.views.generic import (
+    ListView,
+    UpdateView,
+    DeleteView,
+    CreateView,
+)
 
 from UsersProfile_App.mixins import Custom_LoginRequiredMixin
 from .models import Links_Model
-from .forms import Links_ListForm, Links_UpdateForm
+from .forms import (
+    Links_ListForm,
+    Links_UpdateForm,
+    Links_CreateForm,
+)
+
+
+# create link
+class Links_CreateView(Custom_LoginRequiredMixin, SuccessMessageMixin, CreateView):
+    template_name = 'Links_App/Links_Create_Template.html'
+    form_class = Links_CreateForm
+    context_object_name = 'Links_Object'
+    success_message = "Links was <strong>Created Succesfully</strong>"
+    DoesNotExist_error = False
+
+    def get_success_url(self, *args, **kwargs):
+        return reverse('Slices_App:Links_App:Links-List-Page', kwargs={
+            'SliceName_From_URL': self.kwargs.get(
+                'SliceName_From_URL'
+            )
+        })
+
+    def form_valid(self, form, *args, **kwargs):
+        # whenever link is created add slice name automatically
+        form.instance.my_Slice = self.request.user.slices_model_set.get(slice_Name=self.kwargs.get(
+            'SliceName_From_URL'
+        ))
+        return super().form_valid(form, *args, **kwargs)
 
 
 # list all the slices of the user
@@ -25,6 +57,9 @@ class Links_ListView(Custom_LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context['current_Slice_Name'] = self.kwargs.get(
             'SliceName_From_URL'
+        )
+        context['current_LinksID'] = self.kwargs.get(
+            'LinksID_From_URL'
         )
         return context
 
