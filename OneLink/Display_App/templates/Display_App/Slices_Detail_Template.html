@@ -16,7 +16,7 @@
 {% block Base_Content %}
 <div class="container">
 	<div class="text-center slices-detail-wrapper">
-		<div class="p-2 user-profile-picture-on-slice">
+		<div class="p-2">
 			<a
 				href="{% url 'Display_App:Users-Detail-Page' UserName_From_URL=Slice_Object.author.username %}"
 				target="_blank"
@@ -25,6 +25,7 @@
 					src="{{ Slice_Object.author.profile_Picture }}"
 					alt="{{ Slice_Object.author.profile_Picture }} profile picture"
 					class="img-fluid rounded-circle"
+					style="height: 100px"
 				/>
 			</a>
 		</div>
