@@ -173,3 +173,9 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = secret_details.EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = secret_details.EMAIL_HOST_PASSWORD
+
+# django-extensions ... graph_models
+GRAPH_MODELS = {
+    'all_applications': True,
+    'group_models': True,
+}
