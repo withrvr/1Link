@@ -2,7 +2,7 @@ If any Issue - Problem ... [Report here](https://github.com/withrvr/1Link/issues
 <br>
 Want to know more or any thing related to /withrvr/1Link/ ... [Click Here and Fill Free to Discuss with the Community](https://github.com/withrvr/1Link/discussions)
 
-[![@withrvr/1Link project banner image](./OneLink/Core_App/static/Core_App/Images/First_Logo_Ever.jpg)](#what-is-1link---withrvr--)
+[![@withrvr/1Link project banner image](./Images/Banner.png)](#what-is-1link---withrvr--)
 <br>
 
 # What is 1Link ( ~ @withrvr ) :
@@ -12,8 +12,8 @@ Want to know more or any thing related to /withrvr/1Link/ ... [Click Here and Fi
 -   Status
 
 ```
-Backend done for now
-working on front end
+Backend - Done
+Front End - Modifying
 ```
 
 -   [For More Detail on Curretly Status](./To_Do.md)
@@ -22,9 +22,8 @@ working on front end
 
 ## Syntax :
 
--   Slice info : `https://example.com/:userName/:sliceName/`
--   User info : `https://example.com/:userName/`
--   Users List of Slices : : `https://example.com/:userName/:slices/`
+-   Slice info : `https://example.com/{ userName }/{ sliceName }/`
+-   User info : `https://example.com/{ userName }/`
 <!-- -   ???: `https://example.com/:userName/:userName/` -->
 
 ## Example ( for User @withrvr ) :
@@ -35,4 +34,3 @@ working on front end
     -   Social Media links .. like twitter, yt, insta, fb : `/withrvr/Social-Media/`
     -   . . . etc
 -   User info : `/withrvr/`
--   Users List of Slices : `/withrvr/`

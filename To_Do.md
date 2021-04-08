@@ -7,7 +7,7 @@
 -   Display
 -   Core
 
-# Extra features to add but after main to do list
+# Extra features to add but after main To Do list
 
 -   search bar to search user
 -   user django-hosts for apis and docs of website
