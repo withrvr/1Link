@@ -9,9 +9,9 @@ from django.views.generic.base import TemplateView
 
 from django.contrib.auth.views import PasswordResetConfirmView
 
+
 # Main URLs
 urlpatterns = [
-
     # Admin Panel
     path('admin-page/', admin.site.urls),
 
@@ -34,13 +34,13 @@ urlpatterns = [
     ),
 
 
-    # UsersProfile
+    # dashboard ... UsersProfile and slices
     path('', include('UsersProfile_App.urls')),
-
-
-    # slices
     path('slices/', include('Slices_App.urls')),
 
+    # api
+    path('api/', include('API_App.urls')),
+    path('api-auth/', include('rest_framework.urls')),
 
     # Display, (user info and slices)
     path('<str:UserName_From_URL>/', include('Display_App.urls')),
