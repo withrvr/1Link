@@ -1,6 +1,6 @@
 {% load static %}
 <nav
-	class="navbar navbar-expand-sm sticky-top navbar-dark bg-dark"
+	class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top"
 	style="background-color: #e3f2fd"
 >
 	<div class="container">
@@ -48,14 +48,6 @@
 			<!-- Right side Nav-Link -->
 			<div class="navbar-nav">
 				{% if user.is_authenticated %}
-
-				<a
-					class="nav-link"
-					target="_blank"
-					href="{% url 'admin:index' %}"
-				>
-					Admin
-				</a>
 
 				<div class="nav-item dropdown">
 					<a
@@ -135,6 +127,22 @@
 							href="{% url 'UsersProfile_App:Delete-Page' %}"
 						>
 							Delete Account
+						</a>
+
+						<hr class="dropdown-divider" />
+						<a
+							class="dropdown-item"
+							target="_blank"
+							href="{% url 'admin:index' %}"
+						>
+							Admin
+						</a>
+						<a
+							class="dropdown-item"
+							target="_blank"
+							href="{% url 'API_App:API-Home-Page' %}"
+						>
+							API
 						</a>
 
 						<hr class="dropdown-divider" />

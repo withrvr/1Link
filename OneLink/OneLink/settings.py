@@ -37,13 +37,21 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
 
     # custom apps
+
+    # resitration, display, core
     'Core_App.apps.CoreAppConfig',
     'Display_App.apps.DisplayAppConfig',
     'Registration_App.apps.RegistrationAppConfig',
 
+    # user -> slice -> link
     'UsersProfile_App.apps.UsersprofileAppConfig',
     'Slices_App.apps.SlicesAppConfig',
     'Links_App.apps.LinksAppConfig',
+
+    # api realted
+    'API_App',
+    'rest_framework',
+    'django_filters',
 
     # 3rd Party apps
     'crispy_forms',
@@ -178,4 +186,18 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 GRAPH_MODELS = {
     'all_applications': True,
     'group_models': True,
+}
+
+# api settings ... drf ( django rest framework )
+REST_FRAMEWORK = {
+
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+
+    # Pagination
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
 }
