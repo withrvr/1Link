@@ -17,12 +17,6 @@ from rest_framework.generics import (
 )
 
 
-# ------------------------------------ Home Page ------------------------------------
-# home page of api
-class API_Home_View(TemplateView):
-    template_name = 'API_App/API_Home_Template.html'
-
-
 # ------------------------------------ UsersProfile ------------------------------------
 # List of UsersProfile
 class UsersProfile_ListAPIView(ListAPIView):
