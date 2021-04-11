@@ -49,8 +49,9 @@ INSTALLED_APPS = [
     'Links_App.apps.LinksAppConfig',
 
     # api realted
-    'API_App',
+    'API_App.apps.ApiAppConfig',
     'rest_framework',
+    'rest_framework.authtoken',
     'django_filters',
 
     # 3rd Party apps
@@ -190,11 +191,11 @@ GRAPH_MODELS = {
 
 # api settings ... drf ( django rest framework )
 REST_FRAMEWORK = {
-
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication'
+    ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest_framework.permissions.IsAuthenticated'
     ],
 
     # Pagination

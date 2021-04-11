@@ -1,5 +1,6 @@
 # User
 
 -   Display User
--   List ( mostviewed | all | search | random )
 -   private / public logic
+-   add count to user, slice and link
+-   List ( mostviewed | all | search | random )

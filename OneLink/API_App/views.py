@@ -18,16 +18,26 @@ from rest_framework.generics import (
 
 
 # ------------------------------------ UsersProfile ------------------------------------
+# using ids
 # List of UsersProfile
 class UsersProfile_ListAPIView(ListAPIView):
     queryset = UsersProfile_Model.objects.all()
     serializer_class = UsersProfile_Serializers
 
 
-# Retrieve particular UsersProfile
-class UsersProfiles_RetrieveAPIView(RetrieveAPIView):
+# using id Retrieve particular UsersProfile
+class UsingId_UsersProfiles_RetrieveAPIView(RetrieveAPIView):
     queryset = UsersProfile_Model.objects.all()
     serializer_class = UsersProfile_Serializers
+
+
+# using username Retrieve particular UsersProfile
+class UsingUsername_UsersProfiles_RetrieveAPIView(RetrieveAPIView):
+    queryset = UsersProfile_Model.objects.all()
+    serializer_class = UsersProfile_Serializers
+
+    def get_object(self, *args, **kwargs):
+        return UsersProfile_Model.objects.get(username=self.kwargs.get('UserName_From_URL').lower())
 
 
 # ------------------------------------ Slices ------------------------------------

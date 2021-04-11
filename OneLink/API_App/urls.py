@@ -3,7 +3,8 @@ from django.urls import path
 from .views import (
 
     UsersProfile_ListAPIView,
-    UsersProfiles_RetrieveAPIView,
+    UsingId_UsersProfiles_RetrieveAPIView,
+    UsingUsername_UsersProfiles_RetrieveAPIView,
 
     Slices_ListAPIView,
     Slicess_RetrieveAPIView,
@@ -13,7 +14,6 @@ from .views import (
 )
 
 from rest_framework.schemas import get_schema_view
-
 
 app_name = 'API_App'
 
@@ -33,7 +33,6 @@ urlpatterns = [
     #         extra_context={'schema_url': 'API_App:openapi-schema'}
     #     ), name='swagger-ui'),
 
-
     # openapi ( Open API )
     path('openapi', get_schema_view(
         title="1Link API",
@@ -45,8 +44,10 @@ urlpatterns = [
     # UsersProfile
     path('users/', UsersProfile_ListAPIView.as_view(),
          name='API-Users-List-Page'),
-    path('users/<pk>/', UsersProfiles_RetrieveAPIView.as_view(),
-         name='API-Users-Retrieve-Page'),
+    path('users/<int:pk>/', UsingId_UsersProfiles_RetrieveAPIView.as_view(),
+         name='API-UsingId-Users-Retrieve-Page'),
+    path('users/<str:UserName_From_URL>/', UsingUsername_UsersProfiles_RetrieveAPIView.as_view(),
+         name='API-UsingUsername-Users-Retrieve-Page'),
 
     # Slices
     path('slices/', Slices_ListAPIView.as_view(),

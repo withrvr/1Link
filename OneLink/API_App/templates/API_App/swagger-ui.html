@@ -8,6 +8,11 @@
 {% endblock Base_Head %} {% block Core_Content %}
 
 <div class="container">
+	{% if user.is_anonymous %}
+	<br /><br />
+	<h1 class="text-center">Login in Required</h1>
+	{% endif %}
+
 	<div id="swagger-ui"></div>
 	<br /><br />
 </div>
