@@ -13,8 +13,13 @@ SECRET_KEY = ''
 # Terminal Command
 
 -   `cd .\OneLink\` ... ie [Click to see where](./OneLink/)
+-   then
 -   `python .\manage.py makemigrations`
 -   `python .\manage.py migrate`
+-   then
+-   `python .\manage.py makemigrations --merge`
+-   `python .\manage.py migrate --fake`
+-   then
 -   `python .\manage.py runserver`
 
 # Install
