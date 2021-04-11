@@ -17,4 +17,4 @@ secret_details.py
 
 
 # ignore migrations file other than __init__
-!migrations/__init__.py
+# !migrations/__init__.py
