@@ -14,3 +14,9 @@ foobar.*
 # in this file in the root folder ... for more detail see the setting.py ...ending file content
 email_host_details.py
 secret_details.py
+
+
+# ignore migrations file other than __init__
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
