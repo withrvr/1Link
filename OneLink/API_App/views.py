@@ -16,13 +16,17 @@ from rest_framework.generics import (
     RetrieveAPIView,
 )
 
+from .pagination import MyCustom_Paginaiton
 
 # ------------------------------------ UsersProfile ------------------------------------
 # using ids
 # List of UsersProfile
+
+
 class UsersProfile_ListAPIView(ListAPIView):
     queryset = UsersProfile_Model.objects.all()
     serializer_class = UsersProfile_Serializers
+    pagination_class = MyCustom_Paginaiton
 
     # search_fields = [
     #     'username',
@@ -65,6 +69,7 @@ class Slices_ListAPIView(ListAPIView):
     queryset = Slices_Model.objects.all()
     serializer_class = Slices_Serializers
     filter_fields = "__all__"
+    pagination_class = MyCustom_Paginaiton
 
 
 # Retrieve particular Slices
@@ -79,6 +84,7 @@ class Links_ListAPIView(ListAPIView):
     queryset = Links_Model.objects.all()
     serializer_class = Links_Serializers
     filter_fields = "__all__"
+    pagination_class = MyCustom_Paginaiton
 
 
 # Retrieve particular Links

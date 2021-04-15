@@ -40,4 +40,5 @@ class Links_Serializers(serializers.ModelSerializer):
             'link_url',
             'visibility',
             'my_Slice',
+            'links_model_set',
         ]
