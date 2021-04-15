@@ -20,6 +20,7 @@ class UsersProfile_Serializers(serializers.ModelSerializer):
             'banner_Image',
 
             'date_joined',
+            'slices_model_set',
         ]
 
 
@@ -27,7 +28,13 @@ class UsersProfile_Serializers(serializers.ModelSerializer):
 class Slices_Serializers(serializers.ModelSerializer):
     class Meta:
         model = Slices_Model
-        fields = '__all__'
+        fields = [
+            'id',
+            'author',
+            'slice_Name',
+            'visibility',
+            'links_model_set',
+        ]
 
 
 # Links
@@ -40,5 +47,4 @@ class Links_Serializers(serializers.ModelSerializer):
             'link_url',
             'visibility',
             'my_Slice',
-            'links_model_set',
         ]
