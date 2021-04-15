@@ -11,6 +11,12 @@ class UsersProfile_Serializers(serializers.ModelSerializer):
     url = serializers.HyperlinkedIdentityField(
         view_name="API_App:API-UsingId-Users-Retrieve-Page"
     )
+    slices = serializers.HyperlinkedRelatedField(
+        source='slices_model_set',
+        many=True,
+        read_only=True,
+        view_name="API_App:API-Slices-Retrieve-Page"
+    )
 
     class Meta:
         model = UsersProfile_Model
@@ -26,14 +32,21 @@ class UsersProfile_Serializers(serializers.ModelSerializer):
             'banner_Image',
 
             'date_joined',
-            'slices_model_set',
+            'slices',
         ]
 
 
 # Slices
 class Slices_Serializers(serializers.ModelSerializer):
     url = serializers.HyperlinkedIdentityField(
-        view_name="API_App:API-Slices-Retrieve-Page"
+        view_name="API_App:API-Slices-Retrieve-Page",
+        read_only=True,
+    )
+    links = serializers.HyperlinkedRelatedField(
+        source='links_model_set',
+        many=True,
+        read_only=True,
+        view_name="API_App:API-Links-Retrieve-Page"
     )
 
     class Meta:
@@ -41,10 +54,11 @@ class Slices_Serializers(serializers.ModelSerializer):
         fields = [
             'id',
             'url',
-            'author',
             'slice_Name',
             'visibility',
-            'links_model_set',
+
+            'author',
+            'links',
         ]
 
 
