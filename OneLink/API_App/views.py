@@ -24,6 +24,25 @@ class UsersProfile_ListAPIView(ListAPIView):
     queryset = UsersProfile_Model.objects.all()
     serializer_class = UsersProfile_Serializers
 
+    # search_fields = [
+    #     'username',
+    #     'email',
+    #     'display_Name',
+    # ]
+
+    filter_fields = [
+        'id',
+
+        'username',
+        'email',
+
+        'display_Name',
+        'profile_Picture',
+        'banner_Image',
+
+        'date_joined',
+    ]
+
 
 # using id Retrieve particular UsersProfile
 class UsingId_UsersProfiles_RetrieveAPIView(RetrieveAPIView):
@@ -45,6 +64,7 @@ class UsingUsername_UsersProfiles_RetrieveAPIView(RetrieveAPIView):
 class Slices_ListAPIView(ListAPIView):
     queryset = Slices_Model.objects.all()
     serializer_class = Slices_Serializers
+    filter_fields = "__all__"
 
 
 # Retrieve particular Slices
@@ -58,6 +78,7 @@ class Slicess_RetrieveAPIView(RetrieveAPIView):
 class Links_ListAPIView(ListAPIView):
     queryset = Links_Model.objects.all()
     serializer_class = Links_Serializers
+    filter_fields = "__all__"
 
 
 # Retrieve particular Links

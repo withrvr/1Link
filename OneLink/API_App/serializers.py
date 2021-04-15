@@ -11,6 +11,7 @@ class UsersProfile_Serializers(serializers.ModelSerializer):
         model = UsersProfile_Model
         fields = [
             'id',
+
             'username',
             'email',
 
@@ -19,7 +20,6 @@ class UsersProfile_Serializers(serializers.ModelSerializer):
             'banner_Image',
 
             'date_joined',
-            'last_login',
         ]
 
 
@@ -29,13 +29,15 @@ class Slices_Serializers(serializers.ModelSerializer):
         model = Slices_Model
         fields = '__all__'
 
+
 # Links
-
-
 class Links_Serializers(serializers.ModelSerializer):
     class Meta:
         model = Links_Model
-        exclude = [
-            'icon_Image',
-            'sub_Name',
+        fields = [
+            'id',
+            'display_Name',
+            'link_url',
+            'visibility',
+            'my_Slice',
         ]
