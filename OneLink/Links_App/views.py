@@ -1,14 +1,15 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.views.generic import (
     ListView,
+    # RedirectView,
+
+    CreateView,
     UpdateView,
     DeleteView,
-    CreateView,
 )
-
 from UsersProfile_App.mixins import Custom_LoginRequiredMixin
 from .models import Links_Model
 from .forms import (
@@ -16,6 +17,13 @@ from .forms import (
     Links_UpdateForm,
     Links_CreateForm,
 )
+
+
+# ( Redirect's to ) Links Detail View
+def Links_DetailView(request, LinksID_From_URL, *args, **kwargs):
+    return redirect(get_object_or_404(
+        Links_Model, pk=LinksID_From_URL
+    ).link_url)
 
 
 # create link

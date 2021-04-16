@@ -2,6 +2,8 @@ from django.urls import path, include
 
 from .views import (
     Links_ListView,
+    Links_DetailView,
+
     Links_UpdateView,
     Links_DeleteView,
     Links_CreateView,
@@ -12,12 +14,13 @@ app_name = 'Links_App'
 
 urlpatterns = [
     path('', Links_ListView.as_view(), name='Links-List-Page'),
+    path('new/', Links_CreateView.as_view(), name='Links-Create-Page'),
 
-    # Create link
+    # detail of the
     path(
-        'new/',
-        Links_CreateView.as_view(),
-        name='Links-Create-Page',
+        '<str:LinksID_From_URL>/',
+        Links_DetailView,
+        name='Links-Detail-Page',
     ),
 
     # Update link
