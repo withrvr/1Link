@@ -49,38 +49,15 @@
 			<div class="navbar-nav">
 				{% if user.is_authenticated %}
 
-				<div class="nav-item dropdown">
-					<a
-						class="nav-link dropdown-toggle"
-						href="#"
-						id="navbarScrollingDropdown"
-						role="button"
-						data-bs-toggle="dropdown"
-						aria-expanded="false"
-					>
-						Slices
-					</a>
-					<div
-						class="dropdown-menu dropdown-menu-end"
-						aria-labelledby="navbarScrollingDropdown"
-					>
-						<a
-							class="dropdown-item"
-							href="{% url 'Slices_App:Slices-List-Page' %}"
-						>
-							List of Slices
-						</a>
+				<a
+					class="nav-link"
+					aria-current="page"
+					href="{% url 'Slices_App:Slices-List-Page' %}"
+				>
+					Slices
+				</a>
 
-						<a
-							class="dropdown-item"
-							href="{% url 'Slices_App:Slices-Create-Page' %}"
-						>
-							Create New
-						</a>
-					</div>
-				</div>
-
-				<!-- dropdown started -->
+				<!-- Settings dropdown started -->
 				<div class="nav-item dropdown">
 					<a
 						class="nav-link dropdown-toggle"
@@ -154,7 +131,7 @@
 						</a>
 					</div>
 				</div>
-				<!-- dropdown started -->
+				<!-- Settings dropdown started -->
 
 				{% else %}
 

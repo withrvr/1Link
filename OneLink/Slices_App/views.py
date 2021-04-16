@@ -49,7 +49,7 @@ class Slices_ListView(Custom_LoginRequiredMixin, ListView):
 # create new slice
 class Slices_CreateView(Custom_LoginRequiredMixin, SuccessMessageMixin, CreateView):
     template_name = 'Slices_App/Slices_Create_Template.html'
-    success_url = reverse_lazy('Slices_App:Slices-Create-Page')
+    success_url = reverse_lazy('Slices_App:Slices-List-Page')
     form_class = Slices_CreationForm
 
     def form_valid(self, form, *args, **kwargs):
@@ -73,7 +73,7 @@ class Slices_CreateView(Custom_LoginRequiredMixin, SuccessMessageMixin, CreateVi
                 messages.ERROR,
                 f'Slice with Name <strong>"{validate_slice_Name}"</strong> Already Exists'
             )
-            return HttpResponseRedirect(reverse('Slices_App:Slices-Create-Page'))
+            return HttpResponseRedirect(reverse('Slices_App:Slices-List-Page'))
 
 
 # Update slices info
@@ -81,8 +81,15 @@ class Slices_UpdateView(Custom_LoginRequiredMixin, SuccessMessageMixin, UpdateVi
     template_name = 'Slices_App/Slices_Update_Template.html'
     success_url = reverse_lazy('Slices_App:Slices-List-Page')
     form_class = Slices_UpdateForm
-    success_message = "Slices Information was <strong>Updated Succesfully</strong>"
+    success_message = "Slice Information was <strong>Updated Succesfully</strong>"
     DoesNotExist_error = False
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['current_Slice_Name'] = self.kwargs.get(
+            'SliceName_From_URL'
+        )
+        return context
 
     def get_object(self, *args, **kwargs):
         validate_slice_Name = self.kwargs.get(
