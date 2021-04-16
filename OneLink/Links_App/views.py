@@ -58,9 +58,6 @@ class Links_ListView(Custom_LoginRequiredMixin, ListView):
         context['current_Slice_Name'] = self.kwargs.get(
             'SliceName_From_URL'
         )
-        context['current_LinksID'] = self.kwargs.get(
-            'LinksID_From_URL'
-        )
         return context
 
 
@@ -71,6 +68,16 @@ class Links_UpdateView(Custom_LoginRequiredMixin, SuccessMessageMixin, UpdateVie
     context_object_name = 'Links_Object'
     success_message = "Links Info was <strong>Updated Succesfully</strong>"
     DoesNotExist_error = False
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['current_Slice_Name'] = self.kwargs.get(
+            'SliceName_From_URL'
+        )
+        context['current_Link_Id'] = self.kwargs.get(
+            'LinksID_From_URL'
+        )
+        return context
 
     def get_success_url(self, *args, **kwargs):
         return reverse('Slices_App:Links_App:Links-List-Page', kwargs={
@@ -155,7 +162,7 @@ class Links_DeleteView(Custom_LoginRequiredMixin, DeleteView):
             messages.add_message(
                 self.request,
                 messages.ERROR,
-                f"Link was Delete",
+                f"Link was Deleted",
             )
         else:
             messages.add_message(
