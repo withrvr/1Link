@@ -6,7 +6,6 @@ from django.contrib import messages
 from django.urls import reverse_lazy, reverse
 from django.forms import ValidationError
 
-# from django.views.generic import UpdateView
 from django.views.generic import (
     ListView,
     DetailView,

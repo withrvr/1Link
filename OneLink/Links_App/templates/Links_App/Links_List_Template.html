@@ -29,7 +29,10 @@
 
 	<div class="bg-light m-2 p-2 rounded row">
 		<div class="col p-2 text-center">
-			<a href="{{ Links_Object.link_url }}" target="_blank">
+			<a
+				href="{% url 'Slices_App:Links_App:Links-Detail-Page' SliceName_From_URL=current_Slice_Name LinksID_From_URL=Links_Object.id %}"
+				target="_blank"
+			>
 				{{ Links_Object.display_Name }}
 			</a>
 		</div>
