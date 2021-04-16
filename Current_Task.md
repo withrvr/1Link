@@ -1,7 +1,6 @@
 # User
 
 -   create links detail view
--   urls.csv ( django-extension ... show_urls )
 -   Display User
 -   private / public logic
 -   add count to user, slice and link
