@@ -18,7 +18,7 @@ urlpatterns = [
     path(
         '<str:SliceName_From_URL>/',
         Slices_DetailView.as_view(),
-        name='Slice-Detail-Page-Of-Login-User',
+        name='Slice-Detail-Page',
     ),
 
     # Update
