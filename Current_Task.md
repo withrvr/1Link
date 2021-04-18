@@ -1,6 +1,5 @@
 # User
 
--   create links detail view
 -   Display User
 -   private / public logic
 -   add count to user, slice and link
