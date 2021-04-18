@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-import secret_details
+# import secret_details
 from django.contrib.messages import constants as messages
 from pathlib import Path
 import os
@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = secret_details.SECRET_KEY
+SECRET_KEY = 'lz@zxy*ml$23^k#09ucp05_1ad^ggg47!$zivrfsn@=_8@y%z('
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
