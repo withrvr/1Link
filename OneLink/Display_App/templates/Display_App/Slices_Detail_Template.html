@@ -28,18 +28,16 @@
 					style="height: 100px"
 				/>
 			</a>
+			<h4>@{{ Slice_Object.author.username }}</h4>
 		</div>
-		<h3>@{{ Slice_Object.slice_Name }}</h3>
 	</div>
-
-	<br />
 
 	<div class="link-wrapper">
 		{% for Links_Object in Links_List_Object %}
 		<a
 			href="{{ Links_Object.link_url }}"
 			target="_blank"
-			style="text-decoration: none"
+			class="text-decoration-none"
 		>
 			<div class="d-grid m-2">
 				<div class="link-head btn btn-outline-primary btn-lg">
@@ -49,12 +47,11 @@
 		</a>
 
 		{% empty %}
-		<div class="no-links fs-2">no links are added yet</div>
-
+		<div class="no-links fs-2 text-center">No Links are added YET</div>
 		{% endfor %}
 	</div>
 
-	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+	<br /><br />
 </div>
 
 {% endblock Base_Content %}
