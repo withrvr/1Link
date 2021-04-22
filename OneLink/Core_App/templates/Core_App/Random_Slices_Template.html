@@ -1,0 +1,34 @@
+{% extends 'Core_App/Core_Base_Template.html' %} {% block Core_Content %}
+
+<div class="container">
+	<h4 class="text-center">
+		{{ Random_Slices_List|length }} Random Slices out of
+		<!-- random users -->
+		{{ Total_Number_Of_Slices}} Slices
+	</h4>
+
+	<br />
+
+	{% for Random_Slice in Random_Slices_List %}
+	<a
+		href="{% url 'Display_App:Slice-Detail-Page' UserName_From_URL=Random_Slice.author.username SliceName_From_URL=Random_Slice.slice_Name %}"
+		target="_blank"
+		class="text-decoration-none"
+	>
+		<div class="d-grid m-2">
+			<div class="link-head btn btn-outline-primary btn-lg">
+				<!-- username -->
+				@{{ Random_Slice.author.username }}
+				<!-- slice name -->
+				-> {{ Random_Slice.slice_Name }}
+			</div>
+		</div>
+	</a>
+	{% endfor %}
+</div>
+
+<br />
+<br />
+<br />
+
+{% endblock Core_Content %}

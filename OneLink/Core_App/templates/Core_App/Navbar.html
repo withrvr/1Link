@@ -35,24 +35,41 @@
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<!-- Solution left right is :- me-auto mb-lg-0 -->
 
-			<!-- Left side Nav-Link -->
-			<div class="navbar-nav me-auto mb-lg-0">
-				<a
-					class="nav-link active"
-					aria-current="page"
-					href="{% url 'Core_App:Home-Page' %}"
-				>
-					Home
-				</a>
-				<a
-					class="nav-link"
-					href="{% url 'Core_App:Random-Users-Page' %}"
-					>Random Users</a
-				>
-			</div>
+			<!-- Left side Nav-Link 
+			-->
+			<div class="navbar-nav me-auto mb-lg-0"></div>
 
 			<!-- Right side Nav-Link -->
 			<div class="navbar-nav">
+				<div class="nav-item dropdown">
+					<a
+						class="nav-link dropdown-toggle"
+						href="#"
+						id="random-users-slices-dropdown"
+						role="button"
+						data-bs-toggle="dropdown"
+						aria-expanded="false"
+					>
+						Random
+					</a>
+					<div
+						class="dropdown-menu"
+						aria-labelledby="random-users-slices-dropdown"
+					>
+						<a
+							class="dropdown-item"
+							href="{% url 'Core_App:Random-Users-Page' %}"
+						>
+							Users
+						</a>
+						<a
+							class="dropdown-item"
+							href="{% url 'Core_App:Random-Slices-Page' %}"
+						>
+							Slices
+						</a>
+					</div>
+				</div>
 				{% if user.is_authenticated %}
 
 				<a
