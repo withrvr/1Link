@@ -8,14 +8,13 @@ class Home_View(TemplateView):
     template_name = 'Core_App/Home_Template.html'
 
 
-# list all the slices of the user
+# any ( 9 ) random slices
 class Random_Slices_View(ListView):
     template_name = 'Core_App/Random_Slices_Template.html'
     context_object_name = 'Random_Slices_List'
 
-    def get_queryset(self, limit=12, *args, **kwargs):
+    def get_queryset(self, limit=9, *args, **kwargs):
         total_number_of_slices = Slices_Model.objects.all().count()
-        limit = 9
 
         import random
         users = Slices_Model.objects.all()
@@ -29,10 +28,12 @@ class Random_Slices_View(ListView):
         return context
 
 
-class Random_Users_View(TemplateView):
+# any ( 12 ) random User
+class Random_Users_View(ListView):
     template_name = 'Core_App/Random_Users_Template.html'
+    context_object_name = 'Random_User_List'
 
-    def generate_Random_Users_List(self, limit=12, *args, **kwargs):
+    def get_queryset(self, limit=12, *args, **kwargs):
         total_number_of_users = UsersProfile_Model.objects.all().count()
 
         import random
@@ -43,6 +44,5 @@ class Random_Users_View(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["Random_User_List"] = self.generate_Random_Users_List()
         context["Total_Number_Of_Users"] = UsersProfile_Model.objects.all().count()
         return context
