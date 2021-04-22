@@ -5,8 +5,6 @@ from django.urls import reverse_lazy
 from django.conf.urls.static import static
 from django.conf import settings
 
-from django.views.generic.base import TemplateView
-
 from django.contrib.auth.views import PasswordResetConfirmView
 
 
@@ -16,9 +14,7 @@ urlpatterns = [
     path('admin-page/', admin.site.urls),
 
     # Core (home, about,...)
-    path('',
-         TemplateView.as_view(template_name='Core_App/Home.html'),
-         name='Home-Page', ),
+    path('', include('Core_App.urls')),
 
 
     # Registration ... login, logour, register and password

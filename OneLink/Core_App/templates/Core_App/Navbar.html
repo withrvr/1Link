@@ -4,7 +4,7 @@
 	style="background-color: #e3f2fd"
 >
 	<div class="container">
-		<a class="navbar-brand" href="{% url 'Home-Page' %}">
+		<a class="navbar-brand" href="{% url 'Core_App:Home-Page' %}">
 			<img
 				src="{% static 'Core_App/Images/First_Logo_Ever.jpg' %}"
 				style="border-radius: 20%; height: 40px"
@@ -17,7 +17,9 @@
 			/>
 			-->
 		</a>
-		<a href="{% url 'Home-Page' %}" class="navbar-brand fs-3">1Link</a>
+		<a href="{% url 'Core_App:Home-Page' %}" class="navbar-brand fs-3"
+			>1Link</a
+		>
 
 		<button
 			class="navbar-toggler"
@@ -38,11 +40,15 @@
 				<a
 					class="nav-link active"
 					aria-current="page"
-					href="{% url 'Home-Page' %}"
+					href="{% url 'Core_App:Home-Page' %}"
 				>
 					Home
 				</a>
-				<a class="nav-link" href="#">About</a>
+				<a
+					class="nav-link"
+					href="{% url 'Core_App:Random-Users-Page' %}"
+					>Random Users</a
+				>
 			</div>
 
 			<!-- Right side Nav-Link -->

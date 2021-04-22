@@ -1,0 +1,40 @@
+{% extends 'Core_App/Core_Base_Template.html' %} {% block Core_Content %}
+
+<div class="container">
+	<h4 class="text-center">
+		{{ Random_User_List|length }} Random Users from
+		<!-- random users -->
+		{{ total_number_of_users}} Users
+	</h4>
+	<br />
+
+	<div class="row row-cols-4 g-4 justify-content-center text-center">
+		{% for Random_User in Random_User_List %}
+
+		<a
+			href="{% url 'Display_App:Users-Detail-Page' UserName_From_URL=Random_User.username %}"
+			target="_blank"
+		>
+			<div class="col">
+				<div class="card">
+					<img
+						src="{{ Random_User.profile_Picture }}"
+						class="card-img-top"
+						alt="@{{ Random_User.usersname }} profile Picture"
+					/>
+					<div class="card-body">
+						<div class="card-title text-center">
+							@{{ Random_User.username }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</a>
+
+		{% endfor %}
+	</div>
+</div>
+<br />
+<br />
+<br />
+{% endblock Core_Content %}
