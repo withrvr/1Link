@@ -12,7 +12,7 @@ SECRET_KEY = ''
 
 # Terminal Command
 
--   `cd .\OneLink\` ... ie [Click to see where](./OneLink/)
+-   `cd .\src\` ... ie [Click to see where](./src/)
 -   then
 -   `python .\manage.py makemigrations`
 -   `python .\manage.py migrate`
