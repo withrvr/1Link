@@ -16,7 +16,7 @@ Backend - Done
 Front End - Modifying
 ```
 
--   [For More Detail on Curretly Status](./To_Do.md)
+-   [For More Detail on Curretly Status](https://github.com/withrvr/1Link/projects/1)
 
 # URL's Mapping :
 

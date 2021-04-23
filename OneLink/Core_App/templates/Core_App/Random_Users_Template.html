@@ -39,14 +39,15 @@
 			<a
 				href="{% url 'Display_App:Users-Detail-Page' UserName_From_URL=Random_User.username %}"
 				target="_blank"
+				class="text-decoration-none"
 			>
-				<div class="card">
+				<div class="card border border-5">
 					<img
 						src="{{ Random_User.profile_Picture }}"
 						class="card-img-top"
 						alt="@{{ Random_User.usersname }} profile Picture"
 					/>
-					<div class="card-body">
+					<div class="card-body border-top-5">
 						<div class="card-title text-center">
 							@{{ Random_User.username }}
 						</div>
