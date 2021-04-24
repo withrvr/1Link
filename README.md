@@ -10,15 +10,15 @@
   Create One and Only OneLink which will contain All the link to be Share
   <br>
   <a href="https://github.com/withrvr/1Link/issues/new?template=bug_report.md">Report Bug</a>
-  .
+  |
   <a href="https://github.com/twbs/bootstrap/issues/new?template=feature_request.md">Request Feature</a>
-  ·
+  |
   <a href="https://github.com/withrvr/1Link/discussions">Discussions</a>
-  .
+  |
   <a href="https://www.instagram.com/withrvr/">Contact Me</a>
 </p>
 
-  <br>
+<br>
 
 ## What is 1Link ( ~ @withrvr ) :
 
