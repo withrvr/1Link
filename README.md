@@ -1,10 +1,10 @@
 <p align="center">
-  <a href="#">
+  <a href="#what-is-1link---withrvr--">
     <img src="./Images/Logo.jpg" alt="@withrvr/1Link project banner image" width="200">
   </a>
 </p>
 
-<h2 align="center">1Link</h2>
+<h3 align="center">1Link</h3>
 
 <p align="center">
   Create One and Only OneLink which will contain All the link to be Share
