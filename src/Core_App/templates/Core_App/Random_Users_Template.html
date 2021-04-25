@@ -36,24 +36,24 @@
 		{% for Random_User in Random_User_List %}
 
 		<div class="col">
-			<a
-				href="{% url 'Display_App:Users-Detail-Page' UserName_From_URL=Random_User.username %}"
-				target="_blank"
-				class="text-decoration-none"
-			>
-				<div class="card border border-5">
-					<img
-						src="{{ Random_User.profile_Picture }}"
-						class="card-img-top"
-						alt="@{{ Random_User.usersname }} profile Picture"
-					/>
-					<div class="card-body border-top-5">
-						<div class="card-title text-center">
+			<div class="card border border-5">
+				<img
+					src="{{ Random_User.profile_Picture }}"
+					class="card-img-top"
+					alt="@{{ Random_User.usersname }} profile Picture"
+				/>
+				<div class="card-body border-top-5">
+					<div class="card-title text-center">
+						<a
+							href="{% url 'Display_App:Users-Detail-Page' UserName_From_URL=Random_User.username %}"
+							target="_blank"
+							class="text-decoration-none stretched-link"
+						>
 							@{{ Random_User.username }}
-						</div>
+						</a>
 					</div>
 				</div>
-			</a>
+			</div>
 		</div>
 
 		{% endfor %}
