@@ -24,22 +24,32 @@ Users_Detail_Style CSS
 {% block Base_Content %}
 <div class="container bg-danger">
 	<div class="users-detail-wrapper bg-success">
-		<div class="users-banner-image">
-			<img
-				src="{{ UsersProfile_Object.banner_Image }}"
-				class="w-100"
-				alt="{{ UsersProfile_Object.banner_Image }} banner Image"
-				style="height: 200px; object-fit: cover"
-			/>
-		</div>
+		<div
+			id="users_banner_image"
+			class="w-100"
+			style="
+				padding-top: calc((1 / 3) * 100%);
+				background-image: url('{{ UsersProfile_Object.banner_Image }}');
+				background-color: rgb(204, 214, 221);
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;			
+			"
+			alt="Banner Image"
+		></div>
+		<div
+			id="user_profile_picture"
+			class="w-25 rounded-circle"
+			style="
+				background-image: url('{{ UsersProfile_Object.profile_Picture }}');
 
-		<div class="user-profile-picture w-25">
-			<img
-				src="{{ UsersProfile_Object.profile_Picture }}"
-				alt="{{ UsersProfile_Object.profile_Picture }} profile picture"
-				class="img-fluid rounded-circle"
-			/>
-		</div>
+				background-color: rgb(204, 214, 221);
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;
+			"
+			alt="Profile Picture"
+		></div>
 		<h3>{{ UsersProfile_Object.display_Name }}</h3>
 		<h1>{{ UsersProfile_Object.username }}</h1>
 	</div>
@@ -47,6 +57,16 @@ Users_Detail_Style CSS
 	<br /><br />
 
 	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+	<script>
+		let user_profile_picture = document.getElementById(
+			"user_profile_picture"
+		);
+		user_profile_picture.style.height = `${user_profile_picture.offsetWidth}px`;
+
+		window.addEventListener("resize", function (e) {
+			user_profile_picture.style.height = `${user_profile_picture.offsetWidth}px`;
+		});
+	</script>
 </div>
 
 {% endblock Base_Content %}
