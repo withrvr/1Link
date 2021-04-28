@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="#what-is-1link---withrvr--">
+  <a href="#1link">
     <img src="./Images/Logo.jpg" alt="@withrvr/1Link project banner image" width="200">
   </a>
 </p>
@@ -14,8 +14,12 @@
   <a href="https://github.com/twbs/bootstrap/issues/new?template=feature_request.md">Request Feature</a>
   |
   <a href="https://github.com/withrvr/1Link/discussions">Discussions</a>
+  <br>
+  Contact Me (
+  <a href="https://www.instagram.com/withrvr/">Instagram</a>
   |
-  <a href="https://www.instagram.com/withrvr/">Contact Me</a>
+  <a href="https://www.twitter.com/withrvr/">Twitter</a>
+  )
 </p>
 
 <br>
