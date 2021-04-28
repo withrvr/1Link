@@ -7,6 +7,11 @@ foo.*
 bar.*
 foobar.*
 
+# foo folders
+foo
+bar
+foobar
+
 # all json files
 *.json
 
