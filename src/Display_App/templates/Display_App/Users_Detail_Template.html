@@ -27,12 +27,13 @@ Users_Detail_Style CSS
 		<div class="users-banner-image">
 			<img
 				src="{{ UsersProfile_Object.banner_Image }}"
-				class="img-fluid"
+				class="w-100"
 				alt="{{ UsersProfile_Object.banner_Image }} banner Image"
+				style="height: 200px; object-fit: cover"
 			/>
 		</div>
 
-		<div class="user-profile-picture">
+		<div class="user-profile-picture w-25">
 			<img
 				src="{{ UsersProfile_Object.profile_Picture }}"
 				alt="{{ UsersProfile_Object.profile_Picture }} profile picture"
