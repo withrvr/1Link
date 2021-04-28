@@ -7,31 +7,35 @@
 {% block Core_Content %}
 
 <div class="container">
-	<div class="path fs-2">
-		<a href="{% url 'Slices_App:Slices-List-Page' %}">slices</a>
-		/
-		<a
-			href="{% url 'Slices_App:Slice-Detail-Page' SliceName_From_URL=current_Slice_Name %}"
-			target="_blank"
-			>{{ current_Slice_Name }}</a
-		>
-		/
-		<a
-			href="{% url 'Slices_App:Links_App:Links-List-Page' SliceName_From_URL=current_Slice_Name  %}"
-			class=""
-			>links</a
-		>
-		/
-		<a
-			href="{% url 'Slices_App:Links_App:Links-Detail-Page' SliceName_From_URL=current_Slice_Name LinksID_From_URL=current_Link_Id %}"
-			target="_blank"
-			>{{ current_Link_Id }}</a
-		>
-		/
-		<span class="">update</span>
-	</div>
-
-	<br />
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb fs-4">
+			<li class="breadcrumb-item">
+				<a href="{% url 'Slices_App:Slices-List-Page' %}">slices</a>
+			</li>
+			<li class="breadcrumb-item">
+				<a
+					href="{% url 'Slices_App:Slice-Detail-Page' SliceName_From_URL=current_Slice_Name %}"
+					target="_blank"
+					>{{ current_Slice_Name }}</a
+				>
+			</li>
+			<li class="breadcrumb-item">
+				<a
+					href="{% url 'Slices_App:Links_App:Links-List-Page' SliceName_From_URL=current_Slice_Name  %}"
+					class=""
+					>links</a
+				>
+			</li>
+			<li class="breadcrumb-item">
+				<a
+					href="{% url 'Slices_App:Links_App:Links-Detail-Page' SliceName_From_URL=current_Slice_Name LinksID_From_URL=current_Link_Id %}"
+					target="_blank"
+					>{{ current_Link_Id }}</a
+				>
+			</li>
+			<li class="breadcrumb-item active" aria-current="page">update</li>
+		</ol>
+	</nav>
 
 	<div class="content-section">
 		{{ form.non_field_errors}}
