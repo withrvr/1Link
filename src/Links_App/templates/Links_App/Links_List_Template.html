@@ -7,18 +7,22 @@
 {% block Core_Content %}
 
 <div class="container">
-	<div class="path fs-2">
-		<a href="{% url 'Slices_App:Slices-List-Page' %}">slices</a>
-		/
-		<a
-			href="{% url 'Slices_App:Slice-Detail-Page' SliceName_From_URL=current_Slice_Name %}"
-			target="_blank"
-			>{{ current_Slice_Name }}</a
-		>
-		/
-		<span class="">links</span>
-		/
-	</div>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb mx-2 fs-4">
+			<li class="breadcrumb-item">
+				<a href="{% url 'Slices_App:Slices-List-Page' %}">slices</a>
+			</li>
+			<li class="breadcrumb-item">
+				<a
+					href="{% url 'Slices_App:Slice-Detail-Page' SliceName_From_URL=current_Slice_Name %}"
+					target="_blank"
+					>{{ current_Slice_Name }}</a
+				>
+			</li>
+			<li class="breadcrumb-item active" aria-current="page">links</li>
+		</ol>
+	</nav>
+
 	<div class="bg-secondary m-2 p-2 rounded row text-light">
 		<div class="col p-2 fw-bold text-center">Display Name</div>
 		<div class="col p-2 fw-bold text-center">Visibility</div>
