@@ -23,50 +23,26 @@ Users_Detail_Style CSS
 <!-- content block -->
 {% block Base_Content %}
 <div class="container bg-danger">
-	<div class="users-detail-wrapper bg-success">
+	<div id="users_detail_wrapper" class="bg-success">
 		<div
 			id="users_banner_image"
 			class="w-100"
-			style="
-				padding-top: calc((1 / 3) * 100%);
-				background-image: url('{{ UsersProfile_Object.banner_Image }}');
-				background-color: rgb(204, 214, 221);
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;			
-			"
+			style="background-image: url('{{ UsersProfile_Object.banner_Image }}');"
 			alt="Banner Image"
 		></div>
+
 		<div
 			id="user_profile_picture"
 			class="w-25 rounded-circle"
-			style="
-				background-image: url('{{ UsersProfile_Object.profile_Picture }}');
-
-				background-color: rgb(204, 214, 221);
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;
-			"
+			style="background-image: url('{{ UsersProfile_Object.profile_Picture }}');"
 			alt="Profile Picture"
 		></div>
+
 		<h3>{{ UsersProfile_Object.display_Name }}</h3>
 		<h1>{{ UsersProfile_Object.username }}</h1>
 	</div>
 
 	<br /><br />
-
-	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-	<script>
-		let user_profile_picture = document.getElementById(
-			"user_profile_picture"
-		);
-		user_profile_picture.style.height = `${user_profile_picture.offsetWidth}px`;
-
-		window.addEventListener("resize", function (e) {
-			user_profile_picture.style.height = `${user_profile_picture.offsetWidth}px`;
-		});
-	</script>
 </div>
 
 {% endblock Base_Content %}
