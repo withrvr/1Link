@@ -51,7 +51,19 @@
 		{% endfor %}
 	</div>
 
-	<br /><br />
+	<div class="text-center py-5">
+		<a
+			href="{% url 'Core_App:Home-Page' %}"
+			class="text-decoration-none text-body"
+		>
+			<img
+				width="40"
+				src="{% static 'Core_App/Images/Logo.jpg' %}"
+				class="rounded mb-2"
+			/>
+			<span class="fs-3">1Link</span>
+		</a>
+	</div>
 </div>
 
 {% endblock Base_Content %}
