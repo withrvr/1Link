@@ -27,9 +27,7 @@
 				>
 			</li>
 			<li class="breadcrumb-item">
-				<a
-					href="{% url 'Slices_App:Links_App:Links-Detail-Page' SliceName_From_URL=current_Slice_Name LinkID_From_URL=current_Link_Id %}"
-					target="_blank"
+				<a href="{{ Links_Object.link_url }}" target="_blank"
 					>{{ current_Link_Id }}</a
 				>
 			</li>
