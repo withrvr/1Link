@@ -120,6 +120,13 @@ class Slices_DeleteView(Custom_LoginRequiredMixin, DeleteView):
     model = Slices_Model
     DoesNotExist_error = False
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['current_Slice_Name'] = self.kwargs.get(
+            'SliceName_From_URL'
+        )
+        return context
+
     def get_object(self, *args, **kwargs):
         self.validate_slice_Name = self.kwargs.get(
             'SliceName_From_URL'
