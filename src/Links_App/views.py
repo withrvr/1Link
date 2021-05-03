@@ -130,6 +130,16 @@ class Links_DeleteView(Custom_LoginRequiredMixin, DeleteView):
     model = Links_Model
     DoesNotExist_error = False
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['current_Slice_Name'] = self.kwargs.get(
+            'SliceName_From_URL'
+        )
+        context['current_Link_Id'] = self.kwargs.get(
+            'LinksID_From_URL'
+        )
+        return context
+
     def get_success_url(self, *args, **kwargs):
         return reverse('Slices_App:Links_App:Links-List-Page', kwargs={
             'SliceName_From_URL': self.kwargs.get(
