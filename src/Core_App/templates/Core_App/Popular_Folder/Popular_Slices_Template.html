@@ -1,0 +1,38 @@
+{% extends 'Core_App/Core_Base_Template.html' %} {% block Core_Content %}
+
+<div class="container">
+	<div class="row mx-auto">
+		<h4 class="col text-center">
+			According to Clicks
+			<br />
+			{{ Popular_Slices_List|length }} Popular Slices
+			<!--  -->
+			out of {{ Total_Number_Of_Slices}} Slices
+		</h4>
+	</div>
+
+	<br />
+
+	{% for Popular_Slice in Popular_Slices_List %}
+	<a
+		href="{% url 'Display_App:Slice-Detail-Page' UserName_From_URL=Popular_Slice.author.username SliceName_From_URL=Popular_Slice.slice_Name %}"
+		target="_blank"
+		class="text-decoration-none"
+	>
+		<div class="d-grid my-2">
+			<div class="btn btn-outline-primary btn-lg">
+				<!-- username -->
+				@{{ Popular_Slice.author.username }}
+				<!-- slice name -->
+				-> {{ Popular_Slice.slice_Name }}
+			</div>
+		</div>
+	</a>
+	{% endfor %}
+</div>
+
+<br />
+<br />
+<br />
+
+{% endblock Core_Content %}
