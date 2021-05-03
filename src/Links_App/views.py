@@ -35,7 +35,12 @@ class Links_CreateView(Custom_LoginRequiredMixin, SuccessMessageMixin, CreateVie
     DoesNotExist_error = False
 
     def get_success_url(self, *args, **kwargs):
-        return reverse('Slices_App:Links_App:Links-List-Page', kwargs={
+        create_or_list_page = 'Slices_App:Links_App:Links-List-Page'
+
+        if 'create_and_add_another_new_link' in self.request.POST:
+            create_or_list_page = 'Slices_App:Links_App:Links-Create-Page'
+
+        return reverse(create_or_list_page, kwargs={
             'SliceName_From_URL': self.kwargs.get(
                 'SliceName_From_URL'
             )
