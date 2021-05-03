@@ -18,21 +18,21 @@ urlpatterns = [
 
     # detail of the
     path(
-        '<str:LinksID_From_URL>/',
+        '<str:LinkID_From_URL>/',
         Links_DetailView,
         name='Links-Detail-Page',
     ),
 
     # Update link
     path(
-        '<str:LinksID_From_URL>/update/',
+        '<str:LinkID_From_URL>/update/',
         Links_UpdateView.as_view(),
         name='Links-Update-Page',
     ),
 
     # Delete link
     path(
-        '<str:LinksID_From_URL>/delete/',
+        '<str:LinkID_From_URL>/delete/',
         Links_DeleteView.as_view(),
         name='Links-Delete-Page',
     ),

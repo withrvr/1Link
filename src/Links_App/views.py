@@ -20,9 +20,9 @@ from .forms import (
 
 
 # ( Redirect's to ) Links Detail View
-def Links_DetailView(request, LinksID_From_URL, *args, **kwargs):
+def Links_DetailView(request, LinkID_From_URL, *args, **kwargs):
     return redirect(get_object_or_404(
-        Links_Model, pk=LinksID_From_URL
+        Links_Model, pk=LinkID_From_URL
     ).link_url)
 
 
@@ -95,7 +95,7 @@ class Links_UpdateView(Custom_LoginRequiredMixin, SuccessMessageMixin, UpdateVie
             'SliceName_From_URL'
         )
         context['current_Link_Id'] = self.kwargs.get(
-            'LinksID_From_URL'
+            'LinkID_From_URL'
         )
         return context
 
@@ -111,7 +111,7 @@ class Links_UpdateView(Custom_LoginRequiredMixin, SuccessMessageMixin, UpdateVie
             'SliceName_From_URL'
         ))
         validate_links_ID = self.kwargs.get(
-            'LinksID_From_URL'
+            'LinkID_From_URL'
         )
         try:
             return validate_my_slice.links_model_set.get(id=validate_links_ID)
@@ -148,7 +148,7 @@ class Links_DeleteView(Custom_LoginRequiredMixin, DeleteView):
             'SliceName_From_URL'
         )
         context['current_Link_Id'] = self.kwargs.get(
-            'LinksID_From_URL'
+            'LinkID_From_URL'
         )
         return context
 
@@ -164,7 +164,7 @@ class Links_DeleteView(Custom_LoginRequiredMixin, DeleteView):
             'SliceName_From_URL'
         ))
         validate_links_ID = self.kwargs.get(
-            'LinksID_From_URL'
+            'LinkID_From_URL'
         )
         try:
             return self.validate_my_slice.links_model_set.get(id=validate_links_ID)
