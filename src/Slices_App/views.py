@@ -56,6 +56,12 @@ class Slices_CreateView(Custom_LoginRequiredMixin, SuccessMessageMixin, CreateVi
         form.instance.author = validate_user = self.request.user
         validate_slice_Name = form.instance.slice_Name
 
+        # create_new_slice
+        # OR
+        # create_and_add_another_new_slice
+        if "create_and_add_another_new_slice" in self.request.POST:
+            self.success_url = reverse_lazy('Slices_App:Slices-Create-Page')
+
         try:
             slice_display_url = reverse_lazy('Display_App:Slice-Detail-Page', kwargs={
                 'UserName_From_URL': validate_user.username,
@@ -72,7 +78,7 @@ class Slices_CreateView(Custom_LoginRequiredMixin, SuccessMessageMixin, CreateVi
                 messages.ERROR,
                 f'Slice with Name <strong>"{validate_slice_Name}"</strong> Already Exists'
             )
-            return HttpResponseRedirect(reverse('Slices_App:Slices-List-Page'))
+            return HttpResponseRedirect(self.success_url)
 
 
 # Update slices info
