@@ -6,11 +6,13 @@ __pycache__
 foo.*
 bar.*
 foobar.*
+testing.*
 
 # foo folders
 foo
 bar
 foobar
+testing
 
 # all json files
 *.json
