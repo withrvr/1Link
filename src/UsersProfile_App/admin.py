@@ -35,6 +35,7 @@ class UserProfile_Admin(UserAdmin):
                 'display_Name',
                 'banner_Image',
                 'profile_Picture',
+                'clicks',
             )
         }),
         ("Default User Fields", {'fields': (), }),
