@@ -12,15 +12,20 @@ SECRET_KEY = ''
 
 # Terminal Command
 
--   `cd .\src\` ... ie [Click to see where](./src/)
--   then
--   `python .\manage.py makemigrations`
--   `python .\manage.py migrate`
--   then
--   `python .\manage.py makemigrations --merge`
--   `python .\manage.py migrate --fake`
--   then
--   `python .\manage.py runserver`
+<pre>
+`cd .\src\`
+
+
+`python .\manage.py makemigrations`
+`python .\manage.py migrate`
+
+
+`python .\manage.py makemigrations --merge`
+`python .\manage.py migrate --fake`
+
+
+`python .\manage.py runserver`
+</pre>
 
 # Install
 
