@@ -34,6 +34,13 @@ class Links_CreateView(Custom_LoginRequiredMixin, SuccessMessageMixin, CreateVie
     success_message = "Links was <strong>Created Succesfully</strong>"
     DoesNotExist_error = False
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['current_Slice_Name'] = self.kwargs.get(
+            'SliceName_From_URL'
+        )
+        return context
+
     def get_success_url(self, *args, **kwargs):
         create_or_list_page = 'Slices_App:Links_App:Links-List-Page'
 
