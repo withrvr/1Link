@@ -15,11 +15,9 @@
   |
   <a href="https://github.com/withrvr/1Link/discussions">Discussions</a>
   <br>
-  Contact Me (
   <a href="https://www.instagram.com/withrvr/">Instagram</a>
   |
   <a href="https://www.twitter.com/withrvr/">Twitter</a>
-  )
 </p>
 
 <br>
