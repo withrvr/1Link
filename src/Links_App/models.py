@@ -1,5 +1,6 @@
 from django.db import models
 from Slices_App.models import Slices_Model
+from django.core.validators import MinValueValidator
 
 
 # Links model
@@ -18,10 +19,10 @@ class Links_Model(models.Model):
         ],
         default='public'
     )
-
-    '''
-    number of time clicked
-    '''
+    clicks = models.IntegerField(
+        default=0, blank=False, null=False,
+        validators=[MinValueValidator(0), ]
+    )
 
     def __str__(self, *args, **kwargs):
         return f'{self.my_Slice} -> `{self.id}`'

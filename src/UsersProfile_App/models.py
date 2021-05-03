@@ -4,6 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.validators import UnicodeUsernameValidator
 from django.core.validators import RegexValidator
 from django.contrib import messages
+from django.core.validators import MinValueValidator
 
 
 # Custom User Model
@@ -32,8 +33,15 @@ class UsersProfile_Model(AbstractUser):
         max_length=400, blank=True, null=True,
         default='https://raw.githubusercontent.com/withrvr/1Link/main/Images/Default_Banner_Image.png',
     )
+    clicks = models.IntegerField(
+        default=0, blank=False, null=False,
+        validators=[MinValueValidator(0), ]
+    )
 
     """
+    clicks
+    unique_visitors
+
     bio
     location
     dob

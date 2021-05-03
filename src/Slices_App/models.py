@@ -1,3 +1,4 @@
+from django.core.validators import MinValueValidator
 from django.db import models
 from UsersProfile_App.models import UsersProfile_Model
 from django.core.validators import RegexValidator
@@ -24,10 +25,10 @@ class Slices_Model(models.Model):
         ],
         default='public'
     )
-
-    '''
-    number of time clicked
-    '''
+    clicks = models.IntegerField(
+        default=0, blank=False, null=False,
+        validators=[MinValueValidator(0), ]
+    )
 
     class Meta:
         unique_together = (
