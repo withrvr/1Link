@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect, get_object_or_404, redirect
+from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
@@ -19,11 +19,11 @@ from .forms import (
 )
 
 
-# ( Redirect's to ) Links Detail View
-def Links_DetailView(request, LinkID_From_URL, *args, **kwargs):
-    return redirect(get_object_or_404(
-        Links_Model, pk=LinkID_From_URL
-    ).link_url)
+# # ( Redirect's to ) Links Detail View
+# def Links_DetailView(request, LinkID_From_URL, *args, **kwargs):
+#     return redirect(get_object_or_404(
+#         Links_Model, pk=LinkID_From_URL
+#     ).link_url)
 
 
 # create link
@@ -140,6 +140,7 @@ class Links_UpdateView(Custom_LoginRequiredMixin, SuccessMessageMixin, UpdateVie
 class Links_DeleteView(Custom_LoginRequiredMixin, DeleteView):
     template_name = 'Links_App/Links_Delete_Template.html'
     model = Links_Model
+    context_object_name = 'Links_Object'
     DoesNotExist_error = False
 
     def get_context_data(self, **kwargs):
