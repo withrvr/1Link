@@ -35,7 +35,7 @@
 	<div class="link-wrapper">
 		{% for Links_Object in Links_List_Object %}
 		<a
-			href="{{ Links_Object.link_url }}"
+			href="{% url 'Display_App:Links-Detail-Page' LinkID_From_URL=Links_Object.id %}"
 			target="_blank"
 			class="text-decoration-none"
 		>
