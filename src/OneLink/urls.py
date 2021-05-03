@@ -39,7 +39,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
 
     # Display, (user info and slices)
-    path('<str:UserName_From_URL>/', include('Display_App.urls')),
+    path('', include('Display_App.urls')),
 
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
