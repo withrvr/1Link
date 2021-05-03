@@ -4,17 +4,20 @@ from django.http import Http404
 
 from UsersProfile_App.models import UsersProfile_Model
 from Slices_App.models import Slices_Model
+from Links_App.models import Links_Model
 
 
 class Links_Detail_View(RedirectView):
-    pass
-    # def get_redirect_url(self, *args, **kwargs):
-    #     return reverse('Display_App:Slice-Detail-Page', kwargs={
-    #         'UserName_From_URL': self.request.user.username,
-    #         'SliceName_From_URL': self.kwargs.get(
-    #             'SliceName_From_URL'
-    #         )
-    #     })
+    def get_redirect_url(self, *args, **kwargs):
+        self.object = get_object_or_404(Links_Model, id=self.kwargs.get(
+            'LinkID_From_URL'
+        ))
+
+        # increase clicks
+        self.object.clicks += 1
+        self.object.save()
+
+        return self.object.link_url
 
 
 class Users_Detail_View(DetailView):
