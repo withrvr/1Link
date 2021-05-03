@@ -38,6 +38,7 @@
 
 			<!-- Right side Nav-Link -->
 			<div class="navbar-nav">
+				<!-- Random users and slices dropdown -->
 				<div class="nav-item dropdown">
 					<a
 						class="nav-link dropdown-toggle"
@@ -50,7 +51,7 @@
 						Random
 					</a>
 					<div
-						class="dropdown-menu"
+						class="dropdown-menu dropdown-menu-end"
 						aria-labelledby="random-users-slices-dropdown"
 					>
 						<a
@@ -67,6 +68,38 @@
 						</a>
 					</div>
 				</div>
+
+				<!-- popular users and slices dropdown -->
+				<div class="nav-item dropdown">
+					<a
+						class="nav-link dropdown-toggle"
+						href="#"
+						id="popular-users-slices-dropdown"
+						role="button"
+						data-bs-toggle="dropdown"
+						aria-expanded="false"
+					>
+						Popular
+					</a>
+					<div
+						class="dropdown-menu"
+						aria-labelledby="popular-users-slices-dropdown"
+					>
+						<a
+							class="dropdown-item"
+							href="{% url 'Core_App:Popular-Users-Page' %}"
+						>
+							Users
+						</a>
+						<a
+							class="dropdown-item"
+							href="{% url 'Core_App:Popular-Slices-Page' %}"
+						>
+							Slices
+						</a>
+					</div>
+				</div>
+
 				{% if user.is_authenticated %}
 
 				<a

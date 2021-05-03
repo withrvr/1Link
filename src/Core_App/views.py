@@ -8,6 +8,8 @@ class Home_View(TemplateView):
     template_name = 'Core_App/Home_Template.html'
 
 
+# ------------------------------ RANDOM ------------------------------
+
 # any ( 9 ) random slices
 class Random_Slices_View(ListView):
     template_name = 'Core_App/Random_Slices_Template.html'
@@ -41,6 +43,48 @@ class Random_Users_View(ListView):
         if limit > total_number_of_users:
             limit = total_number_of_users
         return random.sample(list(users), limit)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["Total_Number_Of_Users"] = UsersProfile_Model.objects.all().count()
+        return context
+
+
+# ------------------------------ POPULAR ------------------------------
+
+
+# Top 10 Slices
+class Popular_Slices_View(ListView):
+    template_name = 'Core_App/Popular_Folder/Popular_Slices_Template.html'
+    context_object_name = 'Popular_Slices_List'
+
+    def get_queryset(self, limit=10, *args, **kwargs):
+        # if slices are less that limit
+        total_number_of_slices = Slices_Model.objects.all().count()
+        users = Slices_Model.objects.all()
+        if limit > total_number_of_slices:
+            limit = total_number_of_slices
+        return Slices_Model.objects.all().order_by("-clicks")[:limit]
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["Total_Number_Of_Slices"] = Slices_Model.objects.all().count()
+        return context
+
+
+# any ( 12 ) random User
+class Popular_Users_View(ListView):
+    template_name = 'Core_App/Popular_Folder/Popular_Users_Template.html'
+    context_object_name = 'Popular_User_List'
+
+    def get_queryset(self, limit=10, *args, **kwargs):
+        # if users are less that limit
+        total_number_of_users = UsersProfile_Model.objects.all().count()
+        users = UsersProfile_Model.objects.all()
+        if limit > total_number_of_users:
+            limit = total_number_of_users
+
+        return UsersProfile_Model.objects.all().order_by("-clicks")[:limit]
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
