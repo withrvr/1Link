@@ -8,7 +8,7 @@ app_name = 'Display_App'
 urlpatterns = [
     # links redirect
     path(
-        'link/<int:LinkID_From_URL>/',
+        'links/<int:LinkID_From_URL>/',
         Links_Detail_View.as_view(),
         name='Links-Detail-Page'
     ),
