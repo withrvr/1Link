@@ -1,22 +1,22 @@
 {% extends 'Core_App/Core_Base_Template.html' %} {% block Core_Content %}
 
-<div class="container">
-	<div class="row mx-auto">
-		<h4 class="col text-center">
+<div class="container mb-5">
+	<div class="row text-center justify-content-center m-1">
+		<h4 class="col col-lg-5">
 			{{ Random_Slices_List|length }} Random Slices out of
 			<!-- random users -->
 			{{ Total_Number_Of_Slices}} Slices
 		</h4>
 		<a
 			href="{% url 'Core_App:Random-Slices-Page' %}"
-			class="col-3 btn btn-success"
+			class="col col-lg-3 btn btn-success text-center align-middle my-auto"
 		>
 			<svg
+				class="bi bi-arrow-repeat align-middle"
 				xmlns="http://www.w3.org/2000/svg"
 				width="16"
 				height="16"
 				fill="currentColor"
-				class="bi bi-arrow-repeat"
 				viewBox="0 0 16 16"
 			>
 				<path
@@ -27,32 +27,26 @@
 					d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"
 				/>
 			</svg>
-			Again</a
-		>
+			<span class="align-middle">Again</span>
+		</a>
 	</div>
 
-	<br />
-
-	{% for Random_Slice in Random_Slices_List %}
-	<a
-		href="{% url 'Display_App:Slice-Detail-Page' UserName_From_URL=Random_Slice.author.username SliceName_From_URL=Random_Slice.slice_Name %}"
-		target="_blank"
-		class="text-decoration-none"
-	>
-		<div class="d-grid my-2">
-			<div class="btn btn-outline-primary btn-lg">
+	<div class="link-wrapper my-3">
+		{% for Random_Slice in Random_Slices_List %}
+		<div class="d-grid col-lg-8 mx-auto">
+			<a
+				href="{% url 'Display_App:Slice-Detail-Page' UserName_From_URL=Random_Slice.author.username SliceName_From_URL=Random_Slice.slice_Name %}"
+				target="_blank"
+				class="btn btn-lg btn-outline-primary m-1"
+			>
 				<!-- username -->
 				@{{ Random_Slice.author.username }}
 				<!-- slice name -->
 				-> {{ Random_Slice.slice_Name }}
-			</div>
+			</a>
 		</div>
-	</a>
-	{% endfor %}
+		{% endfor %}
+	</div>
 </div>
-
-<br />
-<br />
-<br />
 
 {% endblock Core_Content %}
