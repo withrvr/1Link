@@ -1,0 +1,25 @@
+{% extends 'Core_App/Core_Base_Template.html' %} {% block Core_Content %}
+
+<div class="container text-center mb-5">
+	<h1 class="mb-5">
+		Discover Random <br />
+		Users or Slices
+	</h1>
+
+	<div class="d-grid gap-2 col-md-8 mx-auto">
+		<a
+			class="btn-lg btn-success m-3 text-decoration-none"
+			href="{% url 'Core_App:Random-Users-Page' %}"
+		>
+			Users
+		</a>
+		<a
+			class="btn-lg btn-success m-3 text-decoration-none"
+			href="{% url 'Core_App:Random-Slices-Page' %}"
+		>
+			Slices
+		</a>
+	</div>
+</div>
+
+{% endblock Core_Content %}

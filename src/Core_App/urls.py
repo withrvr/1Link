@@ -5,6 +5,7 @@ from .views import (
     Home_View,
 
     # random
+    Random_Choice_View,
     Random_Users_View,
     Random_Slices_View,
 
@@ -21,8 +22,9 @@ urlpatterns = [
     path('home/', RedirectView.as_view(pattern_name='Core_App:Home-Page')),
 
     # Random Users & Slices
-    path('random-users/', Random_Users_View.as_view(), name='Random-Users-Page'),
-    path('random-slices/', Random_Slices_View.as_view(), name='Random-Slices-Page'),
+    path('random/', Random_Choice_View.as_view(), name='Random-Choice-Page'),
+    path('random/users/', Random_Users_View.as_view(), name='Random-Users-Page'),
+    path('random/slices/', Random_Slices_View.as_view(), name='Random-Slices-Page'),
 
     # Popular Users & Slices
     path('popular-users/', Popular_Users_View.as_view(), name='Popular-Users-Page'),
