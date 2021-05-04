@@ -59,7 +59,12 @@ class Random_Slices_View(ListView):
 # ------------------------------ POPULAR ------------------------------
 
 
-# any ( 12 ) random User
+# Popular choice
+class Popular_Choice_View(TemplateView):
+    template_name = 'Core_App/Popular_Folder/Popular_Choice_Template.html'
+
+
+# Top 10 Users
 class Popular_Users_View(ListView):
     template_name = 'Core_App/Popular_Folder/Popular_Users_Template.html'
     context_object_name = 'Popular_User_List'

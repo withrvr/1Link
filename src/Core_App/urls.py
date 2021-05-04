@@ -10,6 +10,7 @@ from .views import (
     Random_Slices_View,
 
     # Popular
+    Popular_Choice_View,
     Popular_Users_View,
     Popular_Slices_View,
 )
@@ -27,7 +28,8 @@ urlpatterns = [
     path('random/slices/', Random_Slices_View.as_view(), name='Random-Slices-Page'),
 
     # Popular Users & Slices
-    path('popular-users/', Popular_Users_View.as_view(), name='Popular-Users-Page'),
-    path('popular-slices/', Popular_Slices_View.as_view(),
+    path('popular/', Popular_Choice_View.as_view(), name='Popular-Choice-Page'),
+    path('popular/users/', Popular_Users_View.as_view(), name='Popular-Users-Page'),
+    path('popular/slices/', Popular_Slices_View.as_view(),
          name='Popular-Slices-Page'),
 ]
