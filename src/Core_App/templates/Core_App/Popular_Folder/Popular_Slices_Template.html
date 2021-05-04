@@ -1,38 +1,30 @@
 {% extends 'Core_App/Core_Base_Template.html' %} {% block Core_Content %}
 
-<div class="container">
-	<div class="row mx-auto">
-		<h4 class="col text-center">
-			According to Clicks
-			<br />
-			{{ Popular_Slices_List|length }} Popular Slices
-			<!--  -->
-			out of {{ Total_Number_Of_Slices}} Slices
-		</h4>
-	</div>
+<div class="container mb-5">
+	<h4 class="d-grid mx-auto text-center">
+		According to Clicks
+		<br />
+		{{ Popular_Slices_List|length }} Popular Slices
+		<!--  -->
+		out of {{ Total_Number_Of_Slices}} Slices
+	</h4>
 
-	<br />
-
-	{% for Popular_Slice in Popular_Slices_List %}
-	<a
-		href="{% url 'Display_App:Slice-Detail-Page' UserName_From_URL=Popular_Slice.author.username SliceName_From_URL=Popular_Slice.slice_Name %}"
-		target="_blank"
-		class="text-decoration-none"
-	>
-		<div class="d-grid my-2">
-			<div class="btn btn-outline-primary btn-lg">
+	<div class="link-wrapper my-4">
+		{% for Popular_Slice in Popular_Slices_List %}
+		<div class="d-grid col-lg-8 mx-auto">
+			<a
+				href="{% url 'Display_App:Slice-Detail-Page' UserName_From_URL=Popular_Slice.author.username SliceName_From_URL=Popular_Slice.slice_Name %}"
+				target="_blank"
+				class="btn btn-lg btn-outline-primary m-1"
+			>
 				<!-- username -->
 				@{{ Popular_Slice.author.username }}
 				<!-- slice name -->
 				-> {{ Popular_Slice.slice_Name }}
-			</div>
+			</a>
 		</div>
-	</a>
-	{% endfor %}
+		{% endfor %}
+	</div>
 </div>
-
-<br />
-<br />
-<br />
 
 {% endblock Core_Content %}
