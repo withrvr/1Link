@@ -3,6 +3,7 @@ from django.views.generic.base import RedirectView
 
 from .views import (
     Home_View,
+    About_View,
 
     # random
     Random_Choice_View,
@@ -21,6 +22,7 @@ urlpatterns = [
     # home page
     path('', Home_View.as_view(), name='Home-Page', ),
     path('home/', RedirectView.as_view(pattern_name='Core_App:Home-Page')),
+    path('about/', About_View.as_view(), name='About-Page'),
 
     # Random Users & Slices
     path('random/', Random_Choice_View.as_view(), name='Random-Choice-Page'),
