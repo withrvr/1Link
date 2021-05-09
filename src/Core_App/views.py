@@ -8,6 +8,10 @@ class Home_View(TemplateView):
     template_name = 'Core_App/Home_Template.html'
 
 
+class About_View(TemplateView):
+    template_name = 'Core_App/About_Template.html'
+
+
 # ------------------------------ RANDOM ------------------------------
 
 
