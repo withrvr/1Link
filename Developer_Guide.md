@@ -13,20 +13,17 @@ SECRET_KEY = ''
 # Terminal Command
 
 <pre>
-`cd .\src\`
+cd .\src\
 
+python .\manage.py makemigrations
+python .\manage.py migrate
 
-`python .\manage.py makemigrations`
-`python .\manage.py migrate`
+python .\manage.py makemigrations --merge
+python .\manage.py migrate --fake
 
-
-`python .\manage.py makemigrations --merge`
-`python .\manage.py migrate --fake`
-
-
-`python .\manage.py runserver`
+python .\manage.py runserver
 </pre>
 
 # Install
 
--   [Install this pip packages](./requirements.txt) ... with upgraded or same version
+-   [Install this pip packages](./requirements.txt)
