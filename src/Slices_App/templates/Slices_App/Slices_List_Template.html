@@ -16,6 +16,7 @@
 	<div class="bg-secondary m-2 p-2 rounded row text-light">
 		<div class="col p-2 fw-bold text-center">Slice Name</div>
 		<div class="col p-2 fw-bold text-center">Visibility</div>
+		<div class="col p-2 fw-bold text-center">Clicks</div>
 		<div class="col p-2 fw-bold text-center">Operations</div>
 	</div>
 	{% if Slices_List_Object %} {% for Slices_Object in Slices_List_Object %}
@@ -30,6 +31,7 @@
 			</a>
 		</div>
 		<div class="col p-2 text-center">{{ Slices_Object.visibility }}</div>
+		<div class="col p-2 text-center">{{ Slices_Object.clicks }}</div>
 		<div class="col p-2 text-center text-end d-grid gap-1 d-md-block">
 			<a
 				href="{% url 'Slices_App:Links_App:Links-List-Page' SliceName_From_URL=Slices_Object.slice_Name  %}"
@@ -56,7 +58,9 @@
 
 	<!-- If no Slices are created-->
 	<div class="">
-		<p class="bg-light m-3 p-3 rounded">No Slices Created Till Now !!!</p>
+		<p class="bg-light m-3 p-3 rounded text-center">
+			No Slices Created Till Now !!!
+		</p>
 	</div>
 
 	{% endif %}

@@ -26,6 +26,7 @@
 	<div class="bg-secondary m-2 p-2 rounded row text-light">
 		<div class="col p-2 fw-bold text-center">Display Name</div>
 		<div class="col p-2 fw-bold text-center">Visibility</div>
+		<div class="col p-2 fw-bold text-center">Clicks</div>
 		<div class="col p-2 fw-bold text-center">Operations</div>
 	</div>
 
@@ -38,6 +39,7 @@
 			</a>
 		</div>
 		<div class="col p-2 text-center">{{ Links_Object.visibility }}</div>
+		<div class="col p-2 text-center">{{ Links_Object.clicks }}</div>
 		<div class="col p-2 text-center text-center d-grid gap-1 d-md-block">
 			<a
 				href="{% url 'Slices_App:Links_App:Links-Update-Page' SliceName_From_URL=current_Slice_Name LinkID_From_URL=Links_Object.id %}"
@@ -58,7 +60,9 @@
 
 	<!-- If no Slices are created-->
 	<div class="">
-		<p class="bg-light m-3 p-3 rounded">No Links Created Till Now !!!</p>
+		<p class="bg-light m-3 p-3 rounded text-center">
+			No Links Created Till Now !!!
+		</p>
 	</div>
 
 	{% endif %}
