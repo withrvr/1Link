@@ -1,3 +1,4 @@
+from django.db.models.query import QuerySet
 from rest_framework import serializers
 
 from UsersProfile_App.models import UsersProfile_Model
@@ -33,6 +34,7 @@ class UsersProfile_Serializers(serializers.ModelSerializer):
 
             'date_joined',
             'slices',
+            'clicks',
         ]
 
 
@@ -59,6 +61,7 @@ class Slices_Serializers(serializers.ModelSerializer):
 
             'author',
             'links',
+            'clicks',
         ]
 
 
@@ -72,9 +75,10 @@ class Links_Serializers(serializers.ModelSerializer):
         model = Links_Model
         fields = [
             'id',
+            'my_Slice',
             'url',
             'display_Name',
             'link_url',
             'visibility',
-            'my_Slice',
+            'clicks',
         ]
