@@ -11,7 +11,7 @@ from django.contrib.auth.views import PasswordResetConfirmView
 # Main URLs
 urlpatterns = [
     # Admin Panel
-    path('admin-page/', admin.site.urls),
+    path('admin-panel/', admin.site.urls),
 
     # Core (home, about,...)
     path('', include('Core_App.urls')),
