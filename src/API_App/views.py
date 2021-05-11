@@ -66,16 +66,20 @@ class UsingUsername_UsersProfiles_RetrieveAPIView(RetrieveAPIView):
 # ------------------------------------ Slices ------------------------------------
 # List of Slices
 class Slices_ListAPIView(ListAPIView):
-    queryset = Slices_Model.objects.all()
     serializer_class = Slices_Serializers
     filter_fields = "__all__"
     pagination_class = MyCustom_Paginaiton
 
+    def get_queryset(self, *args, **kwargs):
+        return Slices_Model.objects.filter(visibility='public')
+
 
 # Retrieve particular Slices
 class Slicess_RetrieveAPIView(RetrieveAPIView):
-    queryset = Slices_Model.objects.all()
     serializer_class = Slices_Serializers
+
+    def get_queryset(self, *args, **kwargs):
+        return Slices_Model.objects.filter(pk=self.kwargs.get('pk'), visibility='public')
 
 
 # ------------------------------------ Links ------------------------------------
