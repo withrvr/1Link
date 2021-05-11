@@ -4,28 +4,15 @@ from django import forms
 from .models import UsersProfile_Model
 
 
-# currently in clean username method
-# checking if this username is allowed to be used
-def comman_clean_username_method(self, *args, **kwargs):
-
-    # cant use this username
-    # as your username
-    cant_use_this_username = [
-        'login',
-        'logout',
-        'register',
-
-        'home',
-        'about',
-    ]
-
+# checking if this username is allowed to be used or not
+def is_username_allowed(self, *args, **kwargs):
     validate_username = self.cleaned_data["username"]
 
-    if validate_username in cant_use_this_username:
+    import cant_use_this_name
+    if validate_username in cant_use_this_name.cant_use_this_name:
         raise forms.ValidationError(
-            f"Enter a valid username ... Can't use ''{validate_username}'' as username ... Try Something New"
+            f"Can't use ''{validate_username}'' as username - Try Something else"
         )
-
     return validate_username
 
 
@@ -33,7 +20,7 @@ def comman_clean_username_method(self, *args, **kwargs):
 class UsersProfile_CreationForm(UserCreationForm):
 
     def clean_username(self, *args, **kwargs):
-        return comman_clean_username_method(self, *args, **kwargs)
+        return is_username_allowed(self, *args, **kwargs)
 
     class Meta(UserCreationForm.Meta):
         model = UsersProfile_Model
@@ -46,7 +33,7 @@ class UsersProfile_CreationForm(UserCreationForm):
 class UsersProfile_ChangeForm(UserChangeForm):
 
     def clean_username(self, *args, **kwargs):
-        return comman_clean_username_method(self, *args, **kwargs)
+        return is_username_allowed(self, *args, **kwargs)
 
     class Meta(UserChangeForm.Meta):
         model = UsersProfile_Model
