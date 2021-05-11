@@ -1,0 +1,53 @@
+{% extends 'Core_App/Core_Base_Template.html' %}
+
+<!-- loading something -->
+{% load crispy_forms_tags %} {% load static %}
+
+<!-- Base_Content -->
+{% block Core_Content %}
+
+<div class="container mb-5">
+	<div class="table-responsive text-center">
+		<h1 class="p-2 d-flex">
+			<span class="flex-grow-1">Self Info</span>
+			<a
+				href="{% url 'UsersProfile_App:Update-Page' %}"
+				class="btn btn-success my-auto"
+			>
+				Update
+			</a>
+		</h1>
+		<hr />
+		<table class="table table-borderless table-hover">
+			<tbody>
+				<tr>
+					<th scope="row">Username</th>
+					<td>@{{ UsersProfile_Object.username }}</td>
+				</tr>
+				<tr>
+					<th scope="row">Display Name</th>
+					<td>{{ UsersProfile_Object.display_Name }}</td>
+				</tr>
+				<tr>
+					<th scope="row">Email</th>
+					<td>{{ UsersProfile_Object.email }}</td>
+				</tr>
+				<tr>
+					<th scope="row">Date Joined</th>
+					<td>{{ UsersProfile_Object.date_joined }}</td>
+				</tr>
+				<tr>
+					<th scope="row">Last Login</th>
+					<td>{{ UsersProfile_Object.last_login }}</td>
+				</tr>
+				<tr>
+					<th scope="row">No of Clicks</th>
+					<td>{{ UsersProfile_Object.clicks }}</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr />
+	</div>
+</div>
+
+{% endblock Core_Content %}

@@ -1,5 +1,9 @@
 from django.shortcuts import render
-from django.views.generic.edit import UpdateView, DeleteView
+from django.views.generic import (
+    DetailView,
+    UpdateView,
+    DeleteView,
+)
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -7,6 +11,15 @@ from django.contrib import messages
 from .mixins import Custom_LoginRequiredMixin
 from .forms import UsersProfile_ChangeForm
 from .models import UsersProfile_Model
+
+
+# self info ( users detail )
+class UsersProfile_DetailView(Custom_LoginRequiredMixin, DetailView):
+    template_name = 'UsersProfile_App/Users_Detail_Template.html'
+    context_object_name = 'UsersProfile_Object'
+
+    def get_object(self, *args, **kwargs):
+        return self.request.user
 
 
 # create new user
