@@ -51,6 +51,7 @@ class Slices_Detail_View(DetailView):
 
         self.object = get_object_or_404(
             validate_user.slices_model_set, slice_Name=lower_slice_Name,
+            visibility='public',
         )
 
         # slices clicks ( hits ) count logic
