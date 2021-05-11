@@ -52,7 +52,7 @@ class Random_Slices_View(ListView):
         total_number_of_slices = Slices_Model.objects.all().count()
 
         import random
-        users = Slices_Model.objects.all()
+        users = Slices_Model.objects.filter(visibility='public')
         if limit > total_number_of_slices:
             limit = total_number_of_slices
         return random.sample(list(users), limit)
@@ -79,7 +79,6 @@ class Popular_Users_View(ListView):
     def get_queryset(self, limit=10, *args, **kwargs):
         # if users are less that limit
         total_number_of_users = UsersProfile_Model.objects.all().count()
-        users = UsersProfile_Model.objects.all()
         if limit > total_number_of_users:
             limit = total_number_of_users
 
@@ -99,10 +98,9 @@ class Popular_Slices_View(ListView):
     def get_queryset(self, limit=10, *args, **kwargs):
         # if slices are less that limit
         total_number_of_slices = Slices_Model.objects.all().count()
-        users = Slices_Model.objects.all()
         if limit > total_number_of_slices:
             limit = total_number_of_slices
-        return Slices_Model.objects.all().order_by("-clicks")[:limit]
+        return Slices_Model.objects.filter(visibility='public').order_by("-clicks")[:limit]
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
