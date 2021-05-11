@@ -81,13 +81,17 @@ class Slicess_RetrieveAPIView(RetrieveAPIView):
 # ------------------------------------ Links ------------------------------------
 # List of Links
 class Links_ListAPIView(ListAPIView):
-    queryset = Links_Model.objects.all()
     serializer_class = Links_Serializers
     filter_fields = "__all__"
     pagination_class = MyCustom_Paginaiton
 
+    def get_queryset(self, *args, **kwargs):
+        return Links_Model.objects.filter(visibility='public')
+
 
 # Retrieve particular Links
 class Links_RetrieveAPIView(RetrieveAPIView):
-    queryset = Links_Model.objects.all()
     serializer_class = Links_Serializers
+
+    def get_queryset(self, *args, **kwargs):
+        return Links_Model.objects.filter(pk=self.kwargs.get('pk'), visibility='public')
