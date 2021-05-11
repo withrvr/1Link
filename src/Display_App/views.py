@@ -1,17 +1,17 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import DetailView, RedirectView
-from django.http import Http404
 
 from UsersProfile_App.models import UsersProfile_Model
-from Slices_App.models import Slices_Model
 from Links_App.models import Links_Model
 
 
 class Links_Detail_View(RedirectView):
     def get_redirect_url(self, *args, **kwargs):
-        self.object = get_object_or_404(Links_Model, id=self.kwargs.get(
-            'LinkID_From_URL'
-        ))
+        self.object = get_object_or_404(
+            Links_Model,
+            id=self.kwargs.get('LinkID_From_URL'),
+            visibility='public'
+        )
 
         # increase clicks
         self.object.clicks += 1
@@ -61,5 +61,7 @@ class Slices_Detail_View(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['Links_List_Object'] = self.object.links_model_set.all()
+        context['Links_List_Object'] = self.object.links_model_set.filter(
+            visibility='public'
+        )
         return context
