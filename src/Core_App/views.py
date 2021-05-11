@@ -12,6 +12,9 @@ class About_View(TemplateView):
     template_name = 'Core_App/About_Template.html'
 
 
+class Lorem_Ipsum_View(TemplateView):
+    template_name = 'Core_App/Lorem_Ipsum_Template.html'
+
 # ------------------------------ RANDOM ------------------------------
 
 
