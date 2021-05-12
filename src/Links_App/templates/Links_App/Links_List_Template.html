@@ -30,42 +30,59 @@
 		<div class="col p-2 fw-bold text-center">Operations</div>
 	</div>
 
-	{% if Links_List_Object %} {% for Links_Object in Links_List_Object %}
+	{% if Links_List_Object %}
+	<div id="dashboard-links-wrapper">
+		<!-- all the links -->
+		{% for Links_Object in Links_List_Object %}
+		<div id="links-item" class="rounded">
+			<div class="bg-light m-2 p-2 rounded row">
+				<div class="col p-2 text-center">
+					<a href="{{ Links_Object.link_url }}" target="_blank">
+						{{ Links_Object.display_Name }}
+					</a>
+				</div>
+				<div class="col p-2 text-center">
+					{{ Links_Object.visibility }}
+				</div>
+				<div class="col p-2 text-center">{{ Links_Object.clicks }}</div>
+				<div
+					class="
+						col
+						p-2
+						text-center text-center
+						d-grid
+						gap-1
+						d-md-block
+					"
+				>
+					<a
+						href="{% url 'Slices_App:Links_App:Links-Update-Page' SliceName_From_URL=current_Slice_Name LinkID_From_URL=Links_Object.id %}"
+						class="btn btn-success btn-sm"
+					>
+						Update
+					</a>
+					<a
+						href="{% url 'Slices_App:Links_App:Links-Delete-Page' SliceName_From_URL=current_Slice_Name LinkID_From_URL=Links_Object.id %}"
+						class="btn btn-danger btn-sm"
+					>
+						Delete
+					</a>
+				</div>
+			</div>
+		</div>
 
-	<div class="bg-light m-2 p-2 rounded row">
-		<div class="col p-2 text-center">
-			<a href="{{ Links_Object.link_url }}" target="_blank">
-				{{ Links_Object.display_Name }}
-			</a>
-		</div>
-		<div class="col p-2 text-center">{{ Links_Object.visibility }}</div>
-		<div class="col p-2 text-center">{{ Links_Object.clicks }}</div>
-		<div class="col p-2 text-center text-center d-grid gap-1 d-md-block">
-			<a
-				href="{% url 'Slices_App:Links_App:Links-Update-Page' SliceName_From_URL=current_Slice_Name LinkID_From_URL=Links_Object.id %}"
-				class="btn btn-success btn-sm"
-			>
-				Update
-			</a>
-			<a
-				href="{% url 'Slices_App:Links_App:Links-Delete-Page' SliceName_From_URL=current_Slice_Name LinkID_From_URL=Links_Object.id %}"
-				class="btn btn-danger btn-sm"
-			>
-				Delete
-			</a>
-		</div>
+		{% endfor %}
 	</div>
+	{% else %}
 
-	{% endfor %} {% else %}
-
-	<!-- If no Slices are created-->
+	<!-- No Slices are created-->
 	<div class="">
 		<p class="bg-light m-3 p-3 rounded text-center">
 			No Links Created Till Now !!!
 		</p>
 	</div>
-
 	{% endif %}
+
 	<div class="d-grid">
 		<a
 			href="{% url 'Slices_App:Links_App:Links-Create-Page' SliceName_From_URL=current_Slice_Name %}"
@@ -78,3 +95,9 @@
 </div>
 
 {% endblock Core_Content %}
+
+<!-- scripts -->
+{% block scripts %} {{ block.super }}
+<script src="{% static 'Links_App/js/sortable.min.js' %}"></script>
+<script src="{% static 'Links_App/js/links.js' %}"></script>
+{% endblock scripts %}
