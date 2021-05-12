@@ -1,24 +1,19 @@
 {% extends 'Core_App/Base_Template.html' %} {% load static %}
-<!-- head block -->
-{% block Base_Head %}
 
-<!-- 
-Users_Detail_Style CSS
-<link
-	rel="stylesheet"
-	href="{% static 'Display_App/css/Users_Detail_Style.css' %}"
-/>
--->
-
-<!-- icon = user profile image -->
+<!-- icons -->
+{% block icons %} {{ block.super }}
 <link
 	rel="shortcut icon"
 	href="{{ UsersProfile_Object.profile_Picture }}"
 	type="image/x-icon"
 	alt="{{ UsersProfile_Object.profile_Picture }} icon profile picture"
 />
+{% endblock icons %}
 
-{% endblock Base_Head %}
+<!-- stylesheets -->
+{% block stylesheets %} {{ block.super }}
+<link rel="stylesheet" href="{% static 'Display_App/css/users.css' %}" />
+{% endblock stylesheets %}
 
 <!-- content block -->
 {% block Base_Content %}
@@ -58,3 +53,8 @@ Users_Detail_Style CSS
 </div>
 
 {% endblock Base_Content %}
+
+<!-- scripts -->
+{% block scripts %} {{ block.super }}
+<script src="{% static 'Display_App/js/users.js' %}"></script>
+{% endblock scripts %}
