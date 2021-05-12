@@ -1,16 +1,14 @@
 {% extends 'Core_App/Base_Template.html' %} {% load static %}
-<!-- head block -->
-{% block Base_Head %}
 
-<!-- icon = user profile image -->
+<!-- icons -->
+{% block icons %} {{ block.super }}
 <link
 	rel="shortcut icon"
 	href="{{ Slice_Object.author.profile_Picture }}"
 	type="image/x-icon"
 	alt="{{ Slice_Object.author.profile_Picture }} icon profile picture"
 />
-
-{% endblock Base_Head %}
+{% endblock icons %}
 
 <!-- content block -->
 {% block Base_Content %}
