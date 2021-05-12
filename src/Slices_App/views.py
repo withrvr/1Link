@@ -42,7 +42,7 @@ class Slices_ListView(Custom_LoginRequiredMixin, ListView):
     context_object_name = 'Slices_List_Object'
 
     def get_queryset(self, *args, **kwargs):
-        return self.request.user.slices_model_set.all()
+        return self.request.user.slices_model_set.all().order_by('-visibility', '-clicks')
 
 
 # create new slice
