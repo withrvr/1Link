@@ -5,13 +5,12 @@
 
 <!-- Base_Content -->
 {% block Core_Content %}
-
-<div class="container">
-	<div class="content-section">
+<div class="container col-10 col-sm-7 col-md-5 col-lg-4">
+	<div class="content-section mb-3">
 		<form method="post" novalidate>
 			{% csrf_token %}
 			<fieldset class="form-group">
-				<legend class="border-bottom mb-4">Log In</legend>
+				<legend class="border-bottom mb-3 pb-2">Log In</legend>
 				{{ form|crispy }}
 			</fieldset>
 
@@ -38,7 +37,6 @@
 				</a>
 			</small>
 		</div>
-		<br /><br />
 	</div>
 </div>
 

@@ -41,13 +41,6 @@ class UsersProfile_CreateView(SuccessMessageMixin, CreateView):
                 )
                 return HttpResponseRedirect(reverse('Core_App:Main-Home-Page'))
 
-            else:
-                messages.add_message(
-                    request,
-                    messages.SUCCESS,
-                    'Filling up this Information, <b>And Create The brand new Account</b>'
-                )
-
         return response
 
 
@@ -71,14 +64,6 @@ class UsersProfile_LoginView(SuccessMessageMixin, LoginView):
                     f'You are currently Login with <strong>"@{current_user.username}"</strong> account'
                 )
                 return HttpResponseRedirect(reverse('Core_App:Main-Home-Page'))
-
-            else:
-                messages.add_message(
-                    request,
-                    messages.SUCCESS,
-                    f"You are currently <strong>Not Login</strong> with any Account"
-                )
-
         return response
 
 
