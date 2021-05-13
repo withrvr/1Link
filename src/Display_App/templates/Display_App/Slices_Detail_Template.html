@@ -12,11 +12,12 @@
 
 <!-- content block -->
 {% block Base_Content %}
-<div class="container mt-3 mb-5">
+<div class="container mt-3 mb-5 col-lg-6">
 	<div id="slices-detail-wrapper" class="text-center p-2">
 		<a
 			href="{% url 'Display_App:Users-Detail-Page' UserName_From_URL=Slice_Object.author.username %}"
 			target="_blank"
+			class="text-decoration-none text-body"
 		>
 			<img
 				src="{{ Slice_Object.author.profile_Picture }}"
@@ -25,13 +26,24 @@
 				style="height: 100px"
 			/>
 		</a>
-		<h4 class="p-1 m-0">@{{ Slice_Object.author.username }}</h4>
+		<h4 class="p-1 m-0">
+			<a
+				href="{% url 'Display_App:Users-Detail-Page' UserName_From_URL=Slice_Object.author.username %}"
+				target="_blank"
+				class="text-decoration-none text-body"
+			>
+				@{{ Slice_Object.author.username }}
+			</a>
+		</h4>
 	</div>
 
-	<div class="link-wrapper my-1">
+	<hr class="m-0" />
+
+	<div class="link-wrapper my-1 text-center">
+		<h5 class="my-3">''{{ Slice_Object.slice_Name }}'' Links</h5>
 		{% for Links_Object in Links_List_Object %}
 
-		<div class="d-grid col-lg-8 mx-auto">
+		<div class="d-grid mx-auto">
 			<a
 				href="{% url 'Display_App:Links-Detail-Page' LinkID_From_URL=Links_Object.id %}"
 				target="_blank"
@@ -42,7 +54,7 @@
 		</div>
 
 		{% empty %}
-		<div class="no-links fs-2 text-center">No Links are added YET</div>
+		<div class="d-grid alert alert-warning m-1">No Links are added YET</div>
 		{% endfor %}
 	</div>
 
