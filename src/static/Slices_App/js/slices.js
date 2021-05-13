@@ -1,27 +1,15 @@
-// drag and drop feature
-// using sortable.js
-const dashboard_Links_Wrapper = document.getElementById(
-	"dashboard-links-wrapper"
-);
-new Sortable(dashboard_Links_Wrapper, {
-	animation: 200,
-	ghostClass: "bg-warning",
-});
-
-// shows stats of links
-// using chart.js
-let links_clicks_stats = document
-	.getElementById("links-clicks-stats")
+let slices_clicks_stats = document
+	.getElementById("slices-clicks-stats")
 	.getContext("2d");
 
-new Chart(links_clicks_stats, {
+new Chart(slices_clicks_stats, {
 	type: "pie",
 	data: {
-		labels: Object.keys(links_clicks_data),
+		labels: Object.keys(slices_clicks_data),
 		datasets: [
 			{
-				label: "# of Votes",
-				data: Object.values(links_clicks_data),
+				// label: "# of Votes",
+				data: Object.values(slices_clicks_data),
 				backgroundColor: [
 					"rgba(255, 99, 132, 0.2)",
 					"rgba(54, 162, 235, 0.2)",

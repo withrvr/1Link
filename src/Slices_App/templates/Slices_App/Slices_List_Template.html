@@ -6,7 +6,7 @@
 <!-- Base_Content -->
 {% block Core_Content %}
 
-<div class="container">
+<div class="container mb-5">
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb mx-2 fs-4">
 			<li class="breadcrumb-item active" aria-current="page">slices</li>
@@ -85,10 +85,8 @@
 	{% endfor %} {% else %}
 
 	<!-- If no Slices are created-->
-	<div class="">
-		<p class="bg-light m-3 p-3 rounded text-center">
-			No Slices Created Till Now !!!
-		</p>
+	<div class="bg-light m-2 p-2 rounded row">
+		<div class="col p-2 text-center">No Slices Created Till Now !!!</div>
 	</div>
 
 	{% endif %}
@@ -100,7 +98,25 @@
 			Create New Slice
 		</a>
 	</div>
-	<br /><br />
+
+	<h3 class="m-3 text-center">Slices Clicks Stats</h3>
+	<div class="row row-cols justify-content-center">
+		<div class="col-6 col-lg-4">
+			<canvas id="slices-clicks-stats"></canvas>
+		</div>
+	</div>
 </div>
 
-{% endblock Core_Content %}
+{% endblock Core_Content %} {% block scripts %} {{ block.super }}
+
+<script>
+	const slices_clicks_data = {
+		{% for Slices_Object in Slices_List_Object %}
+			"{{ Slices_Object.slice_Name }}": "{{ Slices_Object.clicks }}",
+		{% endfor %}
+	}
+</script>
+
+<script src="{% static '/Core_App/js/chart.min.js' %}"></script>
+<script src="{% static '/Slices_App/js/slices.js' %}"></script>
+{% endblock scripts %}
