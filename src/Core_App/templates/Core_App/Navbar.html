@@ -1,22 +1,13 @@
 {% load static %}
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
 	<div class="container">
-		<a class="navbar-brand" href="{% url 'Core_App:Home-Page' %}">
+		<a class="navbar-brand" href="{% url 'Core_App:Main-Home-Page' %}">
 			<img
 				src="{% static 'Core_App/Images/Logo.jpg' %}"
 				style="border-radius: 20%; height: 40px"
 				class="img-fluid"
 			/>
-			<!--
-			<img
-				src="{% static 'Core_App/Images/Logo_Version_1/Blink_8_Sec.gif' %}"
-				id="Navbar-Logo"
-			/>
-			-->
 		</a>
-		<a href="{% url 'Core_App:Home-Page' %}" class="navbar-brand fs-3"
-			>1Link</a
-		>
 
 		<button
 			class="navbar-toggler"
@@ -34,9 +25,12 @@
 
 			<!-- Left side Nav-Link -->
 			<div class="navbar-nav me-auto mb-lg-0">
-				<a class="nav-link" href="{% url 'Core_App:About-Page' %}"
-					>About</a
-				>
+				<a href="{% url 'Core_App:Home-Page' %}" class="nav-link">
+					Home
+				</a>
+				<a class="nav-link" href="{% url 'Core_App:About-Page' %}">
+					About
+				</a>
 			</div>
 
 			<!-- Right side Nav-Link -->

@@ -39,7 +39,7 @@ class UsersProfile_CreateView(SuccessMessageMixin, CreateView):
                     messages.SUCCESS,
                     f'You have Register and Login with <strong>"@{current_user.username}"</strong> account'
                 )
-                return HttpResponseRedirect(reverse('Core_App:Home-Page'))
+                return HttpResponseRedirect(reverse('Core_App:Main-Home-Page'))
 
             else:
                 messages.add_message(
@@ -70,7 +70,7 @@ class UsersProfile_LoginView(SuccessMessageMixin, LoginView):
                     messages.SUCCESS,
                     f'You are currently Login with <strong>"@{current_user.username}"</strong> account'
                 )
-                return HttpResponseRedirect(reverse('Core_App:Home-Page'))
+                return HttpResponseRedirect(reverse('Core_App:Main-Home-Page'))
 
             else:
                 messages.add_message(
