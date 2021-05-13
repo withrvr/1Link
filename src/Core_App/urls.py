@@ -13,6 +13,7 @@ from .views import (
     Popular_Slices_View,
 
     # other
+    Main_Home_View,
     Home_View,
     About_View,
     Lorem_Ipsum_View,
@@ -22,8 +23,8 @@ app_name = 'Core_App'
 
 urlpatterns = [
     # home page
-    path('', Home_View.as_view(), name='Home-Page', ),
-    path('home/', RedirectView.as_view(pattern_name='Core_App:Home-Page')),
+    path('', Main_Home_View.as_view(), name='Main-Home-Page'),
+    path('home/', Home_View.as_view(), name='Home-Page'),
     path('about/', About_View.as_view(), name='About-Page'),
 
     # Random Users & Slices

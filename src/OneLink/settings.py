@@ -160,7 +160,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
 # urls
-LOGIN_REDIRECT_URL = 'Core_App:Home-Page'
+LOGIN_REDIRECT_URL = 'Core_App:Main-Home-Page'
 LOGIN_URL = 'Registration_App:Login-Page'
 LOGOUT_REDIRECT_URL = 'Registration_App:Login-Page'
 

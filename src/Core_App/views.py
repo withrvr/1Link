@@ -1,7 +1,17 @@
 from django.shortcuts import render, get_object_or_404
+from django.urls.base import reverse
 from django.views.generic import TemplateView, ListView
+from django.views.generic.base import RedirectView
 from UsersProfile_App.models import UsersProfile_Model
 from Slices_App.models import Slices_Model
+
+
+class Main_Home_View(RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            return reverse("Slices_App:Slices-List-Page")
+        else:
+            return reverse("Core_App:Home-Page")
 
 
 class Home_View(TemplateView):
