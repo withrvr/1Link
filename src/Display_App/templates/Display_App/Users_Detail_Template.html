@@ -17,27 +17,51 @@
 
 <!-- content block -->
 {% block Base_Content %}
-<div class="container bg-danger">
-	<div id="users_detail_wrapper" class="bg-success">
+<div class="container mb-5 mt-2 col-lg-8">
+	<div id="users-detail-wrapper" class="text-center">
 		<div
 			id="users_banner_image"
-			class="w-100 mt-1"
+			class="w-100 rounded"
 			style="background-image: url('{{ UsersProfile_Object.banner_Image }}');"
 			alt="Banner Image"
 		></div>
 
-		<div
-			id="user_profile_picture"
-			class="w-25 rounded-circle m-1"
-			style="background-image: url('{{ UsersProfile_Object.profile_Picture }}');"
-			alt="Profile Picture"
-		></div>
-
-		<h3>{{ UsersProfile_Object.display_Name }}</h3>
-		<h1>{{ UsersProfile_Object.username }}</h1>
+		<div class="d-flex justify-content-center m-1">
+			<div
+				id="user_profile_picture"
+				class="w-25 rounded-circle"
+				style="background-image: url('{{ UsersProfile_Object.profile_Picture }}');"
+				alt="Profile Picture"
+			></div>
+		</div>
+		<h4>@{{ UsersProfile_Object.username }}</h4>
+		<h4>{{ UsersProfile_Object.display_Name }}</h4>
 	</div>
 
-	<div class="text-center py-5">
+	<hr />
+
+	<div id="all-users-slices" class="text-center">
+		<h4 class="mb-3">Slices</h4>
+		{% for Slices_Object in Slices_List_Object %}
+
+		<div class="d-grid">
+			<a
+				href="{% url 'Display_App:Slice-Detail-Page' UserName_From_URL=Slices_Object.author.username SliceName_From_URL=Slices_Object.slice_Name %}"
+				target="_blank"
+				class="btn btn-lg btn-outline-primary m-1"
+			>
+				{{ Slices_Object.slice_Name }}
+			</a>
+		</div>
+
+		{% empty %}
+		<div class="d-grid alert alert-warning m-1">
+			No Slices are added YET
+		</div>
+		{% endfor %}
+	</div>
+
+	<div class="text-center mt-3">
 		<a
 			href="{% url 'Core_App:Home-Page' %}"
 			class="text-decoration-none text-body"
