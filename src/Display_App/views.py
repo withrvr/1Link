@@ -36,6 +36,13 @@ class Users_Detail_View(DetailView):
 
         return self.object
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["Slices_List_Object"] = self.object.slices_model_set.filter(
+            visibility='public'
+        ).order_by('-visibility', '-clicks')
+        return context
+
 
 class Slices_Detail_View(DetailView):
     template_name = 'Display_App/Slices_Detail_Template.html'
