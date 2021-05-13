@@ -6,7 +6,7 @@
 <!-- Base_Content -->
 {% block Core_Content %}
 
-<div class="container">
+<div class="container mb-5">
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb mx-2 fs-4">
 			<li class="breadcrumb-item">
@@ -101,12 +101,16 @@
 	</div>
 	{% else %}
 
-	<!-- No Slices are created-->
-	<div class="">
-		<p class="bg-light m-3 p-3 rounded text-center">
-			No Links Created Till Now !!!
-		</p>
+	<div id="dashboard-links-wrapper">
+		<div id="links-item" class="rounded">
+			<div class="bg-light m-2 p-2 rounded row">
+				<div class="col p-2 text-center">
+					No Links Created Till Now !!!
+				</div>
+			</div>
+		</div>
 	</div>
+
 	{% endif %}
 
 	<div class="d-grid">
@@ -117,13 +121,29 @@
 			Create New Link
 		</a>
 	</div>
-	<br /><br />
+
+	<h3 class="m-3 text-center">Links Clicks Stats</h3>
+	<div class="row row-cols justify-content-center">
+		<div class="col-6 col-lg-4">
+			<canvas id="links-clicks-stats"></canvas>
+		</div>
+	</div>
 </div>
 
 {% endblock Core_Content %}
 
 <!-- scripts -->
 {% block scripts %} {{ block.super }}
-<script src="{% static 'Links_App/js/sortable.min.js' %}"></script>
-<script src="{% static 'Links_App/js/links.js' %}"></script>
+
+<script>
+	const links_clicks_data = {
+		{% for Links_Object in Links_List_Object %}
+			"{{ Links_Object.display_Name }}": "{{ Links_Object.clicks }}",
+		{% endfor %}
+	}
+</script>
+
+<script src="{% static '/Links_App/js/sortable.min.js' %}"></script>
+<script src="{% static '/Core_App/js/chart.min.js' %}"></script>
+<script src="{% static '/Links_App/js/links.js' %}"></script>
 {% endblock scripts %}
