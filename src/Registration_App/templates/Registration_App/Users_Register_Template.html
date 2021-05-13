@@ -6,14 +6,12 @@
 <!-- Base_Content -->
 {% block Core_Content %}
 
-<div class="container">
-	<div class="content-section">
+<div class="container col-11 col-sm-9 col-md-8 col-lg-6">
+	<div class="content-section mb-3">
 		<form method="post" novalidate>
 			{% csrf_token %}
 			<fieldset class="form-group">
-				<legend class="border-bottom mb-4">
-					Join Today ( Create Account )
-				</legend>
+				<legend class="border-bottom mb-4">Create New Account</legend>
 				{{ form|crispy }}
 			</fieldset>
 
@@ -21,7 +19,7 @@
 				<button class="btn btn-success" type="submit">
 					Create New Account
 				</button>
-				&nbsp;
+				<hr />
 				<small class="text-muted">
 					Already Have An Account?
 					<a
@@ -31,7 +29,6 @@
 					>
 				</small>
 			</div>
-			<br /><br />
 		</form>
 	</div>
 </div>
