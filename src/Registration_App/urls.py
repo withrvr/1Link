@@ -38,7 +38,7 @@ urlpatterns = [
         name='password_reset'
     ),
     path(
-        'password-reset-done/',
+        'password-reset-send/',
         PasswordResetDoneView.as_view(
             template_name='Registration_App/Users_Password_Reset_Done_Template.html',
         ),

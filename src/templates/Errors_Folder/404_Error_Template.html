@@ -1,6 +1,11 @@
 {% extends 'Core_App/Core_Base_Template.html' %} {% block Core_Content %}
 <!---->
 {% load static %}
+
+<!-- Title -->
+{% block title %}
+<title>404 error - 1Link</title>
+{% endblock title %}
 <div class="container mb-5 text-center">
 	<img
 		src="{% static 'Core_App/Images/Are_You_sure_about_that.gif' %}"
