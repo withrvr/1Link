@@ -23,5 +23,5 @@ email_host_details.py
 secret_details.py
 
 
-# ignore migrations file other than __init__
-# !migrations/__init__.py
+# video and image editing ... etc
+camtasia

@@ -1,50 +1,75 @@
 {% extends 'Core_App/Core_Base_Template.html' %} {% block Core_Content %}
 
 <!-- Title -->
-{% block title %}
+{% load static %} {% block title %}
 <title>Home - 1Link</title>
 {% endblock title %}
+<div class="mb-5">
+	<header class="d-flex justify-content-center bg-light py-5 px-2">
+		<div class="text-center">
+			<h1 class="m-0">Create One and Only OneLink</h1>
 
-<div class="container">
-	<h1>This is the home page</h1>
+			<div class="py-3">
+				<div>
+					No Need to change <strong>BIO</strong> Again and Again
+				</div>
+				<div>Content all the links to be shared</div>
+			</div>
 
-	<p style="text-align: justify">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem dolor
-		inventore sed laudantium voluptate saepe aliquam reprehenderit cumque
-		asperiores perspiciatis molestias, maxime, consequuntur fugiat sit esse
-		corporis adipisci aspernatur accusantium. Lorem ipsum dolor sit amet
-		consectetur adipisicing elit. Autem dolor inventore sed laudantium
-		voluptate saepe aliquam reprehenderit cumque asperiores perspiciatis
-		molestias, maxime, consequuntur fugiat sit esse corporis adipisci
-		aspernatur accusantium. Lorem ipsum dolor sit amet consectetur
-		adipisicing elit. Autem dolor inventore sed laudantium voluptate saepe
-		aliquam reprehenderit cumque asperiores perspiciatis molestias, maxime,
-		consequuntur fugiat sit esse corporis adipisci aspernatur accusantium.
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem dolor
-		inventore sed laudantium voluptate saepe aliquam reprehenderit cumque
-		asperiores perspiciatis molestias, maxime, consequuntur fugiat sit esse
-		corporis adipisci aspernatur accusantium. Lorem ipsum dolor sit amet
-		consectetur adipisicing elit. Autem dolor inventore sed laudantium
-		voluptate saepe aliquam reprehenderit cumque asperiores perspiciatis
-		molestias, maxime, consequuntur fugiat sit esse corporis adipisci
-		aspernatur accusantium. Lorem ipsum dolor sit amet consectetur
-		adipisicing elit. Autem dolor inventore sed laudantium voluptate saepe
-		aliquam reprehenderit cumque asperiores perspiciatis molestias, maxime,
-		consequuntur fugiat sit esse corporis adipisci aspernatur accusantium.
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem dolor
-		inventore sed laudantium voluptate saepe aliquam reprehenderit cumque
-		asperiores perspiciatis molestias, maxime, consequuntur fugiat sit esse
-		corporis adipisci aspernatur accusantium. Lorem ipsum dolor sit amet
-		consectetur adipisicing elit. Earum error atque tempore esse beatae.
-		Corporis voluptates totam tempora ut aliquid mollitia magni explicabo
-		necessitatibus, in vel placeat? A, consequuntur dolor? Rerum vel, veniam
-		alias nisi ratione tempore a ducimus ut obcaecati dolor. Nihil nesciunt
-		explicabo, earum quasi suscipit similique iste rem ad corrupti sit
-		aspernatur doloremque. Temporibus earum rerum eos? Dolor corrupti modi
-		magni pariatur velit debitis itaque id deleniti reiciendis eaque
-		excepturi ipsum, cumque consequatur quasi nihil tenetur iste fugit!
-		Dolor corporis consectetur debitis cumque error deserunt velit facilis.
-	</p>
+			<div>
+				<a
+					href="{% url 'Registration_App:Register-Page' %}"
+					class="btn btn-lg btn-success"
+				>
+					Create Account - For FREE
+				</a>
+			</div>
+			<!--
+			<small>
+				Already Have An Account?
+				<a href="{% url 'Registration_App:Login-Page' %}">Login</a>
+			</small>
+			-->
+		</div>
+	</header>
+
+	<div class="container col col-md-10 col-lg-8 m-auto p-3">
+		<form
+			method="POST"
+			class="text-center justify-content-center"
+			action="{% url 'Registration_App:Register-Page' %}"
+		>
+			{% csrf_token %}
+			<div class="input-group mb-3">
+				<span class="input-group-text" id="basic-addon3">
+					1link.tech/
+				</span>
+				<input
+					name="username"
+					type="text"
+					class="form-control"
+					id="id_username"
+					aria-describedby="basic-addon3"
+					placeholder="username"
+				/>
+			</div>
+		</form>
+	</div>
+
+	<div
+		class="row justify-content-center text-center align-items-center m-auto"
+	>
+		<img
+			src="{% static '/Core_App/Images/link_to_anywhere.gif' %}"
+			class="col-10 col-sm-8 col-md-4 col-lg-4"
+		/>
+		<div class="col-auto">
+			<h3>Use it Anywhere</h3>
+			<hr />
+			<div>Use the same link Anywhere on the internet</div>
+			<div>Also make it easy to handle</div>
+		</div>
+	</div>
 </div>
 
 {% endblock Core_Content %}
