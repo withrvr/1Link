@@ -1,4 +1,6 @@
 cant_use_this_name = [
+    '404',
+
     'login',
     'logout',
     'register',
