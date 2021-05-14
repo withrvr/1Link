@@ -17,6 +17,22 @@
 			<fieldset class="form-group">
 				<legend class="border-bottom mb-3 pb-2">Log In</legend>
 				{{ form|crispy }}
+
+				<small>
+					<div class="mb-3 form-check">
+						<input
+							type="checkbox"
+							class="form-check-input"
+							id="show-password-checkbox"
+						/>
+						<label
+							class="form-check-label text-muted"
+							for="show-password-checkbox"
+						>
+							Show Password
+						</label>
+					</div>
+				</small>
 			</fieldset>
 
 			<div class="form-group">
@@ -45,4 +61,6 @@
 	</div>
 </div>
 
-{% endblock Core_Content %}
+{% endblock Core_Content %} {% block scripts %} {{ block.super }}
+<script src="{% static 'Registration_App/js/Login.js' %}"></script>
+{% endblock scripts %}
