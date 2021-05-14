@@ -1,5 +1,13 @@
 {% extends 'Core_App/Base_Template.html' %} {% load static %}
 
+<!-- Title -->
+{% block title %}
+<title>
+	"{{ Slice_Object.slice_Name }}" - @{{ Slice_Object.author.username }} -
+	1Link
+</title>
+{% endblock title %}
+
 <!-- icons -->
 {% block icons %} {{ block.super }}
 <link
@@ -40,7 +48,7 @@
 	<hr class="m-0" />
 
 	<div class="link-wrapper my-1 text-center">
-		<h5 class="my-3">''{{ Slice_Object.slice_Name }}'' Links</h5>
+		<h5 class="my-3">"{{ Slice_Object.slice_Name }}" Links</h5>
 		{% for Links_Object in Links_List_Object %}
 
 		<div class="d-grid mx-auto">

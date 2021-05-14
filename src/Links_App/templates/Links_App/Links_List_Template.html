@@ -3,6 +3,11 @@
 <!-- loading something -->
 {% load crispy_forms_tags %} {% load static %}
 
+<!-- Title -->
+{% block title %}
+<title>"{{ current_Slice_Name }}" Links - 1Link</title>
+{% endblock title %}
+
 <!-- Base_Content -->
 {% block Core_Content %}
 
@@ -16,8 +21,9 @@
 				<a
 					href="{% url 'Slices_App:Slice-Detail-Page' SliceName_From_URL=current_Slice_Name %}"
 					target="_blank"
-					>{{ current_Slice_Name }}</a
 				>
+					{{ current_Slice_Name }}
+				</a>
 			</li>
 			<li class="breadcrumb-item active" aria-current="page">links</li>
 		</ol>

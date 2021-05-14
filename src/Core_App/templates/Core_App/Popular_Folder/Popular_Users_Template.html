@@ -2,6 +2,11 @@
 <!--  -->
 {% load static %}
 
+<!-- Title -->
+{% block title %}
+<title>Popular Users - 1Link</title>
+{% endblock title %}
+
 <div class="container">
 	<div class="row mx-auto">
 		<h4 class="col text-center">
@@ -30,7 +35,11 @@
 						<a
 							href="{% url 'Display_App:Users-Detail-Page' UserName_From_URL=Popular_User.username %}"
 							target="_blank"
-							class="text-decoration-none stretched-link card-link"
+							class="
+								text-decoration-none
+								stretched-link
+								card-link
+							"
 						>
 							@{{ Popular_User.username }}
 						</a>

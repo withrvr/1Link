@@ -3,6 +3,11 @@
 <!-- loading something -->
 {% load crispy_forms_tags %} {% load static %}
 
+<!-- Title -->
+{% block title %}
+<title>Update Link - 1Link</title>
+{% endblock title %}
+
 <!-- Base_Content -->
 {% block Core_Content %}
 
@@ -16,20 +21,22 @@
 				<a
 					href="{% url 'Slices_App:Slice-Detail-Page' SliceName_From_URL=current_Slice_Name %}"
 					target="_blank"
-					>{{ current_Slice_Name }}</a
 				>
+					{{ current_Slice_Name }}
+				</a>
 			</li>
 			<li class="breadcrumb-item">
 				<a
 					href="{% url 'Slices_App:Links_App:Links-List-Page' SliceName_From_URL=current_Slice_Name  %}"
 					class=""
-					>links</a
 				>
+					links
+				</a>
 			</li>
 			<li class="breadcrumb-item">
-				<a href="{{ Links_Object.link_url }}" target="_blank"
-					>{{ current_Link_Id }}</a
-				>
+				<a href="{{ Links_Object.link_url }}" target="_blank">
+					{{ current_Link_Id }}
+				</a>
 			</li>
 			<li class="breadcrumb-item active" aria-current="page">update</li>
 		</ol>
@@ -41,7 +48,14 @@
 			{% csrf_token %}
 			<fieldset class="form-group">
 				<legend
-					class="border-bottom mb-4 bg-secondary text-light rounded p-2"
+					class="
+						border-bottom
+						mb-4
+						bg-secondary
+						text-light
+						rounded
+						p-2
+					"
 				>
 					Update Link
 				</legend>
