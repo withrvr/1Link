@@ -41,6 +41,8 @@ urlpatterns = [
     # Display, (user info and slices)
     path('', include('Display_App.urls')),
 
+    path('404/', Handle_404_Error_View, name='404-Page'),
+
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
