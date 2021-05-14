@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from django.contrib.auth.views import PasswordResetConfirmView
-
+from Core_App.views import Handle_404_Error_View
 
 # Main URLs
 urlpatterns = [
@@ -43,3 +43,6 @@ urlpatterns = [
 
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+handler404 = Handle_404_Error_View

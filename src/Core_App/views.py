@@ -25,9 +25,13 @@ class About_View(TemplateView):
 class Lorem_Ipsum_View(TemplateView):
     template_name = 'Core_App/Lorem_Ipsum_Template.html'
 
+
 # ------------------------------ RANDOM ------------------------------
+def Handle_404_Error_View(request, exception, *args, **kwargs):
+    return render(request, 'Errors_Folder/404_Error_Template.html')
 
 
+# ------------------------------ RANDOM ------------------------------
 # random choice
 class Random_Choice_View(TemplateView):
     template_name = 'Core_App/Random_Folder/Random_Choice_Template.html'

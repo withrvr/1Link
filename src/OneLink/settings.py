@@ -15,7 +15,6 @@ from django.contrib.messages import constants as messages
 from pathlib import Path
 import os
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,17 +26,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'lz@zxy*ml$23^k#09ucp05_1ad^ggg47!$zivrfsn@=_8@y%z('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
-
 INSTALLED_APPS = [
-
-    # custom apps
-
     # resitration, display, core
     'Core_App.apps.CoreAppConfig',
     'Display_App.apps.DisplayAppConfig',
@@ -83,7 +78,7 @@ ROOT_URLCONF = 'OneLink.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
