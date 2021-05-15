@@ -7,7 +7,7 @@
 <title>Popular Users - 1Link</title>
 {% endblock title %}
 
-<div class="container">
+<div class="container mt-3 mb-5">
 	<div class="row mx-auto">
 		<h4 class="col text-center">
 			According to Clicks
@@ -23,7 +23,7 @@
 	<div class="row row-cols g-4 justify-content-center text-center">
 		{% for Popular_User in Popular_User_List %}
 
-		<div class="col-md-3 col-sm-4 col-5 d-flex">
+		<div class="col-md-3 col-sm-4 col-6 d-flex">
 			<div class="card border border-5 flex-fill">
 				<img
 					src="{{ Popular_User.profile_Picture }}"
@@ -54,7 +54,4 @@
 		{% endfor %}
 	</div>
 </div>
-<br />
-<br />
-<br />
 {% endblock Core_Content %}

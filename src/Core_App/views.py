@@ -4,6 +4,7 @@ from django.views.generic import TemplateView, ListView
 from django.views.generic.base import RedirectView
 from UsersProfile_App.models import UsersProfile_Model
 from Slices_App.models import Slices_Model
+from django.db.models import Q
 
 
 class Main_Home_View(RedirectView):
@@ -26,9 +27,39 @@ class Lorem_Ipsum_View(TemplateView):
     template_name = 'Core_App/Lorem_Ipsum_Template.html'
 
 
-# ------------------------------ RANDOM ------------------------------
+# ------------------------------ ERROR ------------------------------
 def Handle_404_Error_View(request, exception, *args, **kwargs):
     return render(request, 'Errors_Folder/404_Error_Template.html')
+
+
+# ------------------------------ ERROR ------------------------------
+class Search_Bar_View(TemplateView):
+    template_name = 'Core_App/Search_Bar_Template.html'
+    context_object_name = 'Search_Result_List'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context["search_query"] = search_query = self.request.GET.get('q')
+        if search_query:
+            context["Users_Search_Result_List"] = UsersProfile_Model.objects.filter(
+                Q(username__icontains=search_query) |
+                Q(display_Name__icontains=search_query)
+            ).order_by('-clicks')
+        else:
+            context["Users_Search_Result_List"] = UsersProfile_Model.objects.none()
+
+        return context
+
+    def get_queryset(self, *args, **kwargs):
+        search_query = self.request.GET.get('q')
+        if search_query:
+            return UsersProfile_Model.objects.filter(
+                Q(username__icontains=search_query) |
+                Q(display_Name__icontains=search_query)
+            ).order_by('-clicks')
+        else:
+            return UsersProfile_Model.objects.none()
 
 
 # ------------------------------ RANDOM ------------------------------

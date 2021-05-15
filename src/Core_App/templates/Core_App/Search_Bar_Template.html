@@ -1,0 +1,66 @@
+{% extends 'Core_App/Core_Base_Template.html' %} {% block Core_Content %}
+
+<!-- Title -->
+{% block title %}
+<title>Search: {{ search_query | default:"" }}</title>
+{% endblock title %}
+
+<div class="container mb-5 mt-3 text-center">
+	<form action="{% url 'Core_App:Search-Bar-Page' %}" method="GET">
+		<input
+			type="text"
+			name="q"
+			placeholder="Search . . ."
+			class="form-control"
+			id="search-bar"
+		/>
+	</form>
+
+	<div class="my-3">
+		{% if Users_Search_Result_List %}
+
+		<div class="row row-cols-4 g-4 justify-content-center">
+			{% for Users_Search_Result in Users_Search_Result_List %}
+
+			<div class="col-md-3 col-sm-4 col-6 d-flex">
+				<div class="card border border-5 flex-fill">
+					<img
+						src="{{ Users_Search_Result.profile_Picture }}"
+						class="card-img-top"
+						alt="@{{ Users_Search_Result.usersname }} profile Picture"
+					/>
+					<div class="card-body border-top-5 p-0">
+						<div class="card-title text-center m-2">
+							<a
+								href="{% url 'Display_App:Users-Detail-Page' UserName_From_URL=Users_Search_Result.username %}"
+								target="_blank"
+								class="text-decoration-none stretched-link"
+							>
+								@{{ Users_Search_Result.username }}
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+
+		{% else %}
+
+		<h4 class="text-muted">
+			{% if search_query %}
+			<div>"{{ search_query | default:"" }}"</div>
+			<div>Not Found</div>
+			{% else %}
+			<div>
+				Search Users by <br />
+				Username or Display Name
+			</div>
+			{% endif %}
+		</h4>
+
+		{% endif %}
+	</div>
+</div>
+
+{% endblock Core_Content %}

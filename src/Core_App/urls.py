@@ -16,7 +16,9 @@ from .views import (
     Main_Home_View,
     Home_View,
     About_View,
+
     Lorem_Ipsum_View,
+    Search_Bar_View,
 )
 
 app_name = 'Core_App'
@@ -26,6 +28,7 @@ urlpatterns = [
     path('', Main_Home_View.as_view(), name='Main-Home-Page'),
     path('home/', Home_View.as_view(), name='Home-Page'),
     path('about/', About_View.as_view(), name='About-Page'),
+    path('search/', Search_Bar_View.as_view(), name='Search-Bar-Page'),
 
     # Random Users & Slices
     path('random/', Random_Choice_View.as_view(), name='Random-Choice-Page'),
