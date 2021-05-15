@@ -40,7 +40,22 @@
 			></div>
 		</div>
 		<h4>@{{ UsersProfile_Object.username }}</h4>
-		<h4>{{ UsersProfile_Object.display_Name }}</h4>
+		<!-- display name -->
+		{% with UsersProfile_Object.display_Name as display_Name_Var %}
+		<div>
+			{% if display_Name_Var %}
+			<h4>{{ display_Name_Var }}</h4>
+			{% endif %}
+		</div>
+		{% endwith %}
+		<!-- contact email -->
+		{% with UsersProfile_Object.contact_Email as contact_Email_Var %}
+		<div>
+			{% if contact_Email_Var %}
+			<h4>{{ contact_Email_Var }}</h4>
+			{% endif %}
+		</div>
+		{% endwith %}
 	</div>
 
 	<hr />

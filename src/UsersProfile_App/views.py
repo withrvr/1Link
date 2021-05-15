@@ -25,7 +25,7 @@ class UsersProfile_DetailView(Custom_LoginRequiredMixin, DetailView):
 # create new user
 class UsersProfile_UpdateView(Custom_LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     template_name = 'UsersProfile_App/Users_Update_Template.html'
-    success_url = reverse_lazy('UsersProfile_App:Update-Page')
+    success_url = reverse_lazy('UsersProfile_App:Self-Info-Page')
     form_class = UsersProfile_ChangeForm
     success_message = "Your Account was <strong>Updated Successfully!!</strong>"
 
