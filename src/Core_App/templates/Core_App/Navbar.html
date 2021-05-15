@@ -1,5 +1,12 @@
 {% load static %}
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
+<nav
+	class="
+		navbar navbar-expand-md navbar-dark
+		bg-dark
+		sticky-top
+		justify-content-between
+	"
+>
 	<div class="container">
 		<a class="navbar-brand" href="{% url 'Core_App:Main-Home-Page' %}">
 			<img
@@ -33,6 +40,9 @@
 				</a>
 				<a class="nav-link" href="{% url 'Core_App:About-Page' %}">
 					About
+				</a>
+				<a class="nav-link" href="{% url 'Core_App:Search-Bar-Page' %}">
+					Search
 				</a>
 			</div>
 
