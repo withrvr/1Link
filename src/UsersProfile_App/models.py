@@ -24,6 +24,8 @@ class UsersProfile_Model(AbstractUser):
     AbstractUser.username.field.help_text = "Only Numbers, Lowecase-Letter and UserScore ( _ ) is allowed in Username"
 
     # Extended ( Extra ) ... fields of User
+    contact_Email = models.EmailField(blank=True, null=True, help_text='Public email, visible to all'
+                                      )
     display_Name = models.CharField(max_length=30, blank=True, null=True)
     profile_Picture = models.URLField(
         max_length=400, blank=True, null=True,
@@ -47,8 +49,6 @@ class UsersProfile_Model(AbstractUser):
     dob
     link
     category
-
-    business email
 
     last_active
     show_last_active

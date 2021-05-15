@@ -26,7 +26,7 @@ class UsersProfile_Serializers(serializers.ModelSerializer):
             'url',
 
             'username',
-            'email',
+            'contact_Email',
 
             'display_Name',
             'profile_Picture',

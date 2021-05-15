@@ -40,6 +40,7 @@ class UsersProfile_ChangeForm(UserChangeForm):
         fields = (
             'username',
             'email',
+            'contact_Email',
             'display_Name',
             'profile_Picture',
             'banner_Image',
