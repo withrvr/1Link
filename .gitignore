@@ -1,24 +1,15 @@
-# ------------------------------- custom ---------------------------------------------
+# ------------------------------- CUSTOM ---------------------------------------------
 # vs code
 .vscode
 
 # mac
 .DS_Store
 
-# foo files
-foo.*
-bar.*
-foobar.*
-testing.*
-
-# foo folders
-foo
-bar
-foobar
-testing
-
-# all json files
-*.json
+# foo files and folder
+foo*
+bar*
+testing*
+try*
 
 # add you EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
 # in this file in the root folder ... for more detail see the setting.py ...ending file content
@@ -28,7 +19,7 @@ secret_details.py
 # video and image editing ... etc
 camtasia
 
-# ------------------------------- default ---------------------------------------------
+# ------------------------------- PYTHON DEFAULT ---------------------------------------------
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
