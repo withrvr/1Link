@@ -28,7 +28,7 @@ class Lorem_Ipsum_View(TemplateView):
 
 
 # ------------------------------ ERROR ------------------------------
-def Handle_404_Error_View(request, exception, *args, **kwargs):
+def Handle_404_Error_View(request, exception=None, *args, **kwargs):
     return render(request, 'Errors_Folder/404_Error_Template.html')
 
 

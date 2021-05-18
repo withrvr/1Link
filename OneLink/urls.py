@@ -38,11 +38,10 @@ urlpatterns = [
     path('api/', include('API_App.urls')),
     path('api-auth/', include('rest_framework.urls')),
 
-    # Display, (user info and slices)
-    path('', include('Display_App.urls')),
-
     path('404/', Handle_404_Error_View, name='404-Page'),
 
+    # Display, (user info and slices)
+    path('', include('Display_App.urls')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
