@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from django.views.generic import DetailView, RedirectView
 
 from UsersProfile_App.models import UsersProfile_Model
@@ -23,17 +23,23 @@ class Links_Detail_View(RedirectView):
 class Users_Detail_View(DetailView):
     template_name = 'Display_App/Users_Detail_Template.html'
     context_object_name = 'UsersProfile_Object'
+    user_DoesNotExist = False
 
     def get_object(self, *args, **kwargs):
         lower_username = self.kwargs.get('UserName_From_URL').lower()
-        self.object = get_object_or_404(
-            UsersProfile_Model, username=lower_username
-        )
-
-        # users clicks ( hits ) count logic
-        self.object.clicks += 1
-        self.object.save()
-
+        try:
+            self.object = UsersProfile_Model.objects.get(
+                username=lower_username
+            )
+            # users clicks ( hits ) count logic
+            self.object.clicks += 1
+            self.object.save()
+        except:
+            self.object = UsersProfile_Model.objects.get(
+                username='username'
+            )
+            self.object.username = lower_username
+            self.user_DoesNotExist = True
         return self.object
 
     def get_context_data(self, **kwargs):
@@ -41,6 +47,7 @@ class Users_Detail_View(DetailView):
         context["Slices_List_Object"] = self.object.slices_model_set.filter(
             visibility='public'
         ).order_by('-visibility', '-clicks')
+        context["user_DoesNotExist"] = self.user_DoesNotExist
         return context
 
 

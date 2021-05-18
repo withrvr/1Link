@@ -60,6 +60,14 @@
 
 	<hr />
 
+	{% if user_DoesNotExist %}
+
+	<div class="text-center d-grid alert alert-warning m-1 h4">
+		User doesn't exists
+	</div>
+
+	{% else %}
+
 	<div id="all-users-slices" class="text-center">
 		<h4 class="mb-3">Slices</h4>
 		{% for Slices_Object in Slices_List_Object %}
@@ -80,6 +88,8 @@
 		</div>
 		{% endfor %}
 	</div>
+
+	{% endif %}
 
 	<div class="text-center mt-3">
 		<a
