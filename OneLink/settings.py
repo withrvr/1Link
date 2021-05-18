@@ -28,6 +28,7 @@ SECRET_KEY = os.environ.get('ONELINK_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (os.environ.get('ONELINK_DEBUG_VALUE') == 'True')
+DEBUG = True
 
 
 ALLOWED_HOSTS = [
@@ -36,9 +37,10 @@ ALLOWED_HOSTS = [
     'localhost',
 ]
 
-
 # Application definition
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
+
     # resitration, display, core
     'Core_App.apps.CoreAppConfig',
     'Display_App.apps.DisplayAppConfig',
@@ -72,7 +74,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
 
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -153,9 +155,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATICFILES_STORAGE = 'whitenoise.storage.ManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 # custom User model created
 AUTH_USER_MODEL = 'UsersProfile_App.UsersProfile_Model'
@@ -187,8 +189,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_PORT = 587
 # EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = secret_details.EMAIL_HOST_USER
-# EMAIL_HOST_PASSWORD = secret_details.EMAIL_HOST_PASSWORD
+# EMAIL_HOST_USER = os.environ.get()
+# EMAIL_HOST_PASSWORD = os.environ.get()
 
 # django-extensions ... graph_models
 GRAPH_MODELS = {
