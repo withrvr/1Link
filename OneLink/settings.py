@@ -24,10 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'lz@zxy*ml$23^k#09ucp05_1ad^ggg47!$zivrfsn@=_8@y%z('
+SECRET_KEY = os.environ.get('ONELINK_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = (os.environ.get('ONELINK_DEBUG_VALUE') == 'True')
+
 
 ALLOWED_HOSTS = [
     'withrvr-onelink.herokuapp.com',
