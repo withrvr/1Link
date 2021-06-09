@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="#1link">
-    <img src="./Images/Logo.jpg" alt="@withrvr/1Link project banner image" width="200">
+  <a href="https://withrvr-1link.herokuapp.com">
+    <img src="./Images/Logo.jpg" alt="1link logo" width="200">
   </a>
 </p>
 
@@ -11,7 +11,7 @@
   <br>
   <a href="https://github.com/withrvr/1Link/issues/new?template=bug_report.md">Report Bug</a>
   |
-  <a href="https://github.com/twbs/bootstrap/issues/new?template=feature_request.md">Request Feature</a>
+  <a href="https://github.com/withrvr/1Link/issues/new?template=feature_request.md">Request Feature</a>
   |
   <a href="https://github.com/withrvr/1Link/discussions">Discussions</a>
   <br>
