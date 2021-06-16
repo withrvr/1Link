@@ -24,6 +24,6 @@ python .\manage.py migrate --fake
 python .\manage.py runserver
 </pre>
 
-# Install
+# [Install this pip packages](./requirements.txt)
 
--   [Install this pip packages](./requirements.txt)
+# [make .env file with key and value](./.env_file)

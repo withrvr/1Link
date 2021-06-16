@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-# import secret_details
+from decouple import config
 from django.contrib.messages import constants as messages
 from pathlib import Path
 import os
@@ -24,11 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('ONELINK_SECRET_KEY')
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = (os.environ.get('ONELINK_DEBUG_VALUE') == 'True')
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
 
 ALLOWED_HOSTS = [
@@ -180,17 +179,17 @@ MESSAGE_TAGS = {
 }
 
 
-# password reset using console ( Testing purpose )
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# testing:- django.core.mail.backends.console.EmailBackend
+# or
+# production:- django.core.mail.backends.smtp.EmailBackend
 
-
-# # password reset using gmail account
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = os.environ.get()
-# EMAIL_HOST_PASSWORD = os.environ.get()
+# password reset using gmail account
+EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 # django-extensions ... graph_models
 GRAPH_MODELS = {
